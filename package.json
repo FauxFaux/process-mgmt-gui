@@ -1,0 +1,52 @@
+{
+  "name": "process-mgmt-gui",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "test": "jest",
+    "build": "webpack --mode=production",
+    "watch": "webpack --watch --mode=development",
+    "lint": "eslint             'src/**/*.ts*'",
+    "lint-fix": "eslint --fix   'src/**/*.ts*'",
+    "format": "prettier --write 'src/**/*.ts*'"
+  },
+  "type": "module",
+  "author": "Chris West (Faux) <solo-npm@goeswhere.com>",
+  "license": "MIT OR Apache-2.0",
+  "dependencies": {
+    "number-to-words": "^1",
+    "preact": "^10.17",
+    "preact-fetching": "^0.1",
+    "preact-router": "^4",
+    "serialize-error": "^11"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-react-jsx": "^7",
+    "@babel/plugin-transform-react-jsx-source": "^7",
+    "@babel/preset-env": "^7",
+    "@babel/preset-typescript": "^7",
+    "@tsconfig/recommended": "^1.0.3",
+    "@types/jquery": "^3",
+    "@types/node": "^20",
+    "@types/number-to-words": "^1",
+    "@typescript-eslint/eslint-plugin": "^7",
+    "@typescript-eslint/parser": "^7",
+    "babel-loader": "^9",
+    "copy-webpack-plugin": "^12",
+    "css-loader": "^6",
+    "eslint": "^8",
+    "eslint-config-prettier": "^9",
+    "html-webpack-plugin": "^5",
+    "ignore-loader": "^0.1",
+    "jquery": "^3",
+    "jsonapi-typescript": "^0.1.3",
+    "mdi-preact": "^9",
+    "prettier": "~3.2",
+    "style-loader": "^3",
+    "svg-url-loader": "^8",
+    "typescript": "~5.3",
+    "url-loader": "^4",
+    "webpack": "^5",
+    "webpack-cli": "^5"
+  }
+}
