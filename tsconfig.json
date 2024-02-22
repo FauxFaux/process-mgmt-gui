@@ -12,6 +12,7 @@
     "pretty": true,
 
     "noUnusedLocals": true,
+    "noImplicitAny": true,
 
     "resolveJsonModule": true,
     "isolatedModules": true
