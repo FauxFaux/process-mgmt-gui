@@ -1,9 +1,9 @@
 import { useState } from 'preact/hooks';
-import { DataSet, DataSetId, dataSets, loadDataSet } from '../data';
+import { DataSetId, dataSets, loadDataSet } from '../data';
 
 export interface Props {
   value: DataSetId | undefined;
-  onChange: (value: DataSetId, ds: DataSet) => void;
+  onChange: (value: DataSetId | undefined) => void;
 }
 
 type Loading =
@@ -23,9 +23,9 @@ export const DataSetPicker = (props: Props) => {
     const next = e.currentTarget.value as DataSetId;
     if (!next) return;
     (async () => {
-      const ds = await loadDataSet(next);
+      await loadDataSet(next);
       setLoading({ state: 'done', id: next });
-      props.onChange(next, ds);
+      props.onChange(next);
     })();
     setLoading({ state: 'loading', id: next });
   };

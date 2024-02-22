@@ -15,8 +15,12 @@ export const dataSets = {
   vt: ds('Voxel Tycoon', 'raw', 'raw'),
 };
 
+export const loadedDataSets: Record<DataSetId, DataSet> = {} as any;
+
 export type DataSetId = keyof typeof dataSets;
 export type DataSet = unknown;
 
-export const loadDataSet = async (id: DataSetId): Promise<DataSet> =>
-  (await import(`process-mgmt/src/${id}/data.js`)).default;
+export const loadDataSet = async (id: DataSetId): Promise<void> => {
+  if (loadedDataSets[id]) return;
+  loadedDataSets[id] = (await import(`process-mgmt/src/${id}/data.js`)).default;
+};

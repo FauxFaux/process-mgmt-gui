@@ -1,11 +1,10 @@
 import { useState } from 'preact/hooks';
 
 import { DataSetPicker } from './components/data-set';
-import { DataSet, DataSetId } from './data';
+import { DataSetId } from './data';
 
 export const App = () => {
   const [dataSetId, setDataSetId] = useState<DataSetId | undefined>(undefined);
-  const [dataSet, setDataSet] = useState<DataSet | undefined>(undefined);
 
   return (
     <div class={'container-fluid'}>
@@ -17,9 +16,8 @@ export const App = () => {
       <div class={'row'}>
         <div class={'col'}>
           <DataSetPicker
-            onChange={(id, ds) => {
+            onChange={(id) => {
               setDataSetId(id);
-              setDataSet(ds);
             }}
             value={dataSetId}
           />
