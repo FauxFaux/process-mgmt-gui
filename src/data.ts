@@ -1,4 +1,5 @@
 import type { ModifierStyle } from './modifiers';
+import type { Data } from 'process-mgmt/src/structures.js';
 
 const ds = (name: string, duration: ModifierStyle, output: ModifierStyle) =>
   [name, duration, output] as const;
@@ -15,10 +16,10 @@ export const dataSets = {
   vt: ds('Voxel Tycoon', 'raw', 'raw'),
 };
 
+export type DataSet = Data;
 export const loadedDataSets: Record<DataSetId, DataSet> = {} as any;
 
 export type DataSetId = keyof typeof dataSets;
-export type DataSet = unknown;
 
 export const loadDataSet = async (id: DataSetId): Promise<void> => {
   if (loadedDataSets[id]) return;

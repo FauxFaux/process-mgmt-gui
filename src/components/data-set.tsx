@@ -30,15 +30,22 @@ export const DataSetPicker = (props: Props) => {
     setLoading({ state: 'loading', id: next });
   };
 
+  let select = (
+    <select class={'form-control'} value={props.value} onChange={onChange}>
+      {!props.value && <option value={''}>Select a data set...</option>}
+      {Object.entries(dataSets).map(([id, [name]]) => (
+        <option value={id}>{name}</option>
+      ))}
+    </select>
+  );
   return (
     <p>
-      <select value={props.value} onChange={onChange}>
-        {!props.value && <option value={''}>Select a data set...</option>}
-        {Object.entries(dataSets).map(([id, [name]]) => (
-          <option value={id}>{name}</option>
-        ))}
-      </select>
-      {current && <span>Current: {current}</span>}
+      <form>
+        <div className="form-group">{select}</div>
+        <div className="form-group">
+          {current && <span>Current: {current}</span>}
+        </div>
+      </form>
     </p>
   );
 };

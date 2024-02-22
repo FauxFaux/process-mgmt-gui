@@ -5,6 +5,7 @@ declare module 'process-mgmt/src/structures.js' {
     constructor(id: string, name: string, group?: string);
     id: string;
     name: string;
+    group?: string;
   }
 
   export class Factory {
@@ -35,6 +36,11 @@ declare module 'process-mgmt/src/structures.js' {
       group: FactoryGroup,
     );
     id: RecipeName;
+    duration: number;
+    factory_group: FactoryGroup;
+    inputs: Stack[];
+    outputs: Stack[];
+
     // incomplete
   }
 
@@ -42,6 +48,16 @@ declare module 'process-mgmt/src/structures.js' {
     constructor(procs: Process[]);
     accept(visitor: any): this;
     process_counts: Record<RecipeName, number>;
+  }
+
+  export class Data {
+    game: string;
+    version: string;
+
+    factories: Record<string, Factory>;
+    items: Record<string, Item>;
+    processes: Record<string, Process>;
+    factory_groups: Record<string, FactoryGroup>;
   }
 }
 
