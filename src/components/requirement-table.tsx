@@ -1,5 +1,6 @@
 import { DataSet } from '../data';
 import { useState } from 'preact/hooks';
+import { Item } from './item';
 
 type ItemId = string;
 type Req =
@@ -73,9 +74,6 @@ export const RequirementTable = (props: Props) => {
             {results !== undefined && (
               <ul>
                 {results.map((item) => {
-                  const name = props.dataSet.lab?.items?.find(
-                    (i) => i.id === item,
-                  )?.name;
                   return (
                     <li>
                       <button
@@ -87,7 +85,7 @@ export const RequirementTable = (props: Props) => {
                           setResults(undefined);
                         }}
                       >
-                        {item} ({name})
+                        <Item dataSet={props.dataSet} id={item} />
                       </button>
                     </li>
                   );

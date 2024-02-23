@@ -6,9 +6,9 @@
     "test": "jest",
     "build": "webpack --mode=production",
     "watch": "webpack --watch --mode=development",
-    "lint": "eslint             'src/**/*.ts*'",
-    "lint-fix": "eslint --fix   'src/**/*.ts*'",
-    "format": "prettier --write 'src/**/*.ts*'"
+    "lint": "eslint             'src/**/*.ts*' 'scripts/**/*.ts*'",
+    "lint-fix": "eslint --fix   'src/**/*.ts*' 'scripts/**/*.ts*'",
+    "format": "prettier --write 'src/**/*.ts*' 'scripts/**/*.ts*'"
   },
   "type": "module",
   "author": "Chris West (Faux) <solo-npm@goeswhere.com>",
@@ -34,6 +34,7 @@
     "@typescript-eslint/eslint-plugin": "^7",
     "@typescript-eslint/parser": "^7",
     "babel-loader": "^9",
+    "change-case": "^5.4.3",
     "copy-webpack-plugin": "^12",
     "css-loader": "^6",
     "eslint": "^8",
@@ -46,6 +47,7 @@
     "prettier": "~3.2",
     "style-loader": "^3",
     "svg-url-loader": "^8",
+    "tsx": "^4.7.1",
     "typescript": "~5.3",
     "url-loader": "^4",
     "webpack": "^5",

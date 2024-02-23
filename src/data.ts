@@ -1,6 +1,16 @@
 import type { ModifierStyle } from './modifiers';
 import type { Data } from 'process-mgmt/src/structures.js';
-import type { ModData } from 'factoriolab/src/app/models';
+
+export interface Lab {
+  items: Record<string, LabItem>;
+}
+
+export interface LabItem {
+  // undefined: same as our id, null: synthetic
+  labId?: string | null;
+  name: string;
+  iconPos?: string;
+}
 
 const ds = (name: string, duration: ModifierStyle, output: ModifierStyle) =>
   [name, duration, output] as const;
@@ -17,7 +27,7 @@ export const dataSets = {
   vt: ds('Voxel Tycoon', 'raw', 'raw'),
 };
 
-const toLab: Record<DataSetId, string | null> = {
+export const toLab: Record<DataSetId, string | null> = {
   'for-the-crown-3.8.3': null,
   dsp: 'dsp',
   'factorio-ab-1.1.38': 'bobang',
@@ -31,7 +41,7 @@ const toLab: Record<DataSetId, string | null> = {
 
 export interface DataSet {
   pm: Data;
-  lab?: ModData;
+  lab?: Lab;
   ico?: string;
 }
 
@@ -39,16 +49,19 @@ export const loadedDataSets: Record<DataSetId, DataSet> = {} as any;
 
 export type DataSetId = keyof typeof dataSets;
 
+export const loadProcMgmt = async (id: DataSetId): Promise<Data> =>
+  (await import(`process-mgmt/src/${id}/data.js`)).default;
+
 export const loadDataSet = async (id: DataSetId): Promise<void> => {
   if (loadedDataSets[id]) return;
-  const pm = (await import(`process-mgmt/src/${id}/data.js`)).default;
+  const pm = await loadProcMgmt(id);
   const labId = toLab[id];
 
   let lab, ico;
   if (labId) {
     [lab, ico] = await Promise.all([
-      import(`factoriolab/src/data/${labId}/data.json`).then((m) => m.default),
-      import(`factoriolab/src/data/${labId}/icons.webp`).then((m) => m.default),
+      import(`../data/${labId}.json`).then((m) => m.default),
+      import(`../data/${labId}.webp`).then((m) => m.default),
     ]);
 
     preloadImage(ico);

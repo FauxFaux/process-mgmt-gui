@@ -3,6 +3,8 @@ import { render } from 'preact';
 
 import { App } from './app';
 
+import './main.css';
+
 export function init(element: HTMLElement) {
   element.innerHTML = 'JS woke up, booting...';
   (async () => {

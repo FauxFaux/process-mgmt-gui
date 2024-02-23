@@ -1,0 +1,13 @@
+.icon-sprite {
+    width: 64px;
+    height: 64px;
+    scale: 0.4;
+    margin: -18px;
+    border: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.item--raw {
+    font-family: monospace;
+}
