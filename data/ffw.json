@@ -2,364 +2,456 @@
   "items": {
     "accumulator": {
       "name": "Accumulator",
+      "stack": 50,
       "iconPos": "-330px -594px"
     },
     "advanced-circuit": {
       "name": "Advanced circuit",
+      "stack": 100,
       "iconPos": "0px -858px"
     },
     "advanced-electronics": {
       "name": "Advanced electronics",
+      "stack": 50,
       "iconPos": "-924px -1188px"
     },
     "advanced-electronics-2": {
       "name": "Advanced electronics 2",
+      "stack": 50,
       "iconPos": "-858px -1254px"
     },
     "advanced-material-processing": {
       "name": "Advanced material processing",
+      "stack": 50,
       "iconPos": "-198px -1188px"
     },
     "advanced-material-processing-2": {
       "name": "Advanced material processing 2",
+      "stack": 50,
       "iconPos": "-1320px -66px"
     },
     "advanced-oil-processing-technology": {
       "name": "Advanced oil processing",
+      "stack": 50,
       "iconPos": "-1320px -726px"
     },
     "arithmetic-combinator": {
       "name": "Arithmetic combinator",
+      "stack": 50,
       "iconPos": "-396px -528px"
     },
     "artillery": {
       "name": "Artillery",
+      "stack": 50,
       "iconPos": "-660px -1386px"
     },
     "artillery-shell": {
       "name": "Artillery shell",
+      "stack": 1,
       "iconPos": "-990px -528px"
     },
     "artillery-shell-range-1": {
       "name": "Artillery shell range",
+      "stack": 50,
       "iconPos": "-1386px -1386px"
     },
     "artillery-shell-speed-1": {
       "name": "Artillery shell shooting speed",
+      "stack": 50,
       "iconPos": "-1452px 0px"
     },
     "artillery-targeting-remote": {
       "name": "Artillery targeting remote",
+      "stack": 1,
       "iconPos": "0px -1056px"
     },
     "artillery-turret": {
       "name": "Artillery turret",
+      "stack": 10,
       "iconPos": "-1056px -990px"
     },
     "artillery-wagon": {
       "name": "Artillery wagon",
+      "stack": 5,
       "iconPos": "0px -396px"
     },
     "assembling-machine-1": {
       "name": "Assembling machine 1",
+      "stack": 50,
       "iconPos": "-264px -660px"
     },
     "assembling-machine-2": {
       "name": "Assembling machine 2",
+      "stack": 50,
       "iconPos": "-330px -660px"
     },
     "assembling-machine-3": {
       "name": "Assembling machine 3",
+      "stack": 50,
       "iconPos": "-396px -660px"
     },
     "atomic-bomb": {
       "name": "Atomic bomb",
+      "stack": 10,
       "iconPos": "-990px -726px"
     },
     "atomic-bomb-technology": {
       "name": "Atomic bomb",
+      "stack": 50,
       "iconPos": "-1320px -1386px"
     },
     "automated_bridges": {
       "name": "Train bridges",
+      "stack": 50,
       "iconPos": "-1320px -264px"
     },
     "automated_water_transport": {
       "name": "Automated water transport",
+      "stack": 50,
       "iconPos": "-1254px -264px"
     },
     "automated-rail-transportation": {
       "name": "Automated rail transportation",
+      "stack": 50,
       "iconPos": "-462px -1188px"
     },
     "automation": {
       "name": "Automation",
+      "stack": 50,
       "iconPos": "-990px -1122px"
     },
     "automation-2": {
       "name": "Automation 2",
+      "stack": 50,
       "iconPos": "-1188px -792px"
     },
     "automation-3": {
       "name": "Automation 3",
+      "stack": 50,
       "iconPos": "-1122px -1320px"
     },
     "automation-science-pack": {
       "name": "Automation science pack",
+      "stack": 50,
       "iconPos": "-924px -528px"
     },
     "automobilism": {
       "name": "Automobilism",
+      "stack": 50,
       "iconPos": "-1254px -924px"
     },
     "battery": {
       "name": "Battery",
+      "stack": 100,
       "iconPos": "-792px -792px"
     },
     "battery-equipment": {
       "name": "Personal battery",
+      "stack": 20,
       "iconPos": "-858px -990px"
     },
     "battery-equipment-technology": {
       "name": "Personal battery",
+      "stack": 50,
       "iconPos": "-1254px -1122px"
     },
     "battery-mk2-equipment": {
       "name": "Personal battery MK2",
+      "stack": 20,
       "iconPos": "-924px -990px"
     },
     "battery-mk2-equipment-technology": {
       "name": "Personal battery MK2",
+      "stack": 50,
       "iconPos": "-264px -1320px"
     },
     "battery-technology": {
       "name": "Battery",
+      "stack": 50,
       "iconPos": "-1122px -1188px"
     },
     "bbr-rail-brick": {
       "name": "Brick bridge rail",
+      "stack": 100,
       "iconPos": "-132px -330px"
     },
     "bbr-rail-iron": {
       "name": "Iron bridge rail",
+      "stack": 100,
       "iconPos": "-66px -330px"
     },
     "bbr-rail-wood": {
       "name": "Wooden bridge rail",
+      "stack": 100,
       "iconPos": "0px -330px"
     },
     "beacon": {
       "name": "Beacon Mk1",
+      "stack": 10,
       "iconPos": "-726px -330px"
     },
     "beacon2-item": {
       "name": "Beacon Mk2",
+      "stack": 10,
       "iconPos": "-726px -396px"
     },
     "beacon3-item": {
       "name": "Beacon Mk3",
+      "stack": 10,
       "iconPos": "-726px -462px"
     },
     "belt-immunity-equipment": {
       "name": "Belt immunity equipment",
+      "stack": 20,
       "iconPos": "-990px -990px"
     },
     "belt-immunity-equipment-technology": {
       "name": "Belt immunity equipment",
+      "stack": 50,
       "iconPos": "-132px -1320px"
     },
     "big-electric-pole": {
       "name": "Big electric pole",
+      "stack": 50,
       "iconPos": "-198px -264px"
     },
     "big-mining-drill": {
       "name": "Big mining drill",
+      "stack": 50,
       "iconPos": "-660px -396px"
     },
     "big-mining-drill-technology": {
       "name": "Big mining drill",
+      "stack": 50,
       "iconPos": "-1320px -1320px"
     },
     "boat": {
       "name": "Boat",
+      "stack": 5,
       "iconPos": "-330px -396px"
     },
     "boiler": {
       "name": "Boiler",
+      "stack": 50,
       "iconPos": "-132px -594px"
     },
     "braking-force-1": {
       "name": "Braking force 1",
+      "stack": 50,
       "iconPos": "-1188px -1254px"
     },
     "braking-force-2": {
-      "name": "Braking force 2"
+      "name": "Braking force 2",
+      "stack": 50
     },
     "braking-force-3": {
-      "name": "Braking force 3"
+      "name": "Braking force 3",
+      "stack": 50
     },
     "braking-force-4": {
-      "name": "Braking force 4"
+      "name": "Braking force 4",
+      "stack": 50
     },
     "braking-force-5": {
-      "name": "Braking force 5"
+      "name": "Braking force 5",
+      "stack": 50
     },
     "braking-force-6": {
-      "name": "Braking force 6"
+      "name": "Braking force 6",
+      "stack": 50
     },
     "braking-force-7": {
-      "name": "Braking force 7"
+      "name": "Braking force 7",
+      "stack": 50
     },
     "breeder-fuel-cell": {
       "name": "Breeder fuel cell",
+      "stack": 5,
       "iconPos": "-924px -264px"
     },
     "breeder-fuel-cell-from-MOX-fuel-technology": {
       "name": "Breeder fuel cell from used-up MOX fuel",
+      "stack": 50,
       "iconPos": "-1386px -1188px"
     },
     "breeder-fuel-cell-from-uranium-cell-technology": {
       "name": "Breeder fuel cell from used-up uranium fuel",
+      "stack": 50,
       "iconPos": "-1386px -1122px"
     },
     "breeder-reactor": {
       "name": "Breeder reactor",
+      "stack": 10,
       "iconPos": "-594px -594px"
     },
     "bridge_base": {
       "name": "Lifting train bridge",
+      "stack": 5,
       "iconPos": "-264px -396px"
     },
     "buoy": {
       "name": "Signal buoy",
+      "stack": 100,
       "iconPos": "-132px -396px"
     },
     "burner-inserter": {
       "name": "Burner inserter",
+      "stack": 50,
       "iconPos": "-132px -198px"
     },
     "burner-mining-drill": {
       "name": "Burner mining drill",
+      "stack": 50,
       "iconPos": "-660px -264px"
     },
     "cannon-shell": {
       "name": "Cannon shell",
+      "stack": 100,
       "iconPos": "-990px 0px"
     },
     "car": {
       "name": "Car",
+      "stack": 1,
       "iconPos": "-462px -66px"
     },
     "cargo_ship": {
       "name": "Cargo ship",
+      "stack": 5,
       "iconPos": "-396px -396px"
     },
     "cargo_ships": {
       "name": "Cargo ships",
+      "stack": 50,
       "iconPos": "-1254px -132px"
     },
     "cargo-wagon": {
       "name": "Cargo wagon",
+      "stack": 5,
       "iconPos": "-396px -264px"
     },
     "centrifuge": {
       "name": "Centrifuge",
+      "stack": 50,
       "iconPos": "-726px -66px"
     },
     "chain_buoy": {
       "name": "Chain signal buoy",
+      "stack": 100,
       "iconPos": "-198px -396px"
     },
     "chcs-concentrated-solar-energy": {
       "name": "Concentrated Solar Energy",
+      "stack": 50,
       "iconPos": "-858px -1320px"
     },
     "chcs-heliostat-mirror": {
       "name": "Heliostat Mirror",
+      "stack": 50,
       "iconPos": "-660px -132px"
     },
     "chcs-solar-laser-tower": {
       "name": "Solar Laser Tower",
+      "stack": 10,
       "iconPos": "-1056px -924px"
     },
     "chcs-solar-power-tower": {
       "name": "Solar Power Tower",
+      "stack": 10,
       "iconPos": "-660px -198px"
     },
     "chcs-weaponized-solar-energy": {
       "name": "Weaponized Solar Energy",
+      "stack": 50,
       "iconPos": "-396px -1386px"
     },
     "chemical-plant": {
       "name": "Chemical plant",
+      "stack": 10,
       "iconPos": "-726px 0px"
     },
     "chemical-science-pack": {
       "name": "Chemical science pack",
+      "stack": 50,
       "iconPos": "-924px -792px"
     },
     "chemical-science-pack-technology": {
       "name": "Chemical science pack",
+      "stack": 50,
       "iconPos": "-1188px -1188px"
     },
     "circuit-network": {
       "name": "Circuit network",
+      "stack": 50,
       "iconPos": "-1188px -858px"
     },
     "cliff-explosives": {
       "name": "Cliff explosives",
+      "stack": 20,
       "iconPos": "0px -594px"
     },
     "cliff-explosives-technology": {
       "name": "Cliff explosives",
+      "stack": 50,
       "iconPos": "-198px -1254px"
     },
     "cluster-grenade": {
       "name": "Cluster grenade",
+      "stack": 100,
       "iconPos": "0px -990px"
     },
     "coal": {
       "name": "Coal",
+      "stack": 25,
       "iconPos": "-660px -726px"
     },
     "coal-liquefaction-technology": {
       "name": "Coal liquefaction",
+      "stack": 50,
       "iconPos": "-1386px -132px"
     },
     "combat-shotgun": {
       "name": "Combat shotgun",
+      "stack": 5,
       "iconPos": "-330px -924px"
     },
     "concrete": {
       "name": "Concrete",
+      "stack": 50,
       "iconPos": "-594px -198px"
     },
     "concrete-technology": {
       "name": "Concrete",
+      "stack": 50,
       "iconPos": "-264px -1188px"
     },
     "constant-combinator": {
       "name": "Constant combinator",
+      "stack": 50,
       "iconPos": "-528px -528px"
     },
     "construction-robot": {
       "name": "Construction robot",
+      "stack": 50,
       "iconPos": "-396px -462px"
     },
     "construction-robotics": {
       "name": "Construction robotics",
+      "stack": 50,
       "iconPos": "-1320px -396px"
     },
     "copper-cable": {
       "name": "Copper cable",
+      "stack": 100,
       "iconPos": "-858px -528px"
     },
     "copper-ore": {
       "name": "Copper ore",
+      "stack": 25,
       "iconPos": "-792px -66px"
     },
     "copper-plate": {
       "name": "Copper plate",
+      "stack": 50,
       "iconPos": "-264px -792px"
     },
     "crude-oil": {
@@ -369,306 +461,384 @@
     "crude-oil-barrel": {
       "name": "Crude oil[color=0,0,0] ■[/color] barrel",
       "labId": null,
-      "iconPos": "-396px -1056px"
+      "iconPos": "-396px -1056px",
+      "contained": true
     },
     "deadlock-copper-lamp": {
       "name": "Copper lamp",
+      "stack": 100,
       "iconPos": "0px -528px"
     },
     "deadlock-floor-lamp": {
       "name": "Floor lamp",
+      "stack": 100,
       "iconPos": "-198px -528px"
     },
     "deadlock-large-lamp": {
       "name": "Large lamp",
+      "stack": 100,
       "iconPos": "-132px -528px"
     },
     "decider-combinator": {
       "name": "Decider combinator",
+      "stack": 50,
       "iconPos": "-462px -528px"
     },
     "defender": {
       "name": "Defender",
+      "stack": 50,
       "iconPos": "-396px -1254px"
     },
     "defender-capsule": {
       "name": "Defender capsule",
+      "stack": 100,
       "iconPos": "-198px -990px"
     },
     "destroyer": {
       "name": "Destroyer",
+      "stack": 50,
       "iconPos": "-924px -1386px"
     },
     "destroyer-capsule": {
       "name": "Destroyer capsule",
+      "stack": 100,
       "iconPos": "-330px -990px"
     },
     "discharge-defense-equipment": {
       "name": "Discharge defense",
+      "stack": 20,
       "iconPos": "-1056px -462px"
     },
     "discharge-defense-equipment-technology": {
       "name": "Discharge defense",
+      "stack": 50,
       "iconPos": "0px -1386px"
     },
     "discharge-defense-remote": {
       "name": "Discharge defense remote",
+      "stack": 1,
       "iconPos": "-1056px -528px"
     },
     "distractor": {
       "name": "Distractor",
+      "stack": 50,
       "iconPos": "-1386px -660px"
     },
     "distractor-capsule": {
       "name": "Distractor capsule",
+      "stack": 100,
       "iconPos": "-264px -990px"
     },
     "effect-transmission": {
       "name": "Effect transmission",
+      "stack": 50,
       "iconPos": "-198px -1386px"
     },
     "effect-transmission-2": {
-      "name": "Effect transmission 2"
+      "name": "Effect transmission 2",
+      "stack": 50
     },
     "effect-transmission-3": {
-      "name": "Effect transmission 3"
+      "name": "Effect transmission 3",
+      "stack": 50
     },
     "effectivity-module": {
       "name": "Efficiency module",
+      "stack": 50,
       "iconPos": "0px -726px"
     },
     "effectivity-module-2": {
       "name": "Efficiency module 2",
+      "stack": 50,
       "iconPos": "-66px -726px"
     },
     "effectivity-module-2-technology": {
       "name": "Efficiency module 2",
+      "stack": 50,
       "iconPos": "-528px -1320px"
     },
     "effectivity-module-3": {
       "name": "Efficiency module 3",
+      "stack": 50,
       "iconPos": "-132px -726px"
     },
     "effectivity-module-3-technology": {
       "name": "Efficiency module 3",
+      "stack": 50,
       "iconPos": "-594px -1320px"
     },
     "effectivity-module-technology": {
       "name": "Efficiency module",
+      "stack": 50,
       "iconPos": "-132px -1254px"
     },
     "electric-energy-accumulators": {
       "name": "Electric energy accumulators",
+      "stack": 50,
       "iconPos": "-1254px 0px"
     },
     "electric-energy-distribution-1": {
       "name": "Electric energy distribution 1",
+      "stack": 50,
       "iconPos": "-330px -1188px"
     },
     "electric-energy-distribution-2": {
       "name": "Electric energy distribution 2",
+      "stack": 50,
       "iconPos": "-1320px -132px"
     },
     "electric-engine": {
       "name": "Electric engine",
+      "stack": 50,
       "iconPos": "-1056px -1254px"
     },
     "electric-engine-unit": {
       "name": "Electric engine unit",
+      "stack": 25,
       "iconPos": "-198px -858px"
     },
     "electric-furnace": {
       "name": "Electric furnace",
+      "stack": 50,
       "iconPos": "-198px -660px"
     },
     "electric-mining-drill": {
       "name": "Electric mining drill",
+      "stack": 50,
       "iconPos": "-660px -330px"
     },
     "electronic-circuit": {
       "name": "Electronic circuit",
+      "stack": 100,
       "iconPos": "-858px -792px"
     },
     "electronics": {
       "name": "Electronics",
+      "stack": 50,
       "iconPos": "-1056px -1122px"
     },
     "empty-barrel": {
       "name": "Empty barrel",
+      "stack": 10,
       "iconPos": "-858px -726px"
     },
     "energy-shield-equipment": {
       "name": "Energy shield",
+      "stack": 20,
       "iconPos": "-1056px -264px"
     },
     "energy-shield-equipment-technology": {
       "name": "Energy shield equipment",
+      "stack": 50,
       "iconPos": "0px -1320px"
     },
     "energy-shield-mk2-equipment": {
       "name": "Energy shield MK2",
+      "stack": 20,
       "iconPos": "-1056px -330px"
     },
     "energy-shield-mk2-equipment-technology": {
       "name": "Energy shield MK2 equipment",
+      "stack": 50,
       "iconPos": "-1386px -1254px"
     },
     "energy-weapons-damage-1": {
       "name": "Energy weapons damage 1",
+      "stack": 50,
       "iconPos": "-1386px -330px"
     },
     "energy-weapons-damage-2": {
-      "name": "Energy weapons damage 2"
+      "name": "Energy weapons damage 2",
+      "stack": 50
     },
     "energy-weapons-damage-3": {
-      "name": "Energy weapons damage 3"
+      "name": "Energy weapons damage 3",
+      "stack": 50
     },
     "energy-weapons-damage-4": {
-      "name": "Energy weapons damage 4"
+      "name": "Energy weapons damage 4",
+      "stack": 50
     },
     "energy-weapons-damage-5": {
-      "name": "Energy weapons damage 5"
+      "name": "Energy weapons damage 5",
+      "stack": 50
     },
     "energy-weapons-damage-6": {
-      "name": "Energy weapons damage 6"
+      "name": "Energy weapons damage 6",
+      "stack": 50
     },
     "energy-weapons-damage-7": {
-      "name": "Energy weapons damage"
+      "name": "Energy weapons damage",
+      "stack": 50
     },
     "engine": {
       "name": "Engine",
+      "stack": 50,
       "iconPos": "-1188px -1122px"
     },
     "engine-unit": {
       "name": "Engine unit",
+      "stack": 25,
       "iconPos": "-132px -858px"
     },
     "exoskeleton-equipment": {
       "name": "Exoskeleton",
+      "stack": 20,
       "iconPos": "-1056px 0px"
     },
     "exoskeleton-equipment-technology": {
       "name": "Exoskeleton equipment",
+      "stack": 50,
       "iconPos": "-198px -1320px"
     },
     "explosive-cannon-shell": {
       "name": "Explosive cannon shell",
+      "stack": 100,
       "iconPos": "-990px -66px"
     },
     "explosive-plutonium-cannon-shell": {
       "name": "Explosive plutonium cannon shell",
+      "stack": 100,
       "iconPos": "-990px -462px"
     },
     "explosive-rocket": {
       "name": "Explosive rocket",
+      "stack": 100,
       "iconPos": "-990px -660px"
     },
     "explosive-rocketry": {
       "name": "Explosive rocketry",
+      "stack": 50,
       "iconPos": "-1386px -264px"
     },
     "explosive-uranium-cannon-shell": {
       "name": "Explosive uranium cannon shell",
+      "stack": 100,
       "iconPos": "-990px -330px"
     },
     "explosives": {
       "name": "Explosives",
+      "stack": 25,
       "iconPos": "-858px -198px"
     },
     "explosives-technology": {
       "name": "Explosives",
+      "stack": 50,
       "iconPos": "-1056px -1188px"
     },
     "express-splitter": {
       "name": "Express splitter",
+      "stack": 50,
       "iconPos": "-66px -198px"
     },
     "express-transport-belt": {
       "name": "Express transport belt",
+      "stack": 100,
       "iconPos": "-66px -132px"
     },
     "express-underground-belt": {
       "name": "Express underground belt",
+      "stack": 50,
       "iconPos": "-198px -66px"
     },
     "fast-inserter": {
       "name": "Fast inserter",
+      "stack": 50,
       "iconPos": "-264px -66px"
     },
     "fast-inserter-technology": {
       "name": "Fast inserter",
+      "stack": 50,
       "iconPos": "-1122px -1122px"
     },
     "fast-splitter": {
       "name": "Fast splitter",
+      "stack": 50,
       "iconPos": "0px -198px"
     },
     "fast-transport-belt": {
       "name": "Fast transport belt",
+      "stack": 100,
       "iconPos": "0px -132px"
     },
     "fast-underground-belt": {
       "name": "Fast underground belt",
+      "stack": 50,
       "iconPos": "-198px 0px"
     },
     "ff-advanced-railway": {
       "name": "Advanced railway",
+      "stack": 50,
       "iconPos": "-1320px -198px"
     },
     "ff-battery-charging": {
       "name": "Battery charging",
+      "stack": 50,
       "iconPos": "-858px -1188px"
     },
     "ff-battery-pack": {
       "name": "Battery pack",
+      "stack": 100,
       "iconPos": "-858px 0px"
     },
     "ff-battery-pack-technology": {
       "name": "Battery pack",
+      "stack": 50,
       "iconPos": "-990px -1320px"
     },
     "ff-charged-battery": {
       "name": "Charged battery",
+      "stack": 100,
       "iconPos": "-858px -66px"
     },
     "ff-charged-battery-pack": {
       "name": "Charged battery pack",
+      "stack": 100,
       "iconPos": "-858px -132px"
     },
     "ff-charging-station": {
       "name": "Charging station",
+      "stack": 10,
       "iconPos": "-726px -198px"
     },
     "ff-cobalt-blast-blend": {
       "name": "Cobalt blast blend",
+      "stack": 5,
       "iconPos": "-792px -330px"
     },
     "ff-cobalt-concentrate": {
       "name": "Cobalt concentrate",
+      "stack": 25,
       "iconPos": "-792px -264px"
     },
     "ff-cobalt-crust": {
       "name": "Cobalt crust",
+      "stack": 1,
       "iconPos": "-792px -726px"
     },
     "ff-cobalt-ingot": {
       "name": "Cobalt ingot",
+      "stack": 50,
       "iconPos": "-462px -792px"
     },
     "ff-cobalt-ore": {
       "name": "Cobalt ore",
+      "stack": 15,
       "iconPos": "-792px -198px"
     },
     "ff-cobalt-processing": {
       "name": "Cobalt processing",
+      "stack": 50,
       "iconPos": "-1056px -1320px"
     },
     "ff-cupric-nodule": {
       "name": "Cupric nodule",
+      "stack": 1,
       "iconPos": "-792px -660px"
     },
     "ff-discharging-station": {
       "name": "Discharging station",
+      "stack": 10,
       "iconPos": "-726px -264px"
     },
     "ff-dredger": {
@@ -676,29 +846,36 @@
     },
     "ff-dredging": {
       "name": "Dredging",
+      "stack": 50,
       "iconPos": "-792px -1254px"
     },
     "ff-dredging-platform": {
       "name": "Dredging platform",
+      "stack": 5,
       "iconPos": "0px -660px"
     },
     "ff-ferrous-nodule": {
       "name": "Ferrous nodule",
+      "stack": 1,
       "iconPos": "-792px -594px"
     },
     "ff-hot-titansteel-plate": {
       "name": "Hot titansteel plate",
+      "stack": 1,
       "iconPos": "-528px -792px"
     },
     "ff-interstellar-communication": {
-      "name": "Interstellar communication"
+      "name": "Interstellar communication",
+      "stack": 50
     },
     "ff-interstellar-communicator": {
       "name": "Interstellar communicator",
+      "stack": 1,
       "iconPos": "-528px -726px"
     },
     "ff-lava-pool-dummy": {
       "name": "Lava pool",
+      "stack": 50,
       "iconPos": "-924px -1056px"
     },
     "ff-lava-pool-small": {
@@ -707,30 +884,37 @@
     },
     "ff-offshore-storage-tank": {
       "name": "Offshore storage tank",
+      "stack": 50,
       "iconPos": "-132px 0px"
     },
     "ff-rocket-frame": {
       "name": "Rocket frame",
+      "stack": 10,
       "iconPos": "-462px -858px"
     },
     "ff-rocket-silo-hole-dummy": {
       "name": "Rocket silo hole",
+      "stack": 50,
       "iconPos": "-1056px -1056px"
     },
     "ff-seamount-dummy": {
       "name": "Seamount",
+      "stack": 50,
       "iconPos": "-1122px 0px"
     },
     "ff-seismic-scanner": {
       "name": "Seismic scanner",
+      "stack": 50,
       "iconPos": "-132px -1056px"
     },
     "ff-seismic-scanner-technology": {
       "name": "Seismic scanner",
+      "stack": 50,
       "iconPos": "-726px -1254px"
     },
     "ff-slag": {
       "name": "Slag",
+      "stack": 1,
       "iconPos": "0px -792px"
     },
     "ff-tailings-water": {
@@ -740,152 +924,191 @@
     "ff-tailings-water-barrel": {
       "name": "Tailings water[color=25,51,76] ■[/color] barrel",
       "labId": null,
-      "iconPos": "-858px -1056px"
+      "iconPos": "-858px -1056px",
+      "contained": true
     },
     "ff-titansteel-plate": {
       "name": "Titansteel plate",
+      "stack": 15,
       "iconPos": "-594px -792px"
     },
     "ff-titansteel-processing": {
       "name": "Titansteel processing",
+      "stack": 50,
       "iconPos": "-1188px -1386px"
     },
     "ff-transport-science-pack": {
       "name": "Transport science pack",
+      "stack": 50,
       "iconPos": "-924px -660px"
     },
     "ff-transport-science-pack-technology": {
       "name": "Transport science pack",
+      "stack": 50,
       "iconPos": "-132px -1188px"
     },
     "ff-underwater-pipe": {
       "name": "Underwater pipe",
+      "stack": 100,
       "iconPos": "-330px -66px"
     },
     "filter-inserter": {
       "name": "Filter inserter",
+      "stack": 50,
       "iconPos": "-264px -132px"
     },
     "firearm-magazine": {
       "name": "Firearm magazine",
+      "stack": 100,
       "iconPos": "-594px -924px"
     },
     "flamethrower": {
       "name": "Flamethrower",
+      "stack": 5,
       "iconPos": "-462px -924px"
     },
     "flamethrower-ammo": {
       "name": "Flamethrower ammo",
+      "stack": 50,
       "iconPos": "-990px -858px"
     },
     "flamethrower-technology": {
       "name": "Flamethrower",
+      "stack": 50,
       "iconPos": "-1320px -792px"
     },
     "flamethrower-turret": {
       "name": "Flamethrower turret",
+      "stack": 50,
       "iconPos": "-1056px -858px"
     },
     "flammables": {
       "name": "Flammables",
+      "stack": 50,
       "iconPos": "-1254px -990px"
     },
     "fluid-handling": {
       "name": "Fluid handling",
+      "stack": 50,
       "iconPos": "-1254px -726px"
     },
     "fluid-wagon": {
       "name": "Fluid wagon",
+      "stack": 5,
       "iconPos": "-396px -330px"
     },
     "fluid-wagon-technology": {
       "name": "Fluid wagon",
+      "stack": 50,
       "iconPos": "-1254px -198px"
     },
     "flying-robot-frame": {
       "name": "Flying robot frame",
+      "stack": 25,
       "iconPos": "-264px -858px"
     },
     "follower-robot-count-1": {
       "name": "Follower robot count 1",
+      "stack": 50,
       "iconPos": "-462px -1254px"
     },
     "follower-robot-count-2": {
-      "name": "Follower robot count 2"
+      "name": "Follower robot count 2",
+      "stack": 50
     },
     "follower-robot-count-3": {
-      "name": "Follower robot count 3"
+      "name": "Follower robot count 3",
+      "stack": 50
     },
     "follower-robot-count-4": {
-      "name": "Follower robot count 4"
+      "name": "Follower robot count 4",
+      "stack": 50
     },
     "follower-robot-count-5": {
-      "name": "Follower robot count 5"
+      "name": "Follower robot count 5",
+      "stack": 50
     },
     "follower-robot-count-6": {
-      "name": "Follower robot count 6"
+      "name": "Follower robot count 6",
+      "stack": 50
     },
     "follower-robot-count-7": {
-      "name": "Follower robot count"
+      "name": "Follower robot count",
+      "stack": 50
     },
     "fusion-reactor-equipment": {
       "name": "Portable fusion reactor",
+      "stack": 20,
       "iconPos": "-792px -990px"
     },
     "fusion-reactor-equipment-technology": {
       "name": "Portable fusion reactor",
+      "stack": 50,
       "iconPos": "-1056px -1386px"
     },
     "gate": {
       "name": "Gate",
+      "stack": 50,
       "iconPos": "-1056px -660px"
     },
     "gate-technology": {
       "name": "Gate",
+      "stack": 50,
       "iconPos": "-1188px -1056px"
     },
     "green-wire": {
       "name": "Green wire",
+      "stack": 200,
       "iconPos": "-330px -528px"
     },
     "grenade": {
       "name": "Grenade",
+      "stack": 100,
       "iconPos": "-990px -924px"
     },
     "gun-turret": {
       "name": "Gun turret",
+      "stack": 50,
       "iconPos": "-1056px -726px"
     },
     "gun-turret-technology": {
       "name": "Gun turret",
+      "stack": 50,
       "iconPos": "-1188px -132px"
     },
     "hazard-concrete": {
       "name": "Hazard concrete",
+      "stack": 50,
       "iconPos": "-594px -264px"
     },
     "hcraft-entity": {
       "name": "Hovercraft",
+      "stack": 1,
       "iconPos": "-462px -198px"
     },
     "hcraft-tech": {
       "name": "Hovercraft",
+      "stack": 50,
       "iconPos": "-792px -1320px"
     },
     "heat-exchanger": {
       "name": "Heat exchanger",
+      "stack": 50,
       "iconPos": "-660px 0px"
     },
     "heat-pipe": {
       "name": "Heat pipe",
+      "stack": 50,
       "iconPos": "-462px -594px"
     },
     "heavy-armor": {
       "name": "Heavy armor",
+      "stack": 1,
       "iconPos": "-462px -990px"
     },
     "heavy-armor-technology": {
       "name": "Heavy armor",
+      "stack": 50,
       "iconPos": "-1188px -660px"
     },
     "heavy-oil": {
@@ -895,618 +1118,753 @@
     "heavy-oil-barrel": {
       "name": "Heavy oil[color=127,10,0] ■[/color] barrel",
       "labId": null,
-      "iconPos": "-528px -1056px"
+      "iconPos": "-528px -1056px",
+      "contained": true
     },
     "ic-container": {
       "name": "Container",
+      "stack": 10,
       "iconPos": "-858px -462px"
     },
     "ic-container-advanced-circuit": {
       "name": "Advanced circuit container",
       "labId": null,
-      "iconPos": "0px -858px"
+      "iconPos": "0px -858px",
+      "contained": true
     },
     "ic-container-artillery-shell": {
       "name": "Artillery shell container",
       "labId": null,
-      "iconPos": "-990px -528px"
+      "iconPos": "-990px -528px",
+      "contained": true
     },
     "ic-container-atomic-bomb": {
       "name": "Atomic bomb container",
       "labId": null,
-      "iconPos": "-990px -726px"
+      "iconPos": "-990px -726px",
+      "contained": true
     },
     "ic-container-automation-science-pack": {
       "name": "Automation science pack container",
       "labId": null,
-      "iconPos": "-924px -528px"
+      "iconPos": "-924px -528px",
+      "contained": true
     },
     "ic-container-battery": {
       "name": "Battery container",
       "labId": null,
-      "iconPos": "-792px -792px"
+      "iconPos": "-792px -792px",
+      "contained": true
     },
     "ic-container-breeder-fuel-cell": {
       "name": "Breeder fuel cell container",
       "labId": null,
-      "iconPos": "-924px -264px"
+      "iconPos": "-924px -264px",
+      "contained": true
     },
     "ic-container-cannon-shell": {
       "name": "Cannon shell container",
       "labId": null,
-      "iconPos": "-990px 0px"
+      "iconPos": "-990px 0px",
+      "contained": true
     },
     "ic-container-chemical-science-pack": {
       "name": "Chemical science pack container",
       "labId": null,
-      "iconPos": "-924px -792px"
+      "iconPos": "-924px -792px",
+      "contained": true
     },
     "ic-container-coal": {
       "name": "Coal container",
       "labId": null,
-      "iconPos": "-660px -726px"
+      "iconPos": "-660px -726px",
+      "contained": true
     },
     "ic-container-concrete": {
       "name": "Concrete container",
       "labId": null,
-      "iconPos": "-594px -198px"
+      "iconPos": "-594px -198px",
+      "contained": true
     },
     "ic-container-copper-cable": {
       "name": "Copper cable container",
       "labId": null,
-      "iconPos": "-858px -528px"
+      "iconPos": "-858px -528px",
+      "contained": true
     },
     "ic-container-copper-ore": {
       "name": "Copper ore container",
       "labId": null,
-      "iconPos": "-792px -66px"
+      "iconPos": "-792px -66px",
+      "contained": true
     },
     "ic-container-copper-plate": {
       "name": "Copper plate container",
       "labId": null,
-      "iconPos": "-264px -792px"
+      "iconPos": "-264px -792px",
+      "contained": true
     },
     "ic-container-electric-engine-unit": {
       "name": "Electric engine unit container",
       "labId": null,
-      "iconPos": "-198px -858px"
+      "iconPos": "-198px -858px",
+      "contained": true
     },
     "ic-container-electronic-circuit": {
       "name": "Electronic circuit container",
       "labId": null,
-      "iconPos": "-858px -792px"
+      "iconPos": "-858px -792px",
+      "contained": true
     },
     "ic-container-empty-barrel": {
       "name": "Empty barrel container",
       "labId": null,
-      "iconPos": "-858px -726px"
+      "iconPos": "-858px -726px",
+      "contained": true
     },
     "ic-container-engine-unit": {
       "name": "Engine unit container",
       "labId": null,
-      "iconPos": "-132px -858px"
+      "iconPos": "-132px -858px",
+      "contained": true
     },
     "ic-container-explosive-cannon-shell": {
       "name": "Explosive cannon shell container",
       "labId": null,
-      "iconPos": "-990px -66px"
+      "iconPos": "-990px -66px",
+      "contained": true
     },
     "ic-container-explosive-plutonium-cannon-shell": {
       "name": "Explosive plutonium cannon shell container",
       "labId": null,
-      "iconPos": "-990px -462px"
+      "iconPos": "-990px -462px",
+      "contained": true
     },
     "ic-container-explosive-rocket": {
       "name": "Explosive rocket container",
       "labId": null,
-      "iconPos": "-990px -660px"
+      "iconPos": "-990px -660px",
+      "contained": true
     },
     "ic-container-explosive-uranium-cannon-shell": {
       "name": "Explosive uranium cannon shell container",
       "labId": null,
-      "iconPos": "-990px -330px"
+      "iconPos": "-990px -330px",
+      "contained": true
     },
     "ic-container-explosives": {
       "name": "Explosives container",
       "labId": null,
-      "iconPos": "-858px -198px"
+      "iconPos": "-858px -198px",
+      "contained": true
     },
     "ic-container-ff-battery-pack": {
       "name": "Battery pack container",
       "labId": null,
-      "iconPos": "-858px 0px"
+      "iconPos": "-858px 0px",
+      "contained": true
     },
     "ic-container-ff-charged-battery": {
       "name": "Charged battery container",
       "labId": null,
-      "iconPos": "-858px -66px"
+      "iconPos": "-858px -66px",
+      "contained": true
     },
     "ic-container-ff-charged-battery-pack": {
       "name": "Charged battery pack container",
       "labId": null,
-      "iconPos": "-858px -132px"
+      "iconPos": "-858px -132px",
+      "contained": true
     },
     "ic-container-ff-cobalt-concentrate": {
       "name": "Cobalt concentrate container",
       "labId": null,
-      "iconPos": "-792px -264px"
+      "iconPos": "-792px -264px",
+      "contained": true
     },
     "ic-container-ff-cobalt-ingot": {
       "name": "Cobalt ingot container",
       "labId": null,
-      "iconPos": "-462px -792px"
+      "iconPos": "-462px -792px",
+      "contained": true
     },
     "ic-container-ff-cobalt-ore": {
       "name": "Cobalt ore container",
       "labId": null,
-      "iconPos": "-792px -198px"
+      "iconPos": "-792px -198px",
+      "contained": true
     },
     "ic-container-ff-interstellar-communicator": {
       "name": "Interstellar communicator container",
       "labId": null,
-      "iconPos": "-528px -726px"
+      "iconPos": "-528px -726px",
+      "contained": true
     },
     "ic-container-ff-rocket-frame": {
       "name": "Rocket frame container",
       "labId": null,
-      "iconPos": "-462px -858px"
+      "iconPos": "-462px -858px",
+      "contained": true
     },
     "ic-container-ff-titansteel-plate": {
       "name": "Titansteel plate container",
       "labId": null,
-      "iconPos": "-594px -792px"
+      "iconPos": "-594px -792px",
+      "contained": true
     },
     "ic-container-ff-transport-science-pack": {
       "name": "Transport science pack container",
       "labId": null,
-      "iconPos": "-924px -660px"
+      "iconPos": "-924px -660px",
+      "contained": true
     },
     "ic-container-firearm-magazine": {
       "name": "Firearm magazine container",
       "labId": null,
-      "iconPos": "-594px -924px"
+      "iconPos": "-594px -924px",
+      "contained": true
     },
     "ic-container-flamethrower-ammo": {
       "name": "Flamethrower ammo container",
       "labId": null,
-      "iconPos": "-990px -858px"
+      "iconPos": "-990px -858px",
+      "contained": true
     },
     "ic-container-flying-robot-frame": {
       "name": "Flying robot frame container",
       "labId": null,
-      "iconPos": "-264px -858px"
+      "iconPos": "-264px -858px",
+      "contained": true
     },
     "ic-container-hazard-concrete": {
       "name": "Hazard concrete container",
       "labId": null,
-      "iconPos": "-594px -264px"
+      "iconPos": "-594px -264px",
+      "contained": true
     },
     "ic-container-iron-gear-wheel": {
       "name": "Iron gear wheel container",
       "labId": null,
-      "iconPos": "-858px -660px"
+      "iconPos": "-858px -660px",
+      "contained": true
     },
     "ic-container-iron-ore": {
       "name": "Iron ore container",
       "labId": null,
-      "iconPos": "-792px 0px"
+      "iconPos": "-792px 0px",
+      "contained": true
     },
     "ic-container-iron-plate": {
       "name": "Iron plate container",
       "labId": null,
-      "iconPos": "-66px -792px"
+      "iconPos": "-66px -792px",
+      "contained": true
     },
     "ic-container-iron-stick": {
       "name": "Iron stick container",
       "labId": null,
-      "iconPos": "-858px -594px"
+      "iconPos": "-858px -594px",
+      "contained": true
     },
     "ic-container-landfill": {
       "name": "Landfill container",
       "labId": null,
-      "iconPos": "-594px -462px"
+      "iconPos": "-594px -462px",
+      "contained": true
     },
     "ic-container-lead-ore": {
       "name": "Lead ore container",
       "labId": null,
-      "iconPos": "-792px -462px"
+      "iconPos": "-792px -462px",
+      "contained": true
     },
     "ic-container-lead-plate": {
       "name": "Lead plate container",
       "labId": null,
-      "iconPos": "-132px -792px"
+      "iconPos": "-132px -792px",
+      "contained": true
     },
     "ic-container-logistic-science-pack": {
       "name": "Logistic science pack container",
       "labId": null,
-      "iconPos": "-924px -594px"
+      "iconPos": "-924px -594px",
+      "contained": true
     },
     "ic-container-long-range-delivery-drone": {
       "name": "Long range delivery drone container",
       "labId": null,
-      "iconPos": "-528px -462px"
+      "iconPos": "-528px -462px",
+      "contained": true
     },
     "ic-container-low-density-structure": {
       "name": "Low density structure container",
       "labId": null,
-      "iconPos": "-396px -858px"
+      "iconPos": "-396px -858px",
+      "contained": true
     },
     "ic-container-military-science-pack": {
       "name": "Military science pack container",
       "labId": null,
-      "iconPos": "-924px -726px"
+      "iconPos": "-924px -726px",
+      "contained": true
     },
     "ic-container-mortar-bomb": {
       "name": "Mortar bomb container",
       "labId": null,
-      "iconPos": "-990px -132px"
+      "iconPos": "-990px -132px",
+      "contained": true
     },
     "ic-container-mortar-cluster-bomb": {
       "name": "Mortar cluster bomb container",
       "labId": null,
-      "iconPos": "-990px -198px"
+      "iconPos": "-990px -198px",
+      "contained": true
     },
     "ic-container-MOX-fuel": {
       "name": "MOX fuel container",
       "labId": null,
-      "iconPos": "-924px -198px"
+      "iconPos": "-924px -198px",
+      "contained": true
     },
     "ic-container-nuclear-fuel": {
       "name": "Nuclear fuel container",
       "labId": null,
-      "iconPos": "-660px -858px"
+      "iconPos": "-660px -858px",
+      "contained": true
     },
     "ic-container-piercing-rounds-magazine": {
       "name": "Piercing rounds magazine container",
       "labId": null,
-      "iconPos": "-660px -924px"
+      "iconPos": "-660px -924px",
+      "contained": true
     },
     "ic-container-piercing-shotgun-shell": {
       "name": "Piercing shotgun shells container",
       "labId": null,
-      "iconPos": "-924px -924px"
+      "iconPos": "-924px -924px",
+      "contained": true
     },
     "ic-container-plastic-bar": {
       "name": "Plastic bar container",
       "labId": null,
-      "iconPos": "-660px -792px"
+      "iconPos": "-660px -792px",
+      "contained": true
     },
     "ic-container-plutonium-238": {
       "name": "Plutonium-238 container",
       "labId": null,
-      "iconPos": "-924px 0px"
+      "iconPos": "-924px 0px",
+      "contained": true
     },
     "ic-container-plutonium-239": {
       "name": "Plutonium-239 container",
       "labId": null,
-      "iconPos": "-924px -66px"
+      "iconPos": "-924px -66px",
+      "contained": true
     },
     "ic-container-plutonium-atomic-bomb": {
       "name": "Plutonium atomic bomb container",
       "labId": null,
-      "iconPos": "-990px -792px"
+      "iconPos": "-990px -792px",
+      "contained": true
     },
     "ic-container-plutonium-cannon-shell": {
       "name": "Plutonium cannon shell container",
       "labId": null,
-      "iconPos": "-990px -396px"
+      "iconPos": "-990px -396px",
+      "contained": true
     },
     "ic-container-plutonium-fuel": {
       "name": "Plutonium fuel container",
       "labId": null,
-      "iconPos": "-726px -858px"
+      "iconPos": "-726px -858px",
+      "contained": true
     },
     "ic-container-plutonium-rounds-magazine": {
       "name": "Plutonium rounds magazine container",
       "labId": null,
-      "iconPos": "-792px -924px"
+      "iconPos": "-792px -924px",
+      "contained": true
     },
     "ic-container-processing-unit": {
       "name": "Processing unit container",
       "labId": null,
-      "iconPos": "-66px -858px"
+      "iconPos": "-66px -858px",
+      "contained": true
     },
     "ic-container-production-science-pack": {
       "name": "Production science pack container",
       "labId": null,
-      "iconPos": "-924px -858px"
+      "iconPos": "-924px -858px",
+      "contained": true
     },
     "ic-container-refined-concrete": {
       "name": "Refined concrete container",
       "labId": null,
-      "iconPos": "-594px -330px"
+      "iconPos": "-594px -330px",
+      "contained": true
     },
     "ic-container-refined-hazard-concrete": {
       "name": "Refined hazard concrete container",
       "labId": null,
-      "iconPos": "-594px -396px"
+      "iconPos": "-594px -396px",
+      "contained": true
     },
     "ic-container-rocket": {
       "name": "Rocket container",
       "labId": null,
-      "iconPos": "-990px -594px"
+      "iconPos": "-990px -594px",
+      "contained": true
     },
     "ic-container-rocket-control-unit": {
       "name": "Rocket control unit container",
       "labId": null,
-      "iconPos": "-330px -858px"
+      "iconPos": "-330px -858px",
+      "contained": true
     },
     "ic-container-rocket-fuel": {
       "name": "Rocket fuel container",
       "labId": null,
-      "iconPos": "-528px -858px"
+      "iconPos": "-528px -858px",
+      "contained": true
     },
     "ic-container-satellite": {
       "name": "Satellite container",
       "labId": null,
-      "iconPos": "-462px -726px"
+      "iconPos": "-462px -726px",
+      "contained": true
     },
     "ic-container-shotgun-shell": {
       "name": "Shotgun shells container",
       "labId": null,
-      "iconPos": "-858px -924px"
+      "iconPos": "-858px -924px",
+      "contained": true
     },
     "ic-container-solid-fuel": {
       "name": "Solid fuel container",
       "labId": null,
-      "iconPos": "-330px -792px"
+      "iconPos": "-330px -792px",
+      "contained": true
     },
     "ic-container-space-science-pack": {
       "name": "Space science pack container",
       "labId": null,
-      "iconPos": "-66px -924px"
+      "iconPos": "-66px -924px",
+      "contained": true
     },
     "ic-container-steel-plate": {
       "name": "Steel plate container",
       "labId": null,
-      "iconPos": "-396px -792px"
+      "iconPos": "-396px -792px",
+      "contained": true
     },
     "ic-container-stone": {
       "name": "Stone container",
       "labId": null,
-      "iconPos": "-726px -726px"
+      "iconPos": "-726px -726px",
+      "contained": true
     },
     "ic-container-stone-brick": {
       "name": "Stone brick container",
       "labId": null,
-      "iconPos": "-594px -132px"
+      "iconPos": "-594px -132px",
+      "contained": true
     },
     "ic-container-sulfur": {
       "name": "Sulfur container",
       "labId": null,
-      "iconPos": "-726px -792px"
+      "iconPos": "-726px -792px",
+      "contained": true
     },
     "ic-container-titanium-ore": {
       "name": "Titanium ore container",
       "labId": null,
-      "iconPos": "-792px -528px"
+      "iconPos": "-792px -528px",
+      "contained": true
     },
     "ic-container-titanium-plate": {
       "name": "Titanium plate container",
       "labId": null,
-      "iconPos": "-198px -792px"
+      "iconPos": "-198px -792px",
+      "contained": true
     },
     "ic-container-uranium-235": {
       "name": "Uranium-235 container",
       "labId": null,
-      "iconPos": "-792px -858px"
+      "iconPos": "-792px -858px",
+      "contained": true
     },
     "ic-container-uranium-238": {
       "name": "Uranium-238 container",
       "labId": null,
-      "iconPos": "-858px -858px"
+      "iconPos": "-858px -858px",
+      "contained": true
     },
     "ic-container-uranium-cannon-shell": {
       "name": "Uranium cannon shell container",
       "labId": null,
-      "iconPos": "-990px -264px"
+      "iconPos": "-990px -264px",
+      "contained": true
     },
     "ic-container-uranium-fuel-cell": {
       "name": "Uranium fuel cell container",
       "labId": null,
-      "iconPos": "-924px -132px"
+      "iconPos": "-924px -132px",
+      "contained": true
     },
     "ic-container-uranium-ore": {
       "name": "Uranium ore container",
       "labId": null,
-      "iconPos": "-792px -132px"
+      "iconPos": "-792px -132px",
+      "contained": true
     },
     "ic-container-uranium-rounds-magazine": {
       "name": "Uranium rounds magazine container",
       "labId": null,
-      "iconPos": "-726px -924px"
+      "iconPos": "-726px -924px",
+      "contained": true
     },
     "ic-container-used-up-breeder-fuel-cell": {
       "name": "Used-up breeder fuel cell container",
       "labId": null,
-      "iconPos": "-924px -462px"
+      "iconPos": "-924px -462px",
+      "contained": true
     },
     "ic-container-used-up-MOX-fuel": {
       "name": "Used up MOX fuel container",
       "labId": null,
-      "iconPos": "-924px -396px"
+      "iconPos": "-924px -396px",
+      "contained": true
     },
     "ic-container-used-up-uranium-fuel-cell": {
       "name": "Used-up uranium fuel cell container",
       "labId": null,
-      "iconPos": "-924px -330px"
+      "iconPos": "-924px -330px",
+      "contained": true
     },
     "ic-container-utility-science-pack": {
       "name": "Utility science pack container",
       "labId": null,
-      "iconPos": "0px -924px"
+      "iconPos": "0px -924px",
+      "contained": true
     },
     "ic-container-wood": {
       "name": "Wood container",
       "labId": null,
-      "iconPos": "-594px -726px"
+      "iconPos": "-594px -726px",
+      "contained": true
     },
     "ic-containerization-1": {
       "name": "Containerization 1",
+      "stack": 50,
       "iconPos": "-1188px -726px"
     },
     "ic-containerization-2": {
       "name": "Containerization 2",
+      "stack": 50,
       "iconPos": "-660px -1254px"
     },
     "ic-containerization-3": {
       "name": "Containerization 3",
+      "stack": 50,
       "iconPos": "-924px -1320px"
     },
     "ic-containerization-machine-1": {
       "name": "Containerization machine",
+      "stack": 50,
       "iconPos": "-462px -660px"
     },
     "ic-containerization-machine-2": {
       "name": "Fast containerization machine",
+      "stack": 50,
       "iconPos": "-528px -660px"
     },
     "ic-containerization-machine-3": {
       "name": "Express containerization machine",
+      "stack": 50,
       "iconPos": "-594px -660px"
     },
     "inserter": {
       "name": "Inserter",
+      "stack": 50,
       "iconPos": "-198px -198px"
     },
     "inserter-capacity-bonus-1": {
       "name": "Inserter capacity bonus 1",
+      "stack": 50,
       "iconPos": "-1254px -594px"
     },
     "inserter-capacity-bonus-2": {
-      "name": "Inserter capacity bonus 2"
+      "name": "Inserter capacity bonus 2",
+      "stack": 50
     },
     "inserter-capacity-bonus-3": {
-      "name": "Inserter capacity bonus 3"
+      "name": "Inserter capacity bonus 3",
+      "stack": 50
     },
     "inserter-capacity-bonus-4": {
-      "name": "Inserter capacity bonus 4"
+      "name": "Inserter capacity bonus 4",
+      "stack": 50
     },
     "inserter-capacity-bonus-5": {
-      "name": "Inserter capacity bonus 5"
+      "name": "Inserter capacity bonus 5",
+      "stack": 50
     },
     "inserter-capacity-bonus-6": {
-      "name": "Inserter capacity bonus 6"
+      "name": "Inserter capacity bonus 6",
+      "stack": 50
     },
     "inserter-capacity-bonus-7": {
-      "name": "Inserter capacity bonus 7"
+      "name": "Inserter capacity bonus 7",
+      "stack": 50
     },
     "iron-chest": {
       "name": "Iron chest",
+      "stack": 50,
       "iconPos": "-66px 0px"
     },
     "iron-gear-wheel": {
       "name": "Iron gear wheel",
+      "stack": 50,
       "iconPos": "-858px -660px"
     },
     "iron-ore": {
       "name": "Iron ore",
+      "stack": 25,
       "iconPos": "-792px 0px"
     },
     "iron-plate": {
       "name": "Iron plate",
+      "stack": 50,
       "iconPos": "-66px -792px"
     },
     "iron-stick": {
       "name": "Iron stick",
+      "stack": 50,
       "iconPos": "-858px -594px"
     },
     "ironclad": {
       "name": "Ironclad",
+      "stack": 1,
       "iconPos": "-462px -330px"
     },
     "ironclad-technology": {
       "name": "Ironclad",
+      "stack": 50,
       "iconPos": "-1320px -858px"
     },
     "kovarex-enrichment-process-technology": {
       "name": "Kovarex enrichment process",
+      "stack": 50,
       "iconPos": "-1386px -726px"
     },
     "lab": {
       "name": "Lab",
+      "stack": 10,
       "iconPos": "-726px -132px"
     },
     "land-mine": {
       "name": "Land mine",
+      "stack": 100,
       "iconPos": "-528px -924px"
     },
     "land-mine-technology": {
       "name": "Land mines",
+      "stack": 50,
       "iconPos": "-1320px -924px"
     },
     "landfill": {
       "name": "Landfill",
+      "stack": 50,
       "iconPos": "-594px -462px"
     },
     "landfill-technology": {
       "name": "Landfill",
+      "stack": 50,
       "iconPos": "0px -1188px"
     },
     "laser": {
       "name": "Laser",
+      "stack": 50,
       "iconPos": "-924px -1254px"
     },
     "laser-shooting-speed-1": {
       "name": "Laser shooting speed 1",
+      "stack": 50,
       "iconPos": "-1386px -594px"
     },
     "laser-shooting-speed-2": {
-      "name": "Laser shooting speed 2"
+      "name": "Laser shooting speed 2",
+      "stack": 50
     },
     "laser-shooting-speed-3": {
-      "name": "Laser shooting speed 3"
+      "name": "Laser shooting speed 3",
+      "stack": 50
     },
     "laser-shooting-speed-4": {
-      "name": "Laser shooting speed 4"
+      "name": "Laser shooting speed 4",
+      "stack": 50
     },
     "laser-shooting-speed-5": {
-      "name": "Laser shooting speed 5"
+      "name": "Laser shooting speed 5",
+      "stack": 50
     },
     "laser-shooting-speed-6": {
-      "name": "Laser shooting speed 6"
+      "name": "Laser shooting speed 6",
+      "stack": 50
     },
     "laser-shooting-speed-7": {
-      "name": "Laser shooting speed 7"
+      "name": "Laser shooting speed 7",
+      "stack": 50
     },
     "laser-turret": {
       "name": "Laser turret",
+      "stack": 50,
       "iconPos": "-1056px -792px"
     },
     "laser-turret-technology": {
       "name": "Laser turret",
+      "stack": 50,
       "iconPos": "-1254px -1320px"
     },
     "lead-ore": {
       "name": "Lead ore",
+      "stack": 15,
       "iconPos": "-792px -462px"
     },
     "lead-plate": {
       "name": "Lead plate",
+      "stack": 50,
       "iconPos": "-132px -792px"
     },
     "lex-flying-cargo": {
       "name": "Cargo aircraft",
+      "stack": 1,
       "iconPos": "-198px -462px"
     },
     "lex-flying-cargo-ships": {
       "name": "Flying cargo ship",
+      "stack": 50,
       "iconPos": "-594px -1386px"
     },
     "lex-flying-heavyship": {
       "name": "Combat aircraft",
+      "stack": 1,
       "iconPos": "-264px -462px"
     },
     "lex-flying-heavyship-ships": {
       "name": "Flying combat heavy ship",
+      "stack": 50,
       "iconPos": "-1254px -1386px"
     },
     "lex-jet-engine": {
       "name": "Jet engine",
+      "stack": 50,
       "iconPos": "-528px -1386px"
     },
     "light-armor": {
       "name": "Light armor",
+      "stack": 1,
       "iconPos": "-396px -990px"
     },
     "light-oil": {
@@ -1516,90 +1874,112 @@
     "light-oil-barrel": {
       "name": "Light oil[color=145,84,0] ■[/color] barrel",
       "labId": null,
-      "iconPos": "-594px -1056px"
+      "iconPos": "-594px -1056px",
+      "contained": true
     },
     "locomotive": {
       "name": "Electric locomotive",
+      "stack": 5,
       "iconPos": "-396px -198px"
     },
     "logistic-chest-active-provider": {
       "name": "Active provider chest",
+      "stack": 50,
       "iconPos": "-462px -462px"
     },
     "logistic-chest-buffer": {
       "name": "Buffer chest",
+      "stack": 50,
       "iconPos": "-528px -132px"
     },
     "logistic-chest-passive-provider": {
       "name": "Passive provider chest",
+      "stack": 50,
       "iconPos": "-528px 0px"
     },
     "logistic-chest-requester": {
       "name": "Requester chest",
+      "stack": 50,
       "iconPos": "-528px -198px"
     },
     "logistic-chest-storage": {
       "name": "Storage chest",
+      "stack": 50,
       "iconPos": "-528px -66px"
     },
     "logistic-robot": {
       "name": "Logistic robot",
+      "stack": 50,
       "iconPos": "-330px -462px"
     },
     "logistic-robotics": {
       "name": "Logistic robotics",
+      "stack": 50,
       "iconPos": "-1320px -462px"
     },
     "logistic-science-pack": {
       "name": "Logistic science pack",
+      "stack": 50,
       "iconPos": "-924px -594px"
     },
     "logistic-science-pack-technology": {
       "name": "Logistic science pack",
+      "stack": 50,
       "iconPos": "-1188px -264px"
     },
     "logistic-system": {
       "name": "Logistic system",
+      "stack": 50,
       "iconPos": "-1386px 0px"
     },
     "logistics-2": {
       "name": "Logistics 2",
+      "stack": 50,
       "iconPos": "-1188px -924px"
     },
     "logistics-3": {
       "name": "Logistics 3",
+      "stack": 50,
       "iconPos": "-1188px -1320px"
     },
     "logistics-technology": {
       "name": "Logistics",
+      "stack": 50,
       "iconPos": "-1188px 0px"
     },
     "long-handed-inserter": {
       "name": "Long-handed inserter",
+      "stack": 50,
       "iconPos": "-264px 0px"
     },
     "long-range-delivery-drone": {
       "name": "Long range delivery drone",
+      "stack": 1,
       "iconPos": "-528px -462px"
     },
     "long-range-delivery-drone-depot": {
       "name": "Long range delivery drone depot",
+      "stack": 10,
       "iconPos": "-528px -330px"
     },
     "long-range-delivery-drone-request-depot": {
       "name": "Long range delivery drone request depot",
+      "stack": 10,
       "iconPos": "-528px -396px"
     },
     "long-range-delivery-drone-technology": {
       "name": "Long range delivery drone",
+      "stack": 50,
       "iconPos": "-990px -1188px"
     },
     "low-density-structure": {
       "name": "Low density structure",
+      "stack": 10,
       "iconPos": "-396px -858px"
     },
     "low-density-structure-technology": {
       "name": "Low density structure",
+      "stack": 50,
       "iconPos": "-726px -1320px"
     },
     "lubricant": {
@@ -1609,176 +1989,221 @@
     "lubricant-barrel": {
       "name": "Lubricant[color=38,81,7] ■[/color] barrel",
       "labId": null,
-      "iconPos": "-792px -1056px"
+      "iconPos": "-792px -1056px",
+      "contained": true
     },
     "lubricant-technology": {
       "name": "Lubricant",
+      "stack": 50,
       "iconPos": "-990px -1254px"
     },
     "mcraft-entity": {
       "name": "Missile hovercraft",
+      "stack": 1,
       "iconPos": "-462px -264px"
     },
     "mcraft-tech": {
       "name": "Missile hovercraft",
+      "stack": 50,
       "iconPos": "-330px -1386px"
     },
     "medium-electric-pole": {
       "name": "Medium electric pole",
+      "stack": 50,
       "iconPos": "-132px -264px"
     },
     "military": {
       "name": "Military",
+      "stack": 50,
       "iconPos": "-1188px -462px"
     },
     "military-2": {
-      "name": "Military 2"
+      "name": "Military 2",
+      "stack": 50
     },
     "military-3": {
-      "name": "Military 3"
+      "name": "Military 3",
+      "stack": 50
     },
     "military-4": {
-      "name": "Military 4"
+      "name": "Military 4",
+      "stack": 50
     },
     "military-science-pack": {
       "name": "Military science pack",
+      "stack": 50,
       "iconPos": "-924px -726px"
     },
     "military-science-pack-technology": {
       "name": "Military science pack",
+      "stack": 50,
       "iconPos": "-66px -1188px"
     },
     "mini-cargo-wagon": {
       "name": "Mini cargo wagon",
+      "stack": 5,
       "iconPos": "-396px -66px"
     },
     "mini-fluid-wagon": {
       "name": "Mini fluid wagon",
+      "stack": 5,
       "iconPos": "-396px -132px"
     },
     "mini-locomotive": {
       "name": "Mini locomotive",
+      "stack": 5,
       "iconPos": "-396px 0px"
     },
     "mining-productivity-1": {
       "name": "Mining productivity 1",
+      "stack": 50,
       "iconPos": "-1254px -462px"
     },
     "mining-productivity-2": {
-      "name": "Mining productivity 2"
+      "name": "Mining productivity 2",
+      "stack": 50
     },
     "mining-productivity-3": {
-      "name": "Mining productivity 3"
+      "name": "Mining productivity 3",
+      "stack": 50
     },
     "mining-productivity-4": {
-      "name": "Mining productivity"
+      "name": "Mining productivity",
+      "stack": 50
     },
     "modular-armor": {
       "name": "Modular armor",
+      "stack": 1,
       "iconPos": "-528px -990px"
     },
     "modular-armor-technology": {
       "name": "Modular armor",
+      "stack": 50,
       "iconPos": "-1254px -1056px"
     },
     "modules": {
       "name": "Modules",
+      "stack": 50,
       "iconPos": "-1254px -1188px"
     },
     "mortar-bomb": {
       "name": "Mortar bomb",
+      "stack": 100,
       "iconPos": "-990px -132px"
     },
     "mortar-cluster-bomb": {
       "name": "Mortar cluster bomb",
+      "stack": 100,
       "iconPos": "-990px -198px"
     },
     "MOX-fuel": {
       "name": "MOX fuel",
+      "stack": 10,
       "iconPos": "-924px -198px"
     },
     "MOX-fuel-reprocessing-technology": {
       "name": "MOX fuel reprocessing",
+      "stack": 50,
       "iconPos": "-1386px -990px"
     },
     "MOX-reactor": {
       "name": "MOX reactor",
+      "stack": 10,
       "iconPos": "-528px -594px"
     },
     "night-vision-equipment": {
       "name": "Nightvision",
+      "stack": 20,
       "iconPos": "-1056px -198px"
     },
     "night-vision-equipment-technology": {
       "name": "Nightvision equipment",
+      "stack": 50,
       "iconPos": "-66px -1320px"
     },
     "nuclear-breeding": {
       "name": "Nuclear breeding",
+      "stack": 50,
       "iconPos": "-1386px -1056px"
     },
     "nuclear-fuel": {
       "name": "Nuclear fuel",
+      "stack": 1,
       "iconPos": "-660px -858px"
     },
     "nuclear-fuel-reprocessing-technology": {
       "name": "Nuclear fuel reprocessing",
+      "stack": 50,
       "iconPos": "-1386px -792px"
     },
     "nuclear-power": {
       "name": "Nuclear power",
+      "stack": 50,
       "iconPos": "-1320px -1188px"
     },
     "nuclear-reactor": {
       "name": "Nuclear reactor",
+      "stack": 10,
       "iconPos": "-396px -594px"
     },
     "offshore-pump": {
       "name": "Offshore pump",
+      "stack": 20,
       "iconPos": "-660px -462px"
     },
     "oil_rig": {
       "name": "Oil rig",
+      "stack": 5,
       "iconPos": "-660px -594px"
     },
     "oil_tanker": {
       "name": "Tanker ship",
+      "stack": 5,
       "iconPos": "-462px 0px"
     },
     "oil-processing": {
       "name": "Oil processing",
+      "stack": 50,
       "iconPos": "-1254px -660px"
     },
     "oil-refinery": {
       "name": "Refinery",
+      "stack": 10,
       "iconPos": "-660px -660px"
     },
     "optics": {
       "name": "Optics",
+      "stack": 50,
       "iconPos": "-1188px -66px"
     },
     "personal-laser-defense-equipment": {
       "name": "Personal laser defense",
+      "stack": 20,
       "iconPos": "-1056px -396px"
     },
     "personal-laser-defense-equipment-technology": {
       "name": "Personal laser defense",
+      "stack": 50,
       "iconPos": "-1386px -1320px"
     },
     "personal-roboport-equipment": {
       "name": "Personal roboport",
+      "stack": 20,
       "iconPos": "-1056px -66px"
     },
     "personal-roboport-equipment-technology": {
       "name": "Personal roboport",
+      "stack": 50,
       "iconPos": "-1320px -528px"
     },
     "personal-roboport-mk2-equipment": {
       "name": "Personal roboport MK2",
+      "stack": 20,
       "iconPos": "-1056px -132px"
     },
     "personal-roboport-mk2-equipment-technology": {
       "name": "Personal roboport MK2",
+      "stack": 50,
       "iconPos": "-1386px -66px"
     },
     "petroleum-gas": {
@@ -1788,426 +2213,536 @@
     "petroleum-gas-barrel": {
       "name": "Petroleum gas[color=76,25,76] ■[/color] barrel",
       "labId": null,
-      "iconPos": "-660px -1056px"
+      "iconPos": "-660px -1056px",
+      "contained": true
     },
     "physical-projectile-damage-1": {
       "name": "Physical projectile damage 1",
+      "stack": 50,
       "iconPos": "-1188px -594px"
     },
     "physical-projectile-damage-2": {
-      "name": "Physical projectile damage 2"
+      "name": "Physical projectile damage 2",
+      "stack": 50
     },
     "physical-projectile-damage-3": {
-      "name": "Physical projectile damage 3"
+      "name": "Physical projectile damage 3",
+      "stack": 50
     },
     "physical-projectile-damage-4": {
-      "name": "Physical projectile damage 4"
+      "name": "Physical projectile damage 4",
+      "stack": 50
     },
     "physical-projectile-damage-5": {
       "name": "Physical projectile damage 5",
+      "stack": 50,
       "iconPos": "-1386px -462px"
     },
     "physical-projectile-damage-6": {
-      "name": "Physical projectile damage 6"
+      "name": "Physical projectile damage 6",
+      "stack": 50
     },
     "physical-projectile-damage-7": {
-      "name": "Physical projectile damage"
+      "name": "Physical projectile damage",
+      "stack": 50
     },
     "piercing-rounds-magazine": {
       "name": "Piercing rounds magazine",
+      "stack": 100,
       "iconPos": "-660px -924px"
     },
     "piercing-shotgun-shell": {
       "name": "Piercing shotgun shells",
+      "stack": 100,
       "iconPos": "-924px -924px"
     },
     "pipe": {
       "name": "Pipe",
+      "stack": 100,
       "iconPos": "-330px 0px"
     },
     "pipe-to-ground": {
       "name": "Pipe to ground",
+      "stack": 50,
       "iconPos": "-330px -132px"
     },
     "pistol": {
       "name": "Pistol",
+      "stack": 5,
       "iconPos": "-132px -924px"
     },
     "plastic-bar": {
       "name": "Plastic bar",
+      "stack": 50,
       "iconPos": "-660px -792px"
     },
     "plastics": {
       "name": "Plastics",
+      "stack": 50,
       "iconPos": "-1254px -858px"
     },
     "plutonium-238": {
       "name": "Plutonium-238",
+      "stack": 50,
       "iconPos": "-924px 0px"
     },
     "plutonium-239": {
       "name": "Plutonium-239",
+      "stack": 50,
       "iconPos": "-924px -66px"
     },
     "plutonium-ammo": {
       "name": "Plutonium ammo",
+      "stack": 50,
       "iconPos": "-858px -1386px"
     },
     "plutonium-atomic-bomb": {
       "name": "Plutonium atomic bomb",
+      "stack": 10,
       "iconPos": "-990px -792px"
     },
     "plutonium-atomic-bomb-technology": {
       "name": "Plutonium atomic bomb",
+      "stack": 50,
       "iconPos": "-1452px -66px"
     },
     "plutonium-cannon-shell": {
       "name": "Plutonium cannon shell",
+      "stack": 100,
       "iconPos": "-990px -396px"
     },
     "plutonium-fuel": {
       "name": "Plutonium fuel",
+      "stack": 1,
       "iconPos": "-726px -858px"
     },
     "plutonium-nuclear-power": {
       "name": "Plutonium nuclear power",
+      "stack": 50,
       "iconPos": "-1386px -924px"
     },
     "plutonium-processing": {
       "name": "Plutonium processing",
+      "stack": 50,
       "iconPos": "-1386px -858px"
     },
     "plutonium-rounds-magazine": {
       "name": "Plutonium rounds magazine",
+      "stack": 100,
       "iconPos": "-792px -924px"
     },
     "poison-capsule": {
       "name": "Poison capsule",
+      "stack": 100,
       "iconPos": "-66px -990px"
     },
     "port": {
       "name": "Port",
+      "stack": 10,
       "iconPos": "-66px -396px"
     },
     "power-armor": {
       "name": "Power armor",
+      "stack": 1,
       "iconPos": "-594px -990px"
     },
     "power-armor-mk2": {
       "name": "Power armor MK2",
+      "stack": 1,
       "iconPos": "-660px -990px"
     },
     "power-armor-mk2-technology": {
       "name": "Power armor MK2",
+      "stack": 50,
       "iconPos": "-990px -1386px"
     },
     "power-armor-technology": {
       "name": "Power armor",
+      "stack": 50,
       "iconPos": "-1320px -1254px"
     },
     "power-switch": {
       "name": "Power switch",
+      "stack": 50,
       "iconPos": "-594px 0px"
     },
     "processing-unit": {
       "name": "Processing unit",
+      "stack": 50,
       "iconPos": "-66px -858px"
     },
     "production-science-pack": {
       "name": "Production science pack",
+      "stack": 50,
       "iconPos": "-924px -858px"
     },
     "production-science-pack-technology": {
       "name": "Production science pack",
+      "stack": 50,
       "iconPos": "-1254px -1254px"
     },
     "productivity-module": {
       "name": "Productivity module",
+      "stack": 50,
       "iconPos": "-198px -726px"
     },
     "productivity-module-2": {
       "name": "Productivity module 2",
+      "stack": 50,
       "iconPos": "-264px -726px"
     },
     "productivity-module-2-technology": {
       "name": "Productivity module 2",
+      "stack": 50,
       "iconPos": "-462px -1320px"
     },
     "productivity-module-3": {
       "name": "Productivity module 3",
+      "stack": 50,
       "iconPos": "-330px -726px"
     },
     "productivity-module-3-technology": {
       "name": "Productivity module 3",
+      "stack": 50,
       "iconPos": "-132px -1386px"
     },
     "productivity-module-technology": {
       "name": "Productivity module",
+      "stack": 50,
       "iconPos": "-66px -1254px"
     },
     "programmable-speaker": {
       "name": "Programmable speaker",
+      "stack": 50,
       "iconPos": "-594px -66px"
     },
     "pump": {
       "name": "Pump",
+      "stack": 50,
       "iconPos": "-330px -198px"
     },
     "pumpjack": {
       "name": "Pumpjack",
+      "stack": 20,
       "iconPos": "-660px -528px"
     },
     "radar": {
       "name": "Radar",
+      "stack": 50,
       "iconPos": "-66px -1056px"
     },
     "rail": {
       "name": "Rail",
+      "stack": 100,
       "iconPos": "-330px -264px"
     },
     "rail-chain-signal": {
       "name": "Rail chain signal",
+      "stack": 50,
       "iconPos": "-330px -330px"
     },
     "rail-signal": {
       "name": "Rail signal",
+      "stack": 50,
       "iconPos": "-264px -330px"
     },
     "rail-signals": {
       "name": "Rail signals",
+      "stack": 50,
       "iconPos": "-528px -1188px"
     },
     "railway": {
       "name": "Railway",
+      "stack": 50,
       "iconPos": "-396px -1188px"
     },
     "raw-fish": {
       "name": "Raw fish",
+      "stack": 100,
       "iconPos": "-792px -396px"
     },
     "red-wire": {
       "name": "Red wire",
+      "stack": 200,
       "iconPos": "-264px -528px"
     },
     "refined-concrete": {
       "name": "Refined concrete",
+      "stack": 50,
       "iconPos": "-594px -330px"
     },
     "refined-flammables-1": {
       "name": "Refined flammables 1",
+      "stack": 50,
       "iconPos": "-1320px -1056px"
     },
     "refined-flammables-2": {
-      "name": "Refined flammables 2"
+      "name": "Refined flammables 2",
+      "stack": 50
     },
     "refined-flammables-3": {
-      "name": "Refined flammables 3"
+      "name": "Refined flammables 3",
+      "stack": 50
     },
     "refined-flammables-4": {
-      "name": "Refined flammables 4"
+      "name": "Refined flammables 4",
+      "stack": 50
     },
     "refined-flammables-5": {
-      "name": "Refined flammables 5"
+      "name": "Refined flammables 5",
+      "stack": 50
     },
     "refined-flammables-6": {
-      "name": "Refined flammables 6"
+      "name": "Refined flammables 6",
+      "stack": 50
     },
     "refined-flammables-7": {
-      "name": "Refined flammables"
+      "name": "Refined flammables",
+      "stack": 50
     },
     "refined-hazard-concrete": {
       "name": "Refined hazard concrete",
+      "stack": 50,
       "iconPos": "-594px -396px"
     },
     "repair-pack": {
       "name": "Repair pack",
+      "stack": 100,
       "iconPos": "-66px -594px"
     },
     "research-speed-1": {
       "name": "Lab research speed 1",
+      "stack": 50,
       "iconPos": "-660px -1188px"
     },
     "research-speed-2": {
-      "name": "Lab research speed 2"
+      "name": "Lab research speed 2",
+      "stack": 50
     },
     "research-speed-3": {
-      "name": "Lab research speed 3"
+      "name": "Lab research speed 3",
+      "stack": 50
     },
     "research-speed-4": {
-      "name": "Lab research speed 4"
+      "name": "Lab research speed 4",
+      "stack": 50
     },
     "research-speed-5": {
-      "name": "Lab research speed 5"
+      "name": "Lab research speed 5",
+      "stack": 50
     },
     "research-speed-6": {
-      "name": "Lab research speed 6"
+      "name": "Lab research speed 6",
+      "stack": 50
     },
     "roboport": {
       "name": "Roboport",
+      "stack": 10,
       "iconPos": "-528px -264px"
     },
     "robotics": {
       "name": "Robotics",
+      "stack": 50,
       "iconPos": "-1320px -330px"
     },
     "rocket": {
       "name": "Rocket",
+      "stack": 100,
       "iconPos": "-990px -594px"
     },
     "rocket-control-unit": {
       "name": "Rocket control unit",
+      "stack": 10,
       "iconPos": "-330px -858px"
     },
     "rocket-control-unit-technology": {
       "name": "Rocket control unit",
+      "stack": 50,
       "iconPos": "-264px -1386px"
     },
     "rocket-fuel": {
       "name": "Rocket fuel",
+      "stack": 10,
       "iconPos": "-528px -858px"
     },
     "rocket-fuel-technology": {
       "name": "Rocket fuel",
+      "stack": 50,
       "iconPos": "-660px -1320px"
     },
     "rocket-launcher": {
       "name": "Rocket launcher",
+      "stack": 5,
       "iconPos": "-396px -924px"
     },
     "rocket-part": {
       "name": "Rocket part",
+      "stack": 5,
       "iconPos": "-594px -858px"
     },
     "rocket-silo": {
       "name": "Rocket silo",
+      "stack": 1,
       "iconPos": "-396px -726px"
     },
     "rocket-silo-technology": {
       "name": "Rocket silo",
+      "stack": 50,
       "iconPos": "-1122px -1386px"
     },
     "rocketry": {
       "name": "Rocketry",
+      "stack": 50,
       "iconPos": "-1320px -990px"
     },
     "satellite": {
       "name": "Satellite",
+      "stack": 1,
       "iconPos": "-462px -726px"
     },
     "shotgun": {
       "name": "Shotgun",
+      "stack": 5,
       "iconPos": "-264px -924px"
     },
     "shotgun-shell": {
       "name": "Shotgun shells",
+      "stack": 100,
       "iconPos": "-858px -924px"
     },
     "slowdown-capsule": {
       "name": "Slowdown capsule",
+      "stack": 100,
       "iconPos": "-132px -990px"
     },
     "small-electric-pole": {
       "name": "Small electric pole",
+      "stack": 50,
       "iconPos": "-66px -264px"
     },
     "small-lamp": {
       "name": "Small lamp",
+      "stack": 50,
       "iconPos": "-66px -528px"
     },
     "solar-energy": {
       "name": "Solar energy",
+      "stack": 50,
       "iconPos": "-1188px -990px"
     },
     "solar-panel": {
       "name": "Solar panel",
+      "stack": 50,
       "iconPos": "-264px -594px"
     },
     "solar-panel-equipment": {
       "name": "Portable solar panel",
+      "stack": 20,
       "iconPos": "-726px -990px"
     },
     "solar-panel-equipment-technology": {
       "name": "Portable solar panel",
+      "stack": 50,
       "iconPos": "-330px -1320px"
     },
     "solid-fuel": {
       "name": "Solid fuel",
+      "stack": 25,
       "iconPos": "-330px -792px"
     },
     "sp-spiderling": {
       "name": "Spiderling",
+      "stack": 1,
       "iconPos": "-462px -396px"
     },
     "sp-spiderling-technology": {
       "name": "Spiderling",
+      "stack": 50,
       "iconPos": "-528px -1254px"
     },
     "sp-spidertron-automation": {
       "name": "Spidertron automation",
+      "stack": 50,
       "iconPos": "-594px -1254px"
     },
     "sp-spidertron-dock": {
       "name": "Spidertron dock",
+      "stack": 50,
       "iconPos": "-132px -462px"
     },
     "space-science-pack": {
       "name": "Space science pack",
+      "stack": 50,
       "iconPos": "-66px -924px"
     },
     "space-science-pack-technology": {
       "name": "Space science pack",
+      "stack": 50,
       "iconPos": "-462px -1386px"
     },
     "speed-module": {
       "name": "Speed module",
+      "stack": 50,
       "iconPos": "-726px -528px"
     },
     "speed-module-2": {
       "name": "Speed module 2",
+      "stack": 50,
       "iconPos": "-726px -594px"
     },
     "speed-module-2-technology": {
       "name": "Speed module 2",
+      "stack": 50,
       "iconPos": "-396px -1320px"
     },
     "speed-module-3": {
       "name": "Speed module 3",
+      "stack": 50,
       "iconPos": "-726px -660px"
     },
     "speed-module-3-technology": {
       "name": "Speed module 3",
+      "stack": 50,
       "iconPos": "-66px -1386px"
     },
     "speed-module-technology": {
       "name": "Speed module",
+      "stack": 50,
       "iconPos": "0px -1254px"
     },
     "spidertron": {
       "name": "Spidertron",
+      "stack": 1,
       "iconPos": "0px -462px"
     },
     "spidertron-remote": {
       "name": "Spidertron remote",
+      "stack": 1,
       "iconPos": "-66px -462px"
     },
     "spidertron-technology": {
       "name": "Spidertron",
+      "stack": 50,
       "iconPos": "-726px -1386px"
     },
     "splitter": {
       "name": "Splitter",
+      "stack": 50,
       "iconPos": "-198px -132px"
     },
     "stack-filter-inserter": {
       "name": "Stack filter inserter",
+      "stack": 50,
       "iconPos": "0px -264px"
     },
     "stack-inserter": {
       "name": "Stack inserter",
+      "stack": 50,
       "iconPos": "-264px -198px"
     },
     "stack-inserter-technology": {
       "name": "Stack inserter",
+      "stack": 50,
       "iconPos": "-1254px -528px"
     },
     "steam": {
@@ -2219,94 +2754,118 @@
     },
     "steam-engine": {
       "name": "Steam engine",
+      "stack": 10,
       "iconPos": "-198px -594px"
     },
     "steam-turbine": {
       "name": "Steam turbine",
+      "stack": 10,
       "iconPos": "-660px -66px"
     },
     "steel-axe": {
       "name": "Steel axe",
+      "stack": 50,
       "iconPos": "-1188px -396px"
     },
     "steel-chest": {
       "name": "Steel chest",
+      "stack": 50,
       "iconPos": "0px -66px"
     },
     "steel-furnace": {
       "name": "Steel furnace",
+      "stack": 50,
       "iconPos": "-132px -660px"
     },
     "steel-plate": {
       "name": "Steel plate",
+      "stack": 50,
       "iconPos": "-396px -792px"
     },
     "steel-processing": {
       "name": "Steel processing",
+      "stack": 50,
       "iconPos": "-1188px -330px"
     },
     "stone": {
       "name": "Stone",
+      "stack": 25,
       "iconPos": "-726px -726px"
     },
     "stone-brick": {
       "name": "Stone brick",
+      "stack": 50,
       "iconPos": "-594px -132px"
     },
     "stone-furnace": {
       "name": "Stone furnace",
+      "stack": 50,
       "iconPos": "-66px -660px"
     },
     "stone-wall": {
       "name": "Wall",
+      "stack": 100,
       "iconPos": "-1056px -594px"
     },
     "stone-wall-technology": {
       "name": "Stone wall",
+      "stack": 50,
       "iconPos": "-1188px -198px"
     },
     "storage-tank": {
       "name": "Storage tank",
+      "stack": 50,
       "iconPos": "-66px -66px"
     },
     "stronger-explosives-1": {
       "name": "Stronger explosives 1",
+      "stack": 50,
       "iconPos": "-726px -1188px"
     },
     "stronger-explosives-2": {
       "name": "Stronger explosives 2",
+      "stack": 50,
       "iconPos": "-264px -1254px"
     },
     "stronger-explosives-3": {
       "name": "Stronger explosives 3",
+      "stack": 50,
       "iconPos": "-1386px -396px"
     },
     "stronger-explosives-4": {
-      "name": "Stronger explosives 4"
+      "name": "Stronger explosives 4",
+      "stack": 50
     },
     "stronger-explosives-5": {
-      "name": "Stronger explosives 5"
+      "name": "Stronger explosives 5",
+      "stack": 50
     },
     "stronger-explosives-6": {
-      "name": "Stronger explosives 6"
+      "name": "Stronger explosives 6",
+      "stack": 50
     },
     "stronger-explosives-7": {
-      "name": "Stronger explosives"
+      "name": "Stronger explosives",
+      "stack": 50
     },
     "submachine-gun": {
       "name": "Submachine gun",
+      "stack": 5,
       "iconPos": "-198px -924px"
     },
     "substation": {
       "name": "Substation",
+      "stack": 50,
       "iconPos": "-264px -264px"
     },
     "sulfur": {
       "name": "Sulfur",
+      "stack": 25,
       "iconPos": "-726px -792px"
     },
     "sulfur-processing": {
       "name": "Sulfur processing",
+      "stack": 50,
       "iconPos": "-1254px -792px"
     },
     "sulfuric-acid": {
@@ -2316,82 +2875,102 @@
     "sulfuric-acid-barrel": {
       "name": "Sulfuric acid[color=191,165,25] ■[/color] barrel",
       "labId": null,
-      "iconPos": "-726px -1056px"
+      "iconPos": "-726px -1056px",
+      "contained": true
     },
     "tank": {
       "name": "Tank",
+      "stack": 1,
       "iconPos": "-462px -132px"
     },
     "tank_ship": {
       "name": "Tanker ships",
+      "stack": 50,
       "iconPos": "-1254px -396px"
     },
     "tank-technology": {
       "name": "Tank",
+      "stack": 50,
       "iconPos": "-1386px -198px"
     },
     "titanium-ore": {
       "name": "Titanium ore",
+      "stack": 15,
       "iconPos": "-792px -528px"
     },
     "titanium-plate": {
       "name": "Titanium plate",
+      "stack": 50,
       "iconPos": "-198px -792px"
     },
     "titanium-processing": {
       "name": "Titanium Processing",
+      "stack": 50,
       "iconPos": "-1122px -1254px"
     },
     "toolbelt": {
       "name": "Toolbelt",
+      "stack": 50,
       "iconPos": "-594px -1188px"
     },
     "train-stop": {
       "name": "Train stop",
+      "stack": 10,
       "iconPos": "-198px -330px"
     },
     "transport-belt": {
       "name": "Transport belt",
+      "stack": 100,
       "iconPos": "-132px -66px"
     },
     "underground-belt": {
       "name": "Underground belt",
+      "stack": 50,
       "iconPos": "-132px -132px"
     },
     "uranium-235": {
       "name": "Uranium-235",
+      "stack": 25,
       "iconPos": "-792px -858px"
     },
     "uranium-238": {
       "name": "Uranium-238",
+      "stack": 25,
       "iconPos": "-858px -858px"
     },
     "uranium-ammo": {
       "name": "Uranium ammo",
+      "stack": 50,
       "iconPos": "-792px -1386px"
     },
     "uranium-cannon-shell": {
       "name": "Uranium cannon shell",
+      "stack": 100,
       "iconPos": "-990px -264px"
     },
     "uranium-fuel-cell": {
       "name": "Uranium fuel cell",
+      "stack": 10,
       "iconPos": "-924px -132px"
     },
     "uranium-ore": {
       "name": "Uranium ore",
+      "stack": 15,
       "iconPos": "-792px -132px"
     },
     "uranium-processing-technology": {
       "name": "Uranium processing",
+      "stack": 50,
       "iconPos": "-1320px -1122px"
     },
     "uranium-rounds-magazine": {
       "name": "Uranium rounds magazine",
+      "stack": 100,
       "iconPos": "-726px -924px"
     },
     "used-up-breeder-fuel-cell": {
       "name": "Used-up breeder fuel cell",
+      "stack": 5,
       "iconPos": "-924px -462px"
     },
     "used-up-breeder-fuel-cell-solution": {
@@ -2401,14 +2980,17 @@
     "used-up-breeder-fuel-cell-solution-barrel": {
       "name": "Plutonium-rich nuclear waste solution[color=127,102,153] ■[/color] barrel",
       "labId": null,
-      "iconPos": "-198px -1056px"
+      "iconPos": "-198px -1056px",
+      "contained": true
     },
     "used-up-MOX-fuel": {
       "name": "Used up MOX fuel",
+      "stack": 10,
       "iconPos": "-924px -396px"
     },
     "used-up-uranium-fuel-cell": {
       "name": "Used-up uranium fuel cell",
+      "stack": 10,
       "iconPos": "-924px -330px"
     },
     "used-up-uranium-fuel-cell-solution": {
@@ -2418,14 +3000,17 @@
     "used-up-uranium-fuel-cell-solution-barrel": {
       "name": "Uranium nuclear waste solution[color=140,153,102] ■[/color] barrel",
       "labId": null,
-      "iconPos": "-264px -1056px"
+      "iconPos": "-264px -1056px",
+      "contained": true
     },
     "utility-science-pack": {
       "name": "Utility science pack",
+      "stack": 50,
       "iconPos": "0px -924px"
     },
     "utility-science-pack-technology": {
       "name": "Utility science pack",
+      "stack": 50,
       "iconPos": "-1320px 0px"
     },
     "water": {
@@ -2434,82 +3019,104 @@
     },
     "water_transport": {
       "name": "Water transport",
+      "stack": 50,
       "iconPos": "-1254px -66px"
     },
     "water_transport_signals": {
       "name": "Water transport signals",
+      "stack": 50,
       "iconPos": "-1254px -330px"
     },
     "water-barrel": {
       "name": "Water[color=0,86,153] ■[/color] barrel",
       "labId": null,
-      "iconPos": "-330px -1056px"
+      "iconPos": "-330px -1056px",
+      "contained": true
     },
     "waterfill-item": {
       "name": "Waterfill",
+      "stack": 100,
       "iconPos": "-594px -528px"
     },
     "waterfill-tech": {
       "name": "Waterfill",
+      "stack": 50,
       "iconPos": "-792px -1188px"
     },
     "weapon-shooting-speed-1": {
       "name": "Weapon shooting speed 1",
+      "stack": 50,
       "iconPos": "-1188px -528px"
     },
     "weapon-shooting-speed-2": {
-      "name": "Weapon shooting speed 2"
+      "name": "Weapon shooting speed 2",
+      "stack": 50
     },
     "weapon-shooting-speed-3": {
       "name": "Weapon shooting speed 3",
+      "stack": 50,
       "iconPos": "-330px -1254px"
     },
     "weapon-shooting-speed-4": {
-      "name": "Weapon shooting speed 4"
+      "name": "Weapon shooting speed 4",
+      "stack": 50
     },
     "weapon-shooting-speed-5": {
       "name": "Weapon shooting speed 5",
+      "stack": 50,
       "iconPos": "-1386px -528px"
     },
     "weapon-shooting-speed-6": {
-      "name": "Weapon shooting speed 6"
+      "name": "Weapon shooting speed 6",
+      "stack": 50
     },
     "wood": {
       "name": "Wood",
+      "stack": 50,
       "iconPos": "-594px -726px"
     },
     "wooden-chest": {
       "name": "Wooden chest",
+      "stack": 50,
       "iconPos": "0px 0px"
     },
     "worker-robots-speed-1": {
       "name": "Worker robot speed 1",
+      "stack": 50,
       "iconPos": "-1320px -594px"
     },
     "worker-robots-speed-2": {
-      "name": "Worker robot speed 2"
+      "name": "Worker robot speed 2",
+      "stack": 50
     },
     "worker-robots-speed-3": {
-      "name": "Worker robot speed 3"
+      "name": "Worker robot speed 3",
+      "stack": 50
     },
     "worker-robots-speed-4": {
-      "name": "Worker robot speed 4"
+      "name": "Worker robot speed 4",
+      "stack": 50
     },
     "worker-robots-speed-5": {
-      "name": "Worker robot speed 5"
+      "name": "Worker robot speed 5",
+      "stack": 50
     },
     "worker-robots-speed-6": {
-      "name": "Worker robot speed"
+      "name": "Worker robot speed",
+      "stack": 50
     },
     "worker-robots-storage-1": {
       "name": "Worker robot cargo size 1",
+      "stack": 50,
       "iconPos": "-1320px -660px"
     },
     "worker-robots-storage-2": {
-      "name": "Worker robot cargo size 2"
+      "name": "Worker robot cargo size 2",
+      "stack": 50
     },
     "worker-robots-storage-3": {
-      "name": "Worker robot cargo size 3"
+      "name": "Worker robot cargo size 3",
+      "stack": 50
     }
   }
 }

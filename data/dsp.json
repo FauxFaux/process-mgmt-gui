@@ -3,31 +3,37 @@
     "Accumulator": {
       "name": "Accumulator",
       "labId": "accumulator",
+      "stack": 50,
       "iconPos": "-320px -384px"
     },
     "Accumulator_Full": {
       "name": "Accumulator (full)",
       "labId": "accumulator-full",
+      "stack": 50,
       "iconPos": "-384px -384px"
     },
     "Advanced_Mining_Machine": {
       "name": "Advanced Mining Machine",
       "labId": "advanced-mining-machine",
+      "stack": 30,
       "iconPos": "-1088px -320px"
     },
     "Annihilation_Constraint_Sphere": {
       "name": "Annihilation Constraint Sphere",
       "labId": "annihilation-constraint-sphere",
+      "stack": 20,
       "iconPos": "-1344px -128px"
     },
     "Antimatter": {
       "name": "Antimatter",
       "labId": "antimatter",
+      "stack": 20,
       "iconPos": "-256px -128px"
     },
     "Antimatter_Fuel_Rod": {
       "name": "Antimatter Fuel Rod",
       "labId": "antimatter-fuel-rod",
+      "stack": 30,
       "iconPos": "-512px -128px"
     },
     "Applied_Superconductor": {
@@ -38,11 +44,13 @@
     "Arc_Smelter": {
       "name": "Arc Smelter",
       "labId": "arc-smelter",
+      "stack": 50,
       "iconPos": "-1216px -320px"
     },
     "Artificial_Star": {
       "name": "Artificial Star",
       "labId": "artificial-star",
+      "stack": 20,
       "iconPos": "-768px -384px"
     },
     "Artificial_Star_Technology": {
@@ -53,16 +61,19 @@
     "Assembling_Machine_1": {
       "name": "Assembling Machine Mk.I",
       "labId": "assembling-machine-1",
+      "stack": 50,
       "iconPos": "-320px -320px"
     },
     "Assembling_Machine_2": {
       "name": "Assembling Machine Mk.II",
       "labId": "assembling-machine-2",
+      "stack": 50,
       "iconPos": "-384px -320px"
     },
     "Assembling_Machine_3": {
       "name": "Assembling Machine Mk.III",
       "labId": "assembling-machine-3",
+      "stack": 50,
       "iconPos": "-448px -320px"
     },
     "Automatic_Metallurgy": {
@@ -73,6 +84,7 @@
     "Automatic_Piler": {
       "name": "Automatic Piler",
       "labId": "automatic-piler",
+      "stack": 50,
       "iconPos": "-1344px -256px"
     },
     "Basic_Assembling_Processes": {
@@ -92,48 +104,59 @@
     },
     "Belt_St2_1": {
       "name": "Conveyor Belt MK.I (2-stack)",
-      "labId": "belt-st2-1"
+      "labId": "belt-st2-1",
+      "stack": 300
     },
     "Belt_St2_2": {
       "name": "Conveyor Belt MK.II (2-stack)",
-      "labId": "belt-st2-2"
+      "labId": "belt-st2-2",
+      "stack": 300
     },
     "Belt_St2_3": {
       "name": "Conveyor Belt MK.III (2-stack)",
-      "labId": "belt-st2-3"
+      "labId": "belt-st2-3",
+      "stack": 300
     },
     "Belt_St3_1": {
       "name": "Conveyor Belt MK.I (3-stack)",
-      "labId": "belt-st3-1"
+      "labId": "belt-st3-1",
+      "stack": 300
     },
     "Belt_St3_2": {
       "name": "Conveyor Belt MK.II (3-stack)",
-      "labId": "belt-st3-2"
+      "labId": "belt-st3-2",
+      "stack": 300
     },
     "Belt_St3_3": {
       "name": "Conveyor Belt MK.III (3-stack)",
-      "labId": "belt-st3-3"
+      "labId": "belt-st3-3",
+      "stack": 300
     },
     "Belt_St4_1": {
       "name": "Conveyor Belt MK.I (4-stack)",
-      "labId": "belt-st4-1"
+      "labId": "belt-st4-1",
+      "stack": 300
     },
     "Belt_St4_2": {
       "name": "Conveyor Belt MK.II (4-stack)",
-      "labId": "belt-st4-2"
+      "labId": "belt-st4-2",
+      "stack": 300
     },
     "Belt_St4_3": {
       "name": "Conveyor Belt MK.III (4-stack)",
-      "labId": "belt-st4-3"
+      "labId": "belt-st4-3",
+      "stack": 300
     },
     "Carbon_Nanotube": {
       "name": "Carbon Nanotube",
       "labId": "carbon-nanotube",
+      "stack": 100,
       "iconPos": "-768px -128px"
     },
     "Casimir_Crystal": {
       "name": "Casimir Crystal",
       "labId": "casimir-crystal",
+      "stack": 100,
       "iconPos": "-960px -128px"
     },
     "Casimir_Crystal_Technology": {
@@ -144,16 +167,19 @@
     "Chemical_Plant": {
       "name": "Chemical Plant",
       "labId": "chemical-plant",
+      "stack": 30,
       "iconPos": "-64px -384px"
     },
     "Circuit_Board": {
       "name": "Circuit Board",
       "labId": "circuit-board",
+      "stack": 200,
       "iconPos": "-768px -64px"
     },
     "Coal": {
       "name": "Coal",
       "labId": "coal",
+      "stack": 100,
       "iconPos": "-320px 0px"
     },
     "Communication_Control_1": {
@@ -199,41 +225,49 @@
     "Conveyor_Belt_1": {
       "name": "Conveyor Belt MK.I",
       "labId": "conveyor-belt-1",
+      "stack": 300,
       "iconPos": "-832px -256px"
     },
     "Conveyor_Belt_2": {
       "name": "Conveyor Belt MK.II",
       "labId": "conveyor-belt-2",
+      "stack": 300,
       "iconPos": "-896px -256px"
     },
     "Conveyor_Belt_3": {
       "name": "Conveyor Belt MK.III",
       "labId": "conveyor-belt-3",
+      "stack": 300,
       "iconPos": "-960px -256px"
     },
     "Copper_Ingot": {
       "name": "Copper Ingot",
       "labId": "copper-ingot",
+      "stack": 100,
       "iconPos": "-960px 0px"
     },
     "Copper_Ore": {
       "name": "Copper Ore",
       "labId": "copper-ore",
+      "stack": 100,
       "iconPos": "-64px 0px"
     },
     "Critical_Photon": {
       "name": "Critical Photon",
       "labId": "critical-photon",
+      "stack": 100,
       "iconPos": "-320px -128px"
     },
     "Crude_Oil": {
       "name": "Crude Oil",
       "labId": "crude-oil",
+      "stack": 20,
       "iconPos": "-1408px -64px"
     },
     "Crystal_Silicon": {
       "name": "Crystal Silicon",
       "labId": "crystal-silicon",
+      "stack": 100,
       "iconPos": "-192px -64px"
     },
     "Crystal_Smelting": {
@@ -244,6 +278,7 @@
     "Deuterium": {
       "name": "Deuterium",
       "labId": "deuterium",
+      "stack": 20,
       "iconPos": "-192px -128px"
     },
     "Deuterium_Fractionation_Technology": {
@@ -254,11 +289,13 @@
     "Deuteron_Fuel_Rod": {
       "name": "Deuteron Fuel Rod",
       "labId": "deuteron-fuel-rod",
+      "stack": 30,
       "iconPos": "-448px -128px"
     },
     "Df_Antimatter_Capsule": {
       "name": "Antimatter Capsule",
       "labId": "df-antimatter-capsule",
+      "stack": 100,
       "iconPos": "-1216px -192px"
     },
     "Df_Antimatter_Capsule_Tech": {
@@ -269,6 +306,7 @@
     "Df_Attack_Drone": {
       "name": "Attack Drone",
       "labId": "df-attack-drone",
+      "stack": 100,
       "iconPos": "-256px -256px"
     },
     "Df_Attack_Drone_Tech": {
@@ -309,6 +347,7 @@
     "Df_Battlefield_Analysis_Base": {
       "name": "Battlefield Analysis Base",
       "labId": "df-battlefield-analysis-base",
+      "stack": 20,
       "iconPos": "-192px -448px"
     },
     "Df_Battlefield_Analysis_Base_Tech": {
@@ -394,6 +433,7 @@
     "Df_Combustible_Unit": {
       "name": "Combustible Unit",
       "labId": "df-combustible-unit",
+      "stack": 100,
       "iconPos": "-1024px -128px"
     },
     "Df_Combustible_Unit_Tech": {
@@ -404,11 +444,13 @@
     "Df_Core_Element": {
       "name": "Core Element",
       "labId": "df-core-element",
+      "stack": 50,
       "iconPos": "-704px -256px"
     },
     "Df_Corvette": {
       "name": "Corvette",
       "labId": "df-corvette",
+      "stack": 50,
       "iconPos": "-320px -256px"
     },
     "Df_Corvette_Tech": {
@@ -419,6 +461,7 @@
     "Df_Crystal_Explosive_Unit": {
       "name": "Crystal Explosive Unit",
       "labId": "df-crystal-explosive-unit",
+      "stack": 100,
       "iconPos": "-1152px -128px"
     },
     "Df_Crystal_Explosive_Unit_Tech": {
@@ -429,6 +472,7 @@
     "Df_Crystal_Shell_Set": {
       "name": "Crystal Shell Set",
       "labId": "df-crystal-shell-set",
+      "stack": 100,
       "iconPos": "-1088px -192px"
     },
     "Df_Crystal_Shell_Set_Tech": {
@@ -439,11 +483,13 @@
     "Df_Dark_Fog_Matrix": {
       "name": "Dark Fog Matrix",
       "labId": "df-dark-fog-matrix",
+      "stack": 200,
       "iconPos": "-448px -256px"
     },
     "Df_Destroyer": {
       "name": "Destroyer",
       "labId": "df-destroyer",
+      "stack": 50,
       "iconPos": "-384px -256px"
     },
     "Df_Destroyer_Tech": {
@@ -489,6 +535,7 @@
     "Df_Energy_Shard": {
       "name": "Energy Shard",
       "labId": "df-energy-shard",
+      "stack": 100,
       "iconPos": "-768px -256px"
     },
     "Df_Energy_Shield_1": {
@@ -559,6 +606,7 @@
     "Df_Engine": {
       "name": "Engine",
       "labId": "df-engine",
+      "stack": 200,
       "iconPos": "-1408px -128px"
     },
     "Df_Engine_Tech": {
@@ -599,6 +647,7 @@
     "Df_Explosive_Unit": {
       "name": "Explosive Unit",
       "labId": "df-explosive-unit",
+      "stack": 100,
       "iconPos": "-1088px -128px"
     },
     "Df_Explosive_Unit_Tech": {
@@ -639,11 +688,13 @@
     "Df_Gauss_Turret": {
       "name": "Gauss Turret",
       "labId": "df-gauss-turret",
+      "stack": 50,
       "iconPos": "-1152px -384px"
     },
     "Df_Gravity_Missile_Set": {
       "name": "Gravity Missile Set",
       "labId": "df-gravity-missile-set",
+      "stack": 100,
       "iconPos": "-1408px -192px"
     },
     "Df_Gravity_Missile_Set_Tech": {
@@ -694,6 +745,7 @@
     "Df_High_Explosive_Shell_Set": {
       "name": "High-Explosive Shell Set",
       "labId": "df-high-explosive-shell-set",
+      "stack": 100,
       "iconPos": "-1024px -192px"
     },
     "Df_High_Explosive_Shell_Set_Tech": {
@@ -704,6 +756,7 @@
     "Df_Implosion_Cannon": {
       "name": "Implosion Cannon",
       "labId": "df-implosion-cannon",
+      "stack": 50,
       "iconPos": "-1280px -384px"
     },
     "Df_Implosion_Cannon_Tech": {
@@ -714,6 +767,7 @@
     "Df_Jammer_Tower": {
       "name": "Jammer Tower",
       "labId": "df-jammer-tower",
+      "stack": 50,
       "iconPos": "0px -448px"
     },
     "Df_Jammer_Tower_Tech": {
@@ -724,6 +778,7 @@
     "Df_Jamming_Capsule": {
       "name": "Jamming Capsule",
       "labId": "df-jamming-capsule",
+      "stack": 100,
       "iconPos": "0px -256px"
     },
     "Df_Kinetic_Weapon_Damage_1": {
@@ -759,11 +814,13 @@
     "Df_Laser_Turret": {
       "name": "Laser Turret",
       "labId": "df-laser-turret",
+      "stack": 50,
       "iconPos": "-1216px -384px"
     },
     "Df_Magnum_Ammo_Box": {
       "name": "Magnum Ammo Box",
       "labId": "df-magnum-ammo-box",
+      "stack": 100,
       "iconPos": "-768px -192px"
     },
     "Df_Matter_Recombination": {
@@ -774,16 +831,19 @@
     "Df_Matter_Recombinator": {
       "name": "Matter Recombinator",
       "labId": "df-matter-recombinator",
+      "stack": 100,
       "iconPos": "-576px -256px"
     },
     "Df_Missile_Set": {
       "name": "Missile Set",
       "labId": "df-missile-set",
+      "stack": 100,
       "iconPos": "-1280px -192px"
     },
     "Df_Missile_Turret": {
       "name": "Missile Turret",
       "labId": "df-missile-turret",
+      "stack": 50,
       "iconPos": "-1408px -384px"
     },
     "Df_Missile_Turret_Tech": {
@@ -799,11 +859,13 @@
     "Df_Negentropy_Singularity": {
       "name": "Negentropy Singularity",
       "labId": "df-negentropy-singularity",
+      "stack": 50,
       "iconPos": "-640px -256px"
     },
     "Df_Negentropy_Smelter": {
       "name": "Negentropy Smelter",
       "labId": "df-negentropy-smelter",
+      "stack": 50,
       "iconPos": "-1344px -320px"
     },
     "Df_Planetary_Defense_System": {
@@ -839,21 +901,25 @@
     "Df_Planetary_Shield_Generator": {
       "name": "Planetary Shield Generator",
       "labId": "df-planetary-shield-generator",
+      "stack": 20,
       "iconPos": "-128px -448px"
     },
     "Df_Plasma_Capsule": {
       "name": "Plasma Capsule",
       "labId": "df-plasma-capsule",
+      "stack": 100,
       "iconPos": "-1152px -192px"
     },
     "Df_Plasma_Turret": {
       "name": "Plasma Turret",
       "labId": "df-plasma-turret",
+      "stack": 50,
       "iconPos": "-1344px -384px"
     },
     "Df_Plasma_Turret_Sr": {
       "name": "SR Plasma Turret",
       "labId": "df-plasma-turret-sr",
+      "stack": 20,
       "iconPos": "-256px -448px"
     },
     "Df_Plasma_Turret_Tech": {
@@ -864,6 +930,7 @@
     "Df_Precision_Drone": {
       "name": "Precision Drone",
       "labId": "df-precision-drone",
+      "stack": 100,
       "iconPos": "-192px -256px"
     },
     "Df_Precision_Drone_Tech": {
@@ -874,6 +941,7 @@
     "Df_Prototype": {
       "name": "Prototype",
       "labId": "df-prototype",
+      "stack": 100,
       "iconPos": "-128px -256px"
     },
     "Df_Prototype_Tech": {
@@ -884,21 +952,25 @@
     "Df_Recomposing_Assembler": {
       "name": "Re-composing Assembler",
       "labId": "df-recomposing-assembler",
+      "stack": 50,
       "iconPos": "-512px -320px"
     },
     "Df_Self_Evolution_Lab": {
       "name": "Self-evolution Lab",
       "labId": "df-self-evolution-lab",
+      "stack": 50,
       "iconPos": "-1088px -384px"
     },
     "Df_Shell_Set": {
       "name": "Shell Set",
       "labId": "df-shell-set",
+      "stack": 100,
       "iconPos": "-960px -192px"
     },
     "Df_Signal_Tower": {
       "name": "Signal Tower",
       "labId": "df-signal-tower",
+      "stack": 20,
       "iconPos": "-64px -448px"
     },
     "Df_Signal_Tower_Tech": {
@@ -909,6 +981,7 @@
     "Df_Silicon_Based_Neuron": {
       "name": "Silicon-based Neuron",
       "labId": "df-silicon-based-neuron",
+      "stack": 100,
       "iconPos": "-512px -256px"
     },
     "Df_Space_Fleet_Expansion_1": {
@@ -949,11 +1022,13 @@
     "Df_Strange_Annihilation_Fuel_Rod": {
       "name": "Strange Annihilation Fuel Rod",
       "labId": "df-strange-annihilation-fuel-rod",
+      "stack": 50,
       "iconPos": "-576px -128px"
     },
     "Df_Superalloy_Ammo_Box": {
       "name": "Superalloy Ammo Box",
       "labId": "df-superalloy-ammo-box",
+      "stack": 100,
       "iconPos": "-896px -192px"
     },
     "Df_Superalloy_Ammo_Box_Tech": {
@@ -964,6 +1039,7 @@
     "Df_Supersonic_Missile_Set": {
       "name": "Supersonic Missile Set",
       "labId": "df-supersonic-missile-set",
+      "stack": 100,
       "iconPos": "-1344px -192px"
     },
     "Df_Supersonic_Missile_Set_Tech": {
@@ -974,6 +1050,7 @@
     "Df_Suppressing_Capsule": {
       "name": "Suppressing Capsule",
       "labId": "df-suppressing-capsule",
+      "stack": 100,
       "iconPos": "-64px -256px"
     },
     "Df_Suppressing_Capsule_Tech": {
@@ -984,6 +1061,7 @@
     "Df_Titanium_Ammo_Box": {
       "name": "Titanium Ammo Box",
       "labId": "df-titanium-ammo-box",
+      "stack": 100,
       "iconPos": "-832px -192px"
     },
     "Df_Titanium_Ammo_Box_Tech": {
@@ -999,6 +1077,7 @@
     "Diamond": {
       "name": "Diamond",
       "labId": "diamond",
+      "stack": 100,
       "iconPos": "-128px -64px"
     },
     "Dirac_Inversion_Mechanism": {
@@ -1099,6 +1178,7 @@
     "Dyson_Sphere_Component": {
       "name": "Dyson Sphere Component",
       "labId": "dyson-sphere-component",
+      "stack": 100,
       "iconPos": "-384px -192px"
     },
     "Dyson_Sphere_Stress_System_1": {
@@ -1109,6 +1189,7 @@
     "Electric_Motor": {
       "name": "Electric Motor",
       "labId": "electric-motor",
+      "stack": 100,
       "iconPos": "-448px -64px"
     },
     "Electromagnetic_Drive": {
@@ -1119,6 +1200,7 @@
     "Electromagnetic_Matrix": {
       "name": "Electromagnetic Matrix",
       "labId": "electromagnetic-matrix",
+      "stack": 200,
       "iconPos": "-320px -448px"
     },
     "Electromagnetic_Matrix_Technology": {
@@ -1129,6 +1211,7 @@
     "Electromagnetic_Turbine": {
       "name": "Electromagnetic Turbine",
       "labId": "electromagnetic-turbine",
+      "stack": 100,
       "iconPos": "-512px -64px"
     },
     "Electromagnetism": {
@@ -1139,11 +1222,13 @@
     "Em_Rail_Ejector": {
       "name": "EM-Rail Ejector",
       "labId": "em-rail-ejector",
+      "stack": 30,
       "iconPos": "-448px -384px"
     },
     "Energetic_Graphite": {
       "name": "Energetic Graphite",
       "labId": "energetic-graphite",
+      "stack": 100,
       "iconPos": "-1216px 0px"
     },
     "Energy_Circuit_1": {
@@ -1179,11 +1264,13 @@
     "Energy_Exchanger": {
       "name": "Energy Exchanger",
       "labId": "energy-exchanger",
+      "stack": 20,
       "iconPos": "-640px -384px"
     },
     "Energy_Matrix": {
       "name": "Energy Matrix",
       "labId": "energy-matrix",
+      "stack": 200,
       "iconPos": "-384px -448px"
     },
     "Energy_Matrix_Technology": {
@@ -1204,6 +1291,7 @@
     "Fire_Ice": {
       "name": "Fire Ice",
       "labId": "fire-ice",
+      "stack": 50,
       "iconPos": "-512px 0px"
     },
     "Fluid_Storage_Encapsulation": {
@@ -1214,21 +1302,25 @@
     "Foundation": {
       "name": "Foundation",
       "labId": "foundation",
+      "stack": 1000,
       "iconPos": "-512px -192px"
     },
     "Fractal_Silicon": {
       "name": "Fractal Silicon",
       "labId": "fractal-silicon",
+      "stack": 50,
       "iconPos": "-640px 0px"
     },
     "Fractionator": {
       "name": "Fractionator",
       "labId": "fractionator",
+      "stack": 30,
       "iconPos": "-192px -384px"
     },
     "Frame_Material": {
       "name": "Frame Material",
       "labId": "frame-material",
+      "stack": 100,
       "iconPos": "-320px -192px"
     },
     "Gas_Giants_Exploitation": {
@@ -1239,6 +1331,7 @@
     "Gear": {
       "name": "Gear",
       "labId": "gear",
+      "stack": 200,
       "iconPos": "-256px -64px"
     },
     "Geothermal_Extraction": {
@@ -1249,16 +1342,19 @@
     "Geothermal_Power_Station": {
       "name": "Geothermal Power Station",
       "labId": "geothermal-power-station",
+      "stack": 50,
       "iconPos": "-960px -320px"
     },
     "Glass": {
       "name": "Glass",
       "labId": "glass",
+      "stack": 100,
       "iconPos": "-1408px 0px"
     },
     "Graphene": {
       "name": "Graphene",
       "labId": "graphene",
+      "stack": 100,
       "iconPos": "-704px -128px"
     },
     "Gravitational_Wave_Refraction": {
@@ -1269,11 +1365,13 @@
     "Graviton_Lens": {
       "name": "Graviton Lens",
       "labId": "graviton-lens",
+      "stack": 100,
       "iconPos": "-1216px -128px"
     },
     "Gravity_Matrix": {
       "name": "Gravity Matrix",
       "labId": "gravity-matrix",
+      "stack": 200,
       "iconPos": "-576px -448px"
     },
     "Gravity_Matrix_Technology": {
@@ -1294,6 +1392,7 @@
     "High_Purity_Silicon": {
       "name": "High-purity Silicon",
       "labId": "high-purity-silicon",
+      "stack": 100,
       "iconPos": "-1024px 0px"
     },
     "High_Speed_Assembling_Processes": {
@@ -1329,11 +1428,13 @@
     "Hydrogen": {
       "name": "Hydrogen",
       "labId": "hydrogen",
+      "stack": 20,
       "iconPos": "-128px -128px"
     },
     "Hydrogen_Fuel_Rod": {
       "name": "Hydrogen Fuel Rod",
       "labId": "hydrogen-fuel-rod",
+      "stack": 30,
       "iconPos": "-384px -128px"
     },
     "Hydrogen_Fuel_Rod_Technology": {
@@ -1349,6 +1450,7 @@
     "Information_Matrix": {
       "name": "Information Matrix",
       "labId": "information-matrix",
+      "stack": 200,
       "iconPos": "-512px -448px"
     },
     "Information_Matrix_Technology": {
@@ -1364,6 +1466,7 @@
     "Interstellar_Logistics_Station": {
       "name": "Interstellar Logistics Station",
       "labId": "interstellar-logistics-station",
+      "stack": 10,
       "iconPos": "-896px -384px"
     },
     "Interstellar_Logistics_System": {
@@ -1414,26 +1517,31 @@
     "Iron_Ingot": {
       "name": "Iron Ingot",
       "labId": "iron-ingot",
+      "stack": 100,
       "iconPos": "-896px 0px"
     },
     "Iron_Ore": {
       "name": "Iron Ore",
       "labId": "iron-ore",
+      "stack": 100,
       "iconPos": "0px 0px"
     },
     "Kimberlite_Ore": {
       "name": "Kimberlite Ore",
       "labId": "kimberlite-ore",
+      "stack": 50,
       "iconPos": "-576px 0px"
     },
     "Log": {
       "name": "Log",
       "labId": "log",
+      "stack": 100,
       "iconPos": "-384px 0px"
     },
     "Logistics_Bot": {
       "name": "Logistics Bot",
       "labId": "logistics-bot",
+      "stack": 200,
       "iconPos": "-128px -192px"
     },
     "Logistics_Carrier_Capacity_1": {
@@ -1524,11 +1632,13 @@
     "Logistics_Distributor": {
       "name": "Logistics Distributor",
       "labId": "logistics-distributor",
+      "stack": 50,
       "iconPos": "-64px -320px"
     },
     "Logistics_Drone": {
       "name": "Logistics Drone",
       "labId": "logistics-drone",
+      "stack": 200,
       "iconPos": "-192px -192px"
     },
     "Logistics_Station_Integrated_Logistics_1": {
@@ -1549,16 +1659,19 @@
     "Logistics_Vessel": {
       "name": "Interstellar Logistics Vessel",
       "labId": "logistics-vessel",
+      "stack": 50,
       "iconPos": "-256px -192px"
     },
     "Magnet": {
       "name": "Magnet",
       "labId": "magnet",
+      "stack": 200,
       "iconPos": "-320px -64px"
     },
     "Magnetic_Coil": {
       "name": "Magnetic Coil",
       "labId": "magnetic-coil",
+      "stack": 200,
       "iconPos": "-384px -64px"
     },
     "Magnetic_Levitation_Technology": {
@@ -1599,6 +1712,7 @@
     "Matrix_Lab": {
       "name": "Matrix Lab",
       "labId": "matrix-lab",
+      "stack": 50,
       "iconPos": "-1024px -384px"
     },
     "Mecha_Core_1": {
@@ -1679,6 +1793,7 @@
     "Microcrystalline_Component": {
       "name": "Microcrystalline Component",
       "labId": "microcrystalline-component",
+      "stack": 200,
       "iconPos": "-960px -64px"
     },
     "Mini_Fusion_Power_Generation": {
@@ -1689,11 +1804,13 @@
     "Mini_Fusion_Power_Plant": {
       "name": "Mini Fusion Power Plant",
       "labId": "mini-fusion-power-plant",
+      "stack": 50,
       "iconPos": "-896px -320px"
     },
     "Miniature_Particle_Collider": {
       "name": "Miniature Particle Collider",
       "labId": "miniature-particle-collider",
+      "stack": 20,
       "iconPos": "-704px -384px"
     },
     "Miniature_Particle_Collider_Technology": {
@@ -1704,6 +1821,7 @@
     "Mining_Machine": {
       "name": "Mining Machine",
       "labId": "mining-machine",
+      "stack": 50,
       "iconPos": "-1024px -320px"
     },
     "Mission_Completed": {
@@ -1714,36 +1832,43 @@
     "Oil_Extractor": {
       "name": "Oil Extractor",
       "labId": "oil-extractor",
+      "stack": 20,
       "iconPos": "-1408px -320px"
     },
     "Oil_Refinery": {
       "name": "Oil Refinery",
       "labId": "oil-refinery",
+      "stack": 30,
       "iconPos": "0px -384px"
     },
     "Optical_Grating_Crystal": {
       "name": "Grating Crystal",
       "labId": "optical-grating-crystal",
+      "stack": 50,
       "iconPos": "-704px 0px"
     },
     "Orbital_Collector": {
       "name": "Orbital Collector",
       "labId": "orbital-collector",
+      "stack": 10,
       "iconPos": "-960px -384px"
     },
     "Organic_Crystal": {
       "name": "Organic Crystal",
       "labId": "organic-crystal",
+      "stack": 100,
       "iconPos": "-832px -128px"
     },
     "Particle_Broadband": {
       "name": "Particle Broadband",
       "labId": "particle-broadband",
+      "stack": 200,
       "iconPos": "-1088px -64px"
     },
     "Particle_Container": {
       "name": "Particle Container",
       "labId": "particle-container",
+      "stack": 100,
       "iconPos": "-640px -64px"
     },
     "Particle_Control_Technology": {
@@ -1754,6 +1879,7 @@
     "Photon_Combiner": {
       "name": "Photon Combiner",
       "labId": "photon-combiner",
+      "stack": 200,
       "iconPos": "-1216px -64px"
     },
     "Photon_Frequency_Conversion": {
@@ -1799,6 +1925,7 @@
     "Plane_Filter": {
       "name": "Plane Filter",
       "labId": "plane-filter",
+      "stack": 200,
       "iconPos": "-1024px -64px"
     },
     "Plane_Filter_Smelting_Technology": {
@@ -1809,6 +1936,7 @@
     "Plane_Smelter": {
       "name": "Plane Smelter",
       "labId": "plane-smelter",
+      "stack": 50,
       "iconPos": "-1280px -320px"
     },
     "Planetary_Ionosphere_Utilization": {
@@ -1819,6 +1947,7 @@
     "Planetary_Logistics_Station": {
       "name": "Planetary Logistics Station",
       "labId": "planetary-logistics-station",
+      "stack": 10,
       "iconPos": "-832px -384px"
     },
     "Planetary_Logistics_System": {
@@ -1829,11 +1958,13 @@
     "Plant_Fuel": {
       "name": "Plant Fuel",
       "labId": "plant-fuel",
+      "stack": 500,
       "iconPos": "-448px 0px"
     },
     "Plasma_Exciter": {
       "name": "Plasma Exciter",
       "labId": "plasma-exciter",
+      "stack": 200,
       "iconPos": "-1152px -64px"
     },
     "Plasma_Extract_Refining": {
@@ -1844,6 +1975,7 @@
     "Plastic": {
       "name": "Plastic",
       "labId": "plastic",
+      "stack": 100,
       "iconPos": "-640px -128px"
     },
     "Polymer_Chemical_Engineering": {
@@ -1854,11 +1986,13 @@
     "Prism": {
       "name": "Prism",
       "labId": "prism",
+      "stack": 100,
       "iconPos": "-64px -64px"
     },
     "Processor": {
       "name": "Processor",
       "labId": "processor",
+      "stack": 200,
       "iconPos": "-832px -64px"
     },
     "Processor_Technology": {
@@ -1869,6 +2003,7 @@
     "Proliferator_1": {
       "name": "Proliferator Mk.I",
       "labId": "proliferator-1",
+      "stack": 200,
       "iconPos": "-576px -192px"
     },
     "Proliferator_1_Products": {
@@ -1889,6 +2024,7 @@
     "Proliferator_2": {
       "name": "Proliferator Mk.II",
       "labId": "proliferator-2",
+      "stack": 200,
       "iconPos": "-640px -192px"
     },
     "Proliferator_2_Products": {
@@ -1909,6 +2045,7 @@
     "Proliferator_3": {
       "name": "Proliferator Mk.III",
       "labId": "proliferator-3",
+      "stack": 200,
       "iconPos": "-704px -192px"
     },
     "Proliferator_3_Products": {
@@ -1929,11 +2066,13 @@
     "Quantum_Chemical_Plant": {
       "name": "Quantum Chemical Plant",
       "labId": "quantum-chemical-plant",
+      "stack": 30,
       "iconPos": "-128px -384px"
     },
     "Quantum_Chip": {
       "name": "Quantum Chip",
       "labId": "quantum-chip",
+      "stack": 200,
       "iconPos": "-896px -64px"
     },
     "Quantum_Chip_Technology": {
@@ -1949,11 +2088,13 @@
     "Ray_Receiver": {
       "name": "Ray Receiver",
       "labId": "ray-receiver",
+      "stack": 20,
       "iconPos": "-512px -384px"
     },
     "Ray_Receiver_Pro": {
       "name": "Ray Receiver (Graviton lens)",
-      "labId": "ray-receiver-pro"
+      "labId": "ray-receiver-pro",
+      "stack": 20
     },
     "Ray_Receiver_Technology": {
       "name": "Ray Receiver",
@@ -2003,6 +2144,7 @@
     "Refined_Oil": {
       "name": "Refined Oil",
       "labId": "refined-oil",
+      "stack": 20,
       "iconPos": "0px -128px"
     },
     "Reforming_Refine_Technology": {
@@ -2013,6 +2155,7 @@
     "Reinforced_Thruster": {
       "name": "Reinforced Thruster",
       "labId": "reinforced-thruster",
+      "stack": 100,
       "iconPos": "-64px -192px"
     },
     "Reinforced_Thruster_Technology": {
@@ -2048,6 +2191,7 @@
     "Satellite_Substation": {
       "name": "Satellite Substation",
       "labId": "satellite-substation",
+      "stack": 30,
       "iconPos": "-704px -320px"
     },
     "Semiconductor_Material": {
@@ -2058,11 +2202,13 @@
     "Silicon_Ore": {
       "name": "Silicon Ore",
       "labId": "silicon-ore",
+      "stack": 100,
       "iconPos": "-128px 0px"
     },
     "Small_Carrier_Rocket": {
       "name": "Small Carrier Rocket",
       "labId": "small-carrier-rocket",
+      "stack": 20,
       "iconPos": "-448px -192px"
     },
     "Smelting_Purification": {
@@ -2078,11 +2224,13 @@
     "Solar_Panel": {
       "name": "Solar Panel",
       "labId": "solar-panel",
+      "stack": 50,
       "iconPos": "-256px -384px"
     },
     "Solar_Sail": {
       "name": "Solar Sail",
       "labId": "solar-sail",
+      "stack": 200,
       "iconPos": "-1280px -64px"
     },
     "Solar_Sail_Life_1": {
@@ -2123,21 +2271,25 @@
     "Sorter_1": {
       "name": "Sorter MK.I",
       "labId": "sorter-1",
+      "stack": 200,
       "iconPos": "-1024px -256px"
     },
     "Sorter_2": {
       "name": "Sorter MK.II",
       "labId": "sorter-2",
+      "stack": 200,
       "iconPos": "-1088px -256px"
     },
     "Sorter_3": {
       "name": "Sorter MK.III",
       "labId": "sorter-3",
+      "stack": 200,
       "iconPos": "-1152px -256px"
     },
     "Sorter_4": {
       "name": "Pile Sorter",
       "labId": "sorter-4",
+      "stack": 200,
       "iconPos": "-1216px -256px"
     },
     "Sorter_Cargo_Integration": {
@@ -2173,26 +2325,31 @@
     "Space_Warper": {
       "name": "Space Warper",
       "labId": "space-warper",
+      "stack": 100,
       "iconPos": "-1280px -128px"
     },
     "Spiniform_Stalagmite_Crystal": {
       "name": "Stalagmite Crystal",
       "labId": "spiniform-stalagmite-crystal",
+      "stack": 50,
       "iconPos": "-768px 0px"
     },
     "Splitter": {
       "name": "Splitter",
       "labId": "splitter",
+      "stack": 50,
       "iconPos": "-1280px -256px"
     },
     "Spray_Coater": {
       "name": "Spray Coater",
       "labId": "spray-coater",
+      "stack": 50,
       "iconPos": "0px -320px"
     },
     "Steel": {
       "name": "Steel",
       "labId": "steel",
+      "stack": 100,
       "iconPos": "-1280px 0px"
     },
     "Steel_Smelting": {
@@ -2203,31 +2360,37 @@
     "Stone": {
       "name": "Stone",
       "labId": "stone",
+      "stack": 100,
       "iconPos": "-256px 0px"
     },
     "Stone_Brick": {
       "name": "Stone Brick",
       "labId": "stone-brick",
+      "stack": 100,
       "iconPos": "-1152px 0px"
     },
     "Storage_1": {
       "name": "Depot MK.I",
       "labId": "storage-1",
+      "stack": 50,
       "iconPos": "-128px -320px"
     },
     "Storage_2": {
       "name": "Depot MK.II",
       "labId": "storage-2",
+      "stack": 50,
       "iconPos": "-192px -320px"
     },
     "Storage_Tank": {
       "name": "Storage Tank",
       "labId": "storage-tank",
+      "stack": 50,
       "iconPos": "-256px -320px"
     },
     "Strange_Matter": {
       "name": "Strange Matter",
       "labId": "strange-matter",
+      "stack": 100,
       "iconPos": "-704px -64px"
     },
     "Strange_Matter_Technology": {
@@ -2238,6 +2401,7 @@
     "Structure_Matrix": {
       "name": "Structure Matrix",
       "labId": "structure-matrix",
+      "stack": 200,
       "iconPos": "-448px -448px"
     },
     "Structure_Matrix_Technology": {
@@ -2248,6 +2412,7 @@
     "Sulfuric_Acid": {
       "name": "Sulfuric Acid",
       "labId": "sulfuric-acid",
+      "stack": 20,
       "iconPos": "-64px -128px"
     },
     "Super_Magnetic_Field_Generator": {
@@ -2258,11 +2423,13 @@
     "Super_Magnetic_Ring": {
       "name": "Super-magnetic Ring",
       "labId": "super-magnetic-ring",
+      "stack": 100,
       "iconPos": "-576px -64px"
     },
     "Tesla_Tower": {
       "name": "Tesla Tower",
       "labId": "tesla-tower",
+      "stack": 100,
       "iconPos": "-576px -320px"
     },
     "Thermal_Power": {
@@ -2273,11 +2440,13 @@
     "Thermal_Power_Plant": {
       "name": "Thermal Power Plant",
       "labId": "thermal-power-plant",
+      "stack": 50,
       "iconPos": "-832px -320px"
     },
     "Thruster": {
       "name": "Thruster",
       "labId": "thruster",
+      "stack": 200,
       "iconPos": "0px -192px"
     },
     "Thruster_Technology": {
@@ -2288,26 +2457,31 @@
     "Titanium_Alloy": {
       "name": "Titanium Alloy",
       "labId": "titanium-alloy",
+      "stack": 100,
       "iconPos": "-1344px 0px"
     },
     "Titanium_Crystal": {
       "name": "Titanium Crystal",
       "labId": "titanium-crystal",
+      "stack": 100,
       "iconPos": "-896px -128px"
     },
     "Titanium_Glass": {
       "name": "Titanium Glass",
       "labId": "titanium-glass",
+      "stack": 100,
       "iconPos": "0px -64px"
     },
     "Titanium_Ingot": {
       "name": "Titanium Ingot",
       "labId": "titanium-ingot",
+      "stack": 100,
       "iconPos": "-1088px 0px"
     },
     "Titanium_Ore": {
       "name": "Titanium Ore",
       "labId": "titanium-ore",
+      "stack": 100,
       "iconPos": "-192px 0px"
     },
     "Titanium_Smelting": {
@@ -2318,11 +2492,13 @@
     "Traffic_Monitor": {
       "name": "Traffic Monitor",
       "labId": "traffic-monitor",
+      "stack": 100,
       "iconPos": "-1408px -256px"
     },
     "Unipolar_Magnet": {
       "name": "Unipolar Magnet",
       "labId": "unipolar-magnet",
+      "stack": 50,
       "iconPos": "-832px 0px"
     },
     "Universe_Exploration_1": {
@@ -2348,6 +2524,7 @@
     "Universe_Matrix": {
       "name": "Universe Matrix",
       "labId": "universe-matrix",
+      "stack": 200,
       "iconPos": "-640px -448px"
     },
     "Universe_Matrix_Technology": {
@@ -2418,6 +2595,7 @@
     "Vertical_Launching_Silo": {
       "name": "Vertical Launching Silo",
       "labId": "vertical-launching-silo",
+      "stack": 10,
       "iconPos": "-576px -384px"
     },
     "Vertical_Launching_Silo_Technology": {
@@ -2428,11 +2606,13 @@
     "Water": {
       "name": "Water",
       "labId": "water",
+      "stack": 20,
       "iconPos": "-1344px -64px"
     },
     "Water_Pump": {
       "name": "Water Pump",
       "labId": "water-pump",
+      "stack": 30,
       "iconPos": "-1152px -320px"
     },
     "Wave_Function_Interference": {
@@ -2443,11 +2623,13 @@
     "Wind_Turbine": {
       "name": "Wind Turbine",
       "labId": "wind-turbine",
+      "stack": 50,
       "iconPos": "-768px -320px"
     },
     "Wireless_Power_Tower": {
       "name": "Wireless Power Tower",
       "labId": "wireless-power-tower",
+      "stack": 100,
       "iconPos": "-640px -320px"
     },
     "X_Ray_Cracking_Technology": {

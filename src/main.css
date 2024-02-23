@@ -8,6 +8,11 @@
     vertical-align: middle;
 }
 
+.icon--contained {
+    border: 3px solid black;
+    border-radius: 9px;
+}
+
 .item--raw {
     font-family: monospace;
 }

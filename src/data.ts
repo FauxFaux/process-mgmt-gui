@@ -10,6 +10,8 @@ export interface LabItem {
   labId?: string | null;
   name: string;
   iconPos?: string;
+  contained?: true;
+  stack?: number;
 }
 
 const ds = (name: string, duration: ModifierStyle, output: ModifierStyle) =>

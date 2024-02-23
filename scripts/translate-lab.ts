@@ -55,6 +55,10 @@ async function main() {
       if (itemId !== item.id) {
         items[itemId].labId = item.id;
       }
+
+      if (item.stack) {
+        items[itemId].stack = item.stack;
+      }
     }
 
     for (const icon of lab.icons) {
@@ -73,6 +77,7 @@ async function main() {
           name: `${items[fluidId].name} ${nameSuffix}`,
           labId: null,
           iconPos: items[fluidId].iconPos,
+          contained: true,
         };
       }
     };

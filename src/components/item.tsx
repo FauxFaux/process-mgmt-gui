@@ -8,9 +8,9 @@ export const Item = (props: { dataSet: DataSet; id: string }) => {
 
   if (lab) {
     return (
-      <span class={'item'}>
+      <span class={'item'} title={`${props.id} (${lab.stack ?? '?'})`}>
         <span
-          className="icon-sprite"
+          className={'icon-sprite ' + (lab.contained ? 'icon--contained' : '')}
           style={`background: url("${props.dataSet.ico}") ${lab.iconPos}`}
         />
         &nbsp;
