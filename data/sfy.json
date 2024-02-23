@@ -884,5 +884,776 @@
       "stack": 50,
       "iconPos": "-320px -768px"
     }
+  },
+  "processes": {
+    "adaptive-control-unit": {
+      "name": "Adaptive Control Unit",
+      "iconPos": "-0px -0px"
+    },
+    "ai-limiter": {
+      "name": "AI Limiter",
+      "iconPos": "-64px -0px"
+    },
+    "alclad-aluminum-sheet": {
+      "name": "Alclad Aluminum Sheet",
+      "iconPos": "-128px -0px"
+    },
+    "alien-dna-capsule": {
+      "name": "Alien DNA Capsule",
+      "iconPos": "-192px -0px"
+    },
+    "alumina-solution": {
+      "name": "Alumina Solution",
+      "iconPos": "-320px -0px"
+    },
+    "alumina-solution-sloppy": {
+      "name": "Sloppy Alumina"
+    },
+    "aluminum-casing": {
+      "name": "Aluminum Casing",
+      "iconPos": "-384px -0px"
+    },
+    "aluminum-casing-alclad": {
+      "name": "Alclad Casing"
+    },
+    "aluminum-ingot": {
+      "name": "Aluminum Ingot",
+      "iconPos": "-448px -0px"
+    },
+    "aluminum-ingot-pure": {
+      "name": "Pure Aluminum Ingot"
+    },
+    "aluminum-scrap": {
+      "name": "Aluminum Scrap",
+      "iconPos": "-512px -0px"
+    },
+    "aluminum-scrap-electrode": {
+      "name": "Electrode Aluminum Scrap"
+    },
+    "aluminum-scrap-instant": {
+      "name": "Instant Scrap"
+    },
+    "assembly-director-system": {
+      "name": "Assembly Director System",
+      "iconPos": "-640px -0px"
+    },
+    "automated-wiring": {
+      "name": "Automated Wiring",
+      "iconPos": "-704px -0px"
+    },
+    "automated-wiring-high-speed": {
+      "name": "High Speed Wiring"
+    },
+    "battery": {
+      "name": "Battery",
+      "iconPos": "-768px -0px"
+    },
+    "battery-classic": {
+      "name": "Classic Battery"
+    },
+    "bauxite": {
+      "name": "Bauxite",
+      "iconPos": "-0px -64px"
+    },
+    "beacon": {
+      "name": "Beacon",
+      "iconPos": "-64px -64px"
+    },
+    "beacon-crystal": {
+      "name": "Crystal Beacon"
+    },
+    "biocoal": {
+      "name": "Biocoal"
+    },
+    "biomass-alien-protein": {
+      "name": "Biomass (Alien Protein)"
+    },
+    "biomass-leaves": {
+      "name": "Biomass (Leaves)"
+    },
+    "biomass-mycelia": {
+      "name": "Biomass (Mycelia)"
+    },
+    "biomass-wood": {
+      "name": "Biomass (Wood)"
+    },
+    "black-powder": {
+      "name": "Black Powder",
+      "iconPos": "-256px -64px"
+    },
+    "black-powder-fine": {
+      "name": "Fine Black Powder"
+    },
+    "cable": {
+      "name": "Cable",
+      "iconPos": "-448px -64px"
+    },
+    "cable-coated": {
+      "name": "Coated Cable"
+    },
+    "cable-insulated": {
+      "name": "Insulated Cable"
+    },
+    "cable-quickwire": {
+      "name": "Quickwire Cable"
+    },
+    "caterium-ingot": {
+      "name": "Caterium Ingot",
+      "iconPos": "-512px -64px"
+    },
+    "caterium-ingot-pure": {
+      "name": "Pure Caterium Ingot"
+    },
+    "caterium-ore": {
+      "name": "Caterium Ore",
+      "iconPos": "-576px -64px"
+    },
+    "charcoal": {
+      "name": "Charcoal"
+    },
+    "circuit-board": {
+      "name": "Circuit Board",
+      "iconPos": "-640px -64px"
+    },
+    "circuit-board-caterium": {
+      "name": "Caterium Circuit Board"
+    },
+    "circuit-board-electrode": {
+      "name": "Electrode Circuit Board"
+    },
+    "circuit-board-silicon": {
+      "name": "Silicon Circuit Board"
+    },
+    "cluster-nobelisk": {
+      "name": "Cluster Nobelisk",
+      "iconPos": "-704px -64px"
+    },
+    "coal": {
+      "name": "Coal",
+      "iconPos": "-0px -128px"
+    },
+    "color-cartridge": {
+      "name": "Color Cartridge",
+      "iconPos": "-64px -128px"
+    },
+    "compacted-coal": {
+      "name": "Compacted Coal",
+      "iconPos": "-128px -128px"
+    },
+    "computer": {
+      "name": "Computer",
+      "iconPos": "-192px -128px"
+    },
+    "computer-caterium": {
+      "name": "Caterium Computer"
+    },
+    "computer-crystal": {
+      "name": "Crystal Computer"
+    },
+    "concrete": {
+      "name": "Concrete",
+      "iconPos": "-256px -128px"
+    },
+    "concrete-fine": {
+      "name": "Fine Concrete"
+    },
+    "concrete-rubber": {
+      "name": "Rubber Concrete"
+    },
+    "concrete-wet": {
+      "name": "Wet Concrete"
+    },
+    "cooling-system": {
+      "name": "Cooling System",
+      "iconPos": "-704px -128px"
+    },
+    "cooling-system-device": {
+      "name": "Cooling Device"
+    },
+    "copper-ingot": {
+      "name": "Copper Ingot",
+      "iconPos": "-768px -128px"
+    },
+    "copper-ingot-alloy": {
+      "name": "Copper Alloy Ingot"
+    },
+    "copper-ingot-pure": {
+      "name": "Pure Copper Ingot"
+    },
+    "copper-ore": {
+      "name": "Copper Ore",
+      "iconPos": "-0px -192px"
+    },
+    "copper-powder": {
+      "name": "Copper Powder",
+      "iconPos": "-64px -192px"
+    },
+    "copper-sheet": {
+      "name": "Copper Sheet",
+      "iconPos": "-128px -192px"
+    },
+    "copper-sheet-steamed": {
+      "name": "Steamed Copper Sheet"
+    },
+    "crude-oil": {
+      "name": "Crude Oil",
+      "iconPos": "-192px -192px"
+    },
+    "crystal-oscillator": {
+      "name": "Crystal Oscillator",
+      "iconPos": "-256px -192px"
+    },
+    "crystal-oscillator-insulated": {
+      "name": "Insulated Crystal Oscillator"
+    },
+    "electromagnetic-control-rod": {
+      "name": "Electromagnetic Control Rod",
+      "iconPos": "-320px -192px"
+    },
+    "electromagnetic-control-rod-connection": {
+      "name": "Electromagnetic Connection Rod"
+    },
+    "empty-canister": {
+      "name": "Empty Canister",
+      "iconPos": "-384px -192px"
+    },
+    "empty-canister-coated-iron": {
+      "name": "Coated Iron Canister"
+    },
+    "empty-canister-steel": {
+      "name": "Steel Canister"
+    },
+    "empty-fluid-tank": {
+      "name": "Empty Fluid Tank",
+      "iconPos": "-448px -192px"
+    },
+    "encased-industrial-beam": {
+      "name": "Encased Industrial Beam",
+      "iconPos": "-512px -192px"
+    },
+    "encased-industrial-beam-pipe": {
+      "name": "Encased Industrial Pipe"
+    },
+    "encased-plutonium-cell": {
+      "name": "Encased Plutonium Cell",
+      "iconPos": "-576px -192px"
+    },
+    "encased-plutonium-cell-instant": {
+      "name": "Instant Plutonium Cell"
+    },
+    "encased-uranium-cell": {
+      "name": "Encased Uranium Cell",
+      "iconPos": "-640px -192px"
+    },
+    "encased-uranium-cell-infused": {
+      "name": "Infused Uranium Cell"
+    },
+    "explosive-rebar": {
+      "name": "Explosive Rebar",
+      "iconPos": "-704px -192px"
+    },
+    "fabric": {
+      "name": "Fabric",
+      "iconPos": "-768px -192px"
+    },
+    "fabric-polyester": {
+      "name": "Polyester Fabric"
+    },
+    "fuel": {
+      "name": "Fuel",
+      "iconPos": "-256px -256px"
+    },
+    "fuel-diluted": {
+      "name": "Diluted Fuel"
+    },
+    "fuel-residual": {
+      "name": "Residual Fuel"
+    },
+    "fused-modular-frame": {
+      "name": "Fused Modular Frame",
+      "iconPos": "-320px -256px"
+    },
+    "fused-modular-frame-heat": {
+      "name": "Heat-Fused Frame"
+    },
+    "gas-filter": {
+      "name": "Gas Filter",
+      "iconPos": "-384px -256px"
+    },
+    "gas-nobelisk": {
+      "name": "Gas Nobelisk",
+      "iconPos": "-448px -256px"
+    },
+    "hatcher-protein": {
+      "name": "Hatcher Protein"
+    },
+    "heat-sink": {
+      "name": "Heat Sink",
+      "iconPos": "-640px -256px"
+    },
+    "heat-sink-exchanger": {
+      "name": "Heat Exchanger"
+    },
+    "heavy-modular-frame": {
+      "name": "Heavy Modular Frame",
+      "iconPos": "-704px -256px"
+    },
+    "heavy-modular-frame-encased": {
+      "name": "Heavy Encased Frame"
+    },
+    "heavy-modular-frame-flexible": {
+      "name": "Heavy Flexible Frame"
+    },
+    "heavy-oil-residue": {
+      "name": "Heavy Oil Residue",
+      "iconPos": "-768px -256px"
+    },
+    "high-speed-connector": {
+      "name": "High-Speed Connector",
+      "iconPos": "-0px -320px"
+    },
+    "high-speed-connector-silicon": {
+      "name": "Silicon High-Speed Connector"
+    },
+    "hog-protein": {
+      "name": "Hog Protein"
+    },
+    "homing-rifle-ammo": {
+      "name": "Homing Rifle Ammo",
+      "iconPos": "-128px -320px"
+    },
+    "iodine-infused-filter": {
+      "name": "Iodine Infused Filter",
+      "iconPos": "-192px -320px"
+    },
+    "iron-ingot": {
+      "name": "Iron Ingot",
+      "iconPos": "-256px -320px"
+    },
+    "iron-ingot-alloy": {
+      "name": "Iron Alloy Ingot"
+    },
+    "iron-ingot-pure": {
+      "name": "Pure Iron Ingot"
+    },
+    "iron-ore": {
+      "name": "Iron Ore",
+      "iconPos": "-320px -320px"
+    },
+    "iron-plate": {
+      "name": "Iron Plate",
+      "iconPos": "-384px -320px"
+    },
+    "iron-plate-coated": {
+      "name": "Coated Iron Plate"
+    },
+    "iron-plate-steel": {
+      "name": "Steel Coated Plate"
+    },
+    "iron-rebar": {
+      "name": "Iron Rebar",
+      "iconPos": "-448px -320px"
+    },
+    "iron-rod": {
+      "name": "Iron Rod",
+      "iconPos": "-512px -320px"
+    },
+    "iron-rod-steel": {
+      "name": "Steel Rod"
+    },
+    "limestone": {
+      "name": "Limestone",
+      "iconPos": "-640px -320px"
+    },
+    "liquid-biofuel": {
+      "name": "Liquid Biofuel",
+      "iconPos": "-704px -320px"
+    },
+    "magnetic-field-generator": {
+      "name": "Magnetic Field Generator",
+      "iconPos": "-768px -320px"
+    },
+    "modular-engine": {
+      "name": "Modular Engine",
+      "iconPos": "-256px -384px"
+    },
+    "modular-frame": {
+      "name": "Modular Frame",
+      "iconPos": "-320px -384px"
+    },
+    "modular-frame-bolted": {
+      "name": "Bolted Frame"
+    },
+    "modular-frame-steeled": {
+      "name": "Steeled Frame"
+    },
+    "motor": {
+      "name": "Motor",
+      "iconPos": "-384px -384px"
+    },
+    "motor-electric": {
+      "name": "Electric Motor"
+    },
+    "motor-rigour": {
+      "name": "Rigour Motor"
+    },
+    "nitric-acid": {
+      "name": "Nitric Acid",
+      "iconPos": "-512px -384px"
+    },
+    "nitrogen-gas": {
+      "name": "Nitrogen Gas",
+      "iconPos": "-576px -384px"
+    },
+    "nobelisk": {
+      "name": "Nobelisk",
+      "iconPos": "-640px -384px"
+    },
+    "nobelisk-seismic": {
+      "name": "Seismic Nobelisk"
+    },
+    "non-fissile-uranium": {
+      "name": "Non-fissile Uranium",
+      "iconPos": "-704px -384px"
+    },
+    "non-fissile-uranium-fertile": {
+      "name": "Fertile Uranium"
+    },
+    "nuclear-pasta": {
+      "name": "Nuclear Pasta",
+      "iconPos": "-768px -384px"
+    },
+    "nuke-nobelisk": {
+      "name": "Nuke Nobelisk",
+      "iconPos": "-64px -448px"
+    },
+    "packaged-alumina-solution": {
+      "name": "Packaged Alumina Solution",
+      "iconPos": "-192px -448px"
+    },
+    "packaged-fuel": {
+      "name": "Packaged Fuel",
+      "iconPos": "-256px -448px"
+    },
+    "packaged-fuel-diluted": {
+      "name": "Diluted Packaged Fuel"
+    },
+    "packaged-heavy-oil-residue": {
+      "name": "Packaged Heavy Oil Residue",
+      "iconPos": "-320px -448px"
+    },
+    "packaged-liquid-biofuel": {
+      "name": "Packaged Liquid Biofuel",
+      "iconPos": "-384px -448px"
+    },
+    "packaged-nitric-acid": {
+      "name": "Packaged Nitric Acid",
+      "iconPos": "-448px -448px"
+    },
+    "packaged-nitrogen-gas": {
+      "name": "Packaged Nitrogen Gas",
+      "iconPos": "-512px -448px"
+    },
+    "packaged-oil": {
+      "name": "Packaged Oil",
+      "iconPos": "-576px -448px"
+    },
+    "packaged-sulfuric-acid": {
+      "name": "Packaged Sulfuric Acid",
+      "iconPos": "-640px -448px"
+    },
+    "packaged-turbofuel": {
+      "name": "Packaged Turbofuel",
+      "iconPos": "-704px -448px"
+    },
+    "packaged-water": {
+      "name": "Packaged Water",
+      "iconPos": "-768px -448px"
+    },
+    "petroleum-coke": {
+      "name": "Petroleum Coke",
+      "iconPos": "-128px -512px"
+    },
+    "plastic": {
+      "name": "Plastic",
+      "iconPos": "-320px -512px"
+    },
+    "plastic-recycled": {
+      "name": "Recycled Plastic"
+    },
+    "plastic-residual": {
+      "name": "Residual Plastic"
+    },
+    "plutonium-fuel-rod": {
+      "name": "Plutonium Fuel Rod",
+      "iconPos": "-384px -512px"
+    },
+    "plutonium-fuel-rod-unit": {
+      "name": "Plutonium Fuel Unit"
+    },
+    "plutonium-pellet": {
+      "name": "Plutonium Pellet",
+      "iconPos": "-448px -512px"
+    },
+    "plutonium-waste": {
+      "name": "Plutonium Waste",
+      "iconPos": "-512px -512px"
+    },
+    "polymer-resin": {
+      "name": "Polymer Resin",
+      "iconPos": "-576px -512px"
+    },
+    "portable-miner": {
+      "name": "Automated Miner",
+      "iconPos": "-640px -512px"
+    },
+    "power-shard-1": {
+      "name": "Power Shard (1)"
+    },
+    "power-shard-2": {
+      "name": "Power Shard (2)"
+    },
+    "power-shard-5": {
+      "name": "Power Shard (5)"
+    },
+    "pressure-conversion-cube": {
+      "name": "Pressure Conversion Cube",
+      "iconPos": "-0px -576px"
+    },
+    "pulse-nobelisk": {
+      "name": "Pulse Nobelisk",
+      "iconPos": "-64px -576px"
+    },
+    "quartz-crystal": {
+      "name": "Quartz Crystal",
+      "iconPos": "-192px -576px"
+    },
+    "quartz-crystal-pure": {
+      "name": "Pure Quartz Crystal"
+    },
+    "quickwire": {
+      "name": "Quickwire",
+      "iconPos": "-256px -576px"
+    },
+    "quickwire-fused": {
+      "name": "Fused Quickwire"
+    },
+    "radio-control-unit": {
+      "name": "Radio Control Unit",
+      "iconPos": "-320px -576px"
+    },
+    "radio-control-unit-connection": {
+      "name": "Radio Connection Unit"
+    },
+    "radio-control-unit-system": {
+      "name": "Radio Control System"
+    },
+    "raw-quartz": {
+      "name": "Raw Quartz",
+      "iconPos": "-384px -576px"
+    },
+    "reinforced-iron-plate": {
+      "name": "Reinforced Iron Plate",
+      "iconPos": "-512px -576px"
+    },
+    "reinforced-iron-plate-adhered": {
+      "name": "Adhered Iron Plate"
+    },
+    "reinforced-iron-plate-bolted": {
+      "name": "Bolted Iron Plate"
+    },
+    "reinforced-iron-plate-stitched": {
+      "name": "Stitched Iron Plate"
+    },
+    "rifle-cartridge": {
+      "name": "Rifle Ammo",
+      "iconPos": "-704px -576px"
+    },
+    "rotor": {
+      "name": "Rotor",
+      "iconPos": "-768px -576px"
+    },
+    "rotor-copper": {
+      "name": "Copper Rotor"
+    },
+    "rotor-steel": {
+      "name": "Steel Rotor"
+    },
+    "rubber": {
+      "name": "Rubber",
+      "iconPos": "-0px -640px"
+    },
+    "rubber-recycled": {
+      "name": "Recycled Rubber"
+    },
+    "rubber-residual": {
+      "name": "Residual Rubber"
+    },
+    "sam-ore": {
+      "name": "SAM Ore",
+      "iconPos": "-64px -640px"
+    },
+    "screw": {
+      "name": "Screw",
+      "iconPos": "-128px -640px"
+    },
+    "screw-cast": {
+      "name": "Cast Screw"
+    },
+    "screw-steel": {
+      "name": "Steel Screw"
+    },
+    "shatter-rebar": {
+      "name": "Shatter Rebar",
+      "iconPos": "-192px -640px"
+    },
+    "silica": {
+      "name": "Silica",
+      "iconPos": "-256px -640px"
+    },
+    "silica-cheap": {
+      "name": "Cheap Silica"
+    },
+    "smart-plating": {
+      "name": "Smart Plating",
+      "iconPos": "-320px -640px"
+    },
+    "smart-plating-plastic": {
+      "name": "Plastic Smart Plating"
+    },
+    "smokeless-powder": {
+      "name": "Smokeless Powder",
+      "iconPos": "-448px -640px"
+    },
+    "solid-biofuel": {
+      "name": "Solid Biofuel",
+      "iconPos": "-512px -640px"
+    },
+    "spitter-protein": {
+      "name": "Spitter Protein"
+    },
+    "stator": {
+      "name": "Stator",
+      "iconPos": "-640px -640px"
+    },
+    "stator-quickwire": {
+      "name": "Quickwire Stator"
+    },
+    "steel-beam": {
+      "name": "Steel Beam",
+      "iconPos": "-704px -640px"
+    },
+    "steel-ingot": {
+      "name": "Steel Ingot",
+      "iconPos": "-768px -640px"
+    },
+    "steel-ingot-coke": {
+      "name": "Coke Steel Ingot"
+    },
+    "steel-ingot-compacted": {
+      "name": "Compacted Steel Ingot"
+    },
+    "steel-ingot-solid": {
+      "name": "Solid Steel Ingot"
+    },
+    "steel-pipe": {
+      "name": "Steel Pipe",
+      "iconPos": "-0px -704px"
+    },
+    "stinger-protein": {
+      "name": "Stinger Protein"
+    },
+    "stun-rebar": {
+      "name": "Stun Rebar",
+      "iconPos": "-128px -704px"
+    },
+    "sulfur": {
+      "name": "Sulfur",
+      "iconPos": "-192px -704px"
+    },
+    "sulfuric-acid": {
+      "name": "Sulfuric Acid",
+      "iconPos": "-256px -704px"
+    },
+    "supercomputer": {
+      "name": "Supercomputer",
+      "iconPos": "-320px -704px"
+    },
+    "supercomputer-oc": {
+      "name": "OC Supercomputer"
+    },
+    "supercomputer-super-state": {
+      "name": "Super-State Supercomputer"
+    },
+    "thermal-propulsion-rocket": {
+      "name": "Thermal Propulsion Rocket",
+      "iconPos": "-384px -704px"
+    },
+    "turbo-motor": {
+      "name": "Turbo Motor",
+      "iconPos": "-448px -704px"
+    },
+    "turbo-motor-electric": {
+      "name": "Turbo Electric Motor"
+    },
+    "turbo-motor-pressure": {
+      "name": "Turbo Pressure Motor"
+    },
+    "turbo-rifle-ammo": {
+      "name": "Turbo Rifle Ammo",
+      "iconPos": "-512px -704px"
+    },
+    "turbo-rifle-ammo-blender": {
+      "name": "Turbo Rifle Ammo (Blender)"
+    },
+    "turbofuel": {
+      "name": "Turbofuel",
+      "iconPos": "-576px -704px"
+    },
+    "turbofuel-blend": {
+      "name": "Turbo Blend Fuel"
+    },
+    "turbofuel-heavy": {
+      "name": "Turbo Heavy Fuel"
+    },
+    "uranium": {
+      "name": "Uranium",
+      "iconPos": "-768px -704px"
+    },
+    "uranium-fuel-rod": {
+      "name": "Uranium Fuel Rod",
+      "iconPos": "-640px -704px"
+    },
+    "uranium-fuel-rod-unit": {
+      "name": "Uranium Fuel Unit"
+    },
+    "uranium-waste": {
+      "name": "Uranium Waste",
+      "iconPos": "-704px -704px"
+    },
+    "versatile-framework": {
+      "name": "Versatile Framework",
+      "iconPos": "-0px -768px"
+    },
+    "versatile-framework-flexible": {
+      "name": "Flexible Framework"
+    },
+    "water": {
+      "name": "Water",
+      "iconPos": "-128px -768px"
+    },
+    "wire": {
+      "name": "Wire",
+      "iconPos": "-192px -768px"
+    },
+    "wire-caterium": {
+      "name": "Caterium Wire"
+    },
+    "wire-fused": {
+      "name": "Fused Wire"
+    },
+    "wire-iron": {
+      "name": "Iron Wire"
+    }
   }
 }

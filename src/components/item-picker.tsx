@@ -31,7 +31,7 @@ export const ItemPicker = (props: {
         ref={input}
         type={'text'}
         className={'form-control'}
-        placeholder={'Add new...'}
+        placeholder={'Add item...'}
         onInput={change}
         onKeyUp={change}
       />

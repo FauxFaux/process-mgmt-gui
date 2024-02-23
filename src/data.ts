@@ -3,6 +3,7 @@ import type { Data } from 'process-mgmt/src/structures.js';
 
 export interface Lab {
   items: Record<string, LabItem>;
+  processes: Record<string, LabProcess>;
 }
 
 export interface LabItem {
@@ -12,6 +13,12 @@ export interface LabItem {
   iconPos?: string;
   contained?: true;
   stack?: number;
+}
+
+export interface LabProcess {
+  name: string;
+  iconPos?: string;
+  contained?: true;
 }
 
 const ds = (name: string, duration: ModifierStyle, output: ModifierStyle) =>

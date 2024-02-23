@@ -1,5 +1,4 @@
 import { DataSet } from '../data';
-import { ItemPicker } from './item-picker';
 import { Item, ItemId } from './item';
 import { JSX } from 'preact';
 import MinusIcon from 'mdi-preact/MinusIcon';
@@ -73,7 +72,7 @@ const MutReq = (props: {
 
 export const RequirementTable = (props: Props) => {
   return (
-    <table class={'table'}>
+    <table class={'table req__main-table'}>
       <thead>
         <tr>
           <th />
@@ -100,6 +99,14 @@ export const RequirementTable = (props: Props) => {
               <Item dataSet={props.dataSet} id={line.item} />
             </td>
             <td>
+              <button className={'btn req__find btn-warning'}>
+                find consumer
+              </button>
+              <button className={'btn req__find btn-warning'}>
+                find producer
+              </button>
+            </td>
+            <td>
               <MutReq
                 formKey={`html-only-${line.item}`}
                 req={line.req}
@@ -115,19 +122,6 @@ export const RequirementTable = (props: Props) => {
             </td>
           </tr>
         ))}
-        <tr>
-          <td colSpan={3}>
-            <ItemPicker
-              dataSet={props.dataSet}
-              picked={(item) => {
-                props.onChange([
-                  ...props.value,
-                  { item, req: { op: 'produce', amount: 1 } },
-                ]);
-              }}
-            />
-          </td>
-        </tr>
       </tbody>
     </table>
   );

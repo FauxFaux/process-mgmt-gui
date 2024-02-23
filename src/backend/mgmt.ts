@@ -7,6 +7,7 @@ import { Factory, Item, Stack } from 'process-mgmt/src/structures.js';
 import { DataSet } from '../data';
 import { Line } from '../components/requirement-table';
 import { ItemId } from '../components/item';
+import { Proc } from '../app';
 
 interface SolverInputs {
   requirements: Stack[];
@@ -15,13 +16,15 @@ interface SolverInputs {
   processes: Process[];
 }
 
-export const solve = (data: DataSet, lines: Line[]) => {
+export const solve = (data: DataSet, lines: Line[], processes: Proc[]) => {
   const inputs: SolverInputs = {
     requirements: [],
     imports: [],
     exports: [],
     processes: [],
   };
+
+  inputs.processes = processes.map((proc) => data.pm.processes[proc.id]);
 
   for (const line of lines) {
     switch (line.req.op) {
@@ -40,6 +43,10 @@ export const solve = (data: DataSet, lines: Line[]) => {
         throw new Error(`unknown op: ${line.req.op}`);
     }
   }
+
+  const hasRequirements = new Set(
+    inputs.requirements.map((stack) => stack.item.id),
+  );
 
   if (!inputs.processes.length) {
     // TODO: do not understand this at all
@@ -69,7 +76,7 @@ export const solve = (data: DataSet, lines: Line[]) => {
       bodge.mtx.push([-1]);
     }
 
-    return computeUnknowns(bodge);
+    return computeUnknowns(bodge, (itemId) => hasRequirements.has(itemId));
   }
 
   return rawSolve(inputs);
@@ -91,7 +98,11 @@ export const rawSolve = (inputs: SolverInputs) => {
     .accept(new ProcessCountVisitor())
     .accept(lav);
 
-  console.log(chain, lav);
+  const hasRequirements = new Set(
+    inputs.requirements.map((stack) => stack.item.id),
+  );
+
+  return computeUnknowns(lav, (itemId) => hasRequirements.has(itemId));
 };
 
 interface PartialLav {
@@ -104,18 +115,24 @@ interface PartialLav {
 
 type Recommendation = 'import' | 'export';
 
-const computeUnknowns = (chain: PartialLav): Record<ItemId, Recommendation> => {
+const computeUnknowns = (
+  chain: PartialLav,
+  hasRequirement: (item: ItemId) => boolean,
+): Record<ItemId, Recommendation> => {
   const result: Record<string, Recommendation> = {};
   for (let i = 0; i < chain.items.length; i++) {
     const itemId = chain.items[i].id;
     const [row] = chain.augmented_matrix.getRow(i).data;
     const producers = row.filter((x) => x > 0).length;
     const consumers = row.filter((x) => x < 0).length;
-    if (consumers > 0 && producers === 0) {
+    const wanted = hasRequirement(itemId);
+    const onlyConsumed = consumers > 0 && producers === 0;
+    const notConsumedButProducedAndWanted =
+      consumers === 0 && producers === 1 && wanted;
+    const producedButNotConsumed = consumers === 0 && producers > 0;
+    if (onlyConsumed || notConsumedButProducedAndWanted) {
       result[itemId] = 'import';
-    } else if (producers > 0 && consumers === 0) {
-      // TODO: handle existing requirements?
-      // ...
+    } else if (producedButNotConsumed) {
       result[itemId] = 'export';
     }
   }

@@ -1,5 +1,5 @@
 declare module 'process-mgmt/src/structures.js' {
-  import type { RecipeName } from '../muffler/walk-recipes';
+  import type { Process } from 'process-mgmt/src/process.js';
 
   export class Item {
     constructor(id: string, name: string, group?: string);
@@ -62,6 +62,13 @@ declare module 'process-mgmt/src/visit/linear_algebra_visitor.js' {
     );
     visit(process: any): void;
     print_matricies?: boolean;
+
+    // incomplete
+    items: Item[];
+    mtx: number[][];
+    augmented_matrix: {
+      getRow: (idx: number) => { data: number[][] };
+    };
   }
 }
 

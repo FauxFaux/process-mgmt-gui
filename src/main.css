@@ -8,13 +8,17 @@
     vertical-align: middle;
 }
 
-.icon--contained {
-    border: 3px solid black;
+.icon--contained, .process--contained {
+    border: 3px solid white;
     border-radius: 9px;
 }
 
-.item--raw {
+.item--raw, .process--raw {
     font-family: monospace;
+}
+
+.req__main-table {
+    vertical-align: middle;
 }
 
 .req__produce {
@@ -26,4 +30,9 @@
 
 .req__produce:disabled {
     color: var(--bs-secondary-border-subtle);
+}
+
+.req__find {
+    margin-left: 0.3em;
+    margin-right: 0.3em;
 }

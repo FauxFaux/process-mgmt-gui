@@ -21,3 +21,7 @@ export const handleColours = (text: string) => {
 
   return <>{parts}</>;
 };
+
+export const stripColours = (text: string) => {
+  return text.replace(/\[color=(\d+,\d+,\d+)]([^[]+)\[\/color]/g, '$2');
+};
