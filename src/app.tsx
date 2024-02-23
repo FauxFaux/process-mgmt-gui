@@ -3,6 +3,7 @@ import { useState } from 'preact/hooks';
 import { DataSetPicker } from './components/data-set';
 import { DataSetId, loadedDataSets } from './data';
 import { Line, RequirementTable } from './components/requirement-table';
+import { solve } from './backend/mgmt';
 
 export const App = () => {
   const [dataSetId, setDataSetId] = useState<DataSetId | undefined>(undefined);
@@ -30,6 +31,10 @@ export const App = () => {
         />
       </div>,
     );
+
+    if (requirements.length) {
+      console.log(solve(dataSet, requirements));
+    }
   }
 
   return (

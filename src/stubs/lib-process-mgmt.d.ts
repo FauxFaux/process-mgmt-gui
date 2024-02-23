@@ -25,29 +25,8 @@ declare module 'process-mgmt/src/structures.js' {
 
   export class Stack {
     constructor(item: Item, count: number);
-  }
-  export class Process {
-    // duration is execution seconds (as shown in game)
-    constructor(
-      id: RecipeName,
-      inputs: Stack[],
-      outputs: Stack[],
-      duration: number,
-      group: FactoryGroup,
-    );
-    id: RecipeName;
-    duration: number;
-    factory_group: FactoryGroup;
-    inputs: Stack[];
-    outputs: Stack[];
 
-    // incomplete
-  }
-
-  export class ProcessChain {
-    constructor(procs: Process[]);
-    accept(visitor: any): this;
-    process_counts: Record<RecipeName, number>;
+    item: Item;
   }
 
   export class Data {
@@ -93,8 +72,28 @@ declare module 'process-mgmt/src/visit/process_count_visitor.js' {
   }
 }
 
-declare module 'process-mgmt/src/factorio-py-1.1.53/data.js' {
-  export default {
-    processes: Record<string, unknown>,
-  };
+declare module 'process-mgmt/src/process.js' {
+  export class Process {
+    // duration is execution seconds (as shown in game)
+    constructor(
+      id: RecipeName,
+      inputs: Stack[],
+      outputs: Stack[],
+      duration: number,
+      group: FactoryGroup,
+    );
+    id: RecipeName;
+    duration: number;
+    factory_group: FactoryGroup;
+    inputs: Stack[];
+    outputs: Stack[];
+
+    // incomplete
+  }
+
+  export class ProcessChain {
+    constructor(procs: Process[]);
+    accept(visitor: any): this;
+    process_counts: Record<RecipeName, number>;
+  }
 }

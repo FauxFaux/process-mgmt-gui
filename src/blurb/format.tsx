@@ -3,7 +3,6 @@ export const handleColours = (text: string) => {
   if (bits.length === 1) {
     return <>{text}</>;
   }
-  console.log(bits);
   const chunks = 2;
   const parts = [];
   for (let i = 0; i < bits.length; i += chunks) {
