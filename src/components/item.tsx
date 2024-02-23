@@ -2,7 +2,9 @@ import { DataSet } from '../data';
 import qm from '../../assets/question-mark.png';
 import { handleColours } from '../blurb/format';
 
-export const Item = (props: { dataSet: DataSet; id: string }) => {
+export type ItemId = string;
+
+export const Item = (props: { dataSet: DataSet; id: ItemId }) => {
   const lab = props.dataSet.lab?.items?.[props.id];
   const name = handleColours(lab?.name || props.id);
 

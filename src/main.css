@@ -16,3 +16,14 @@
 .item--raw {
     font-family: monospace;
 }
+
+.req__produce {
+    width: 6em;
+    text-align: right;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.req__produce:disabled {
+    color: var(--bs-secondary-border-subtle);
+}
