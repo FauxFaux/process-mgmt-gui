@@ -28,7 +28,7 @@ export const RequirementTable = (props: Props) => {
       return;
     }
     const re = new RegExp(`.*${term}.*`, 'i');
-    const matches = Object.keys(props.dataSet.items).filter((item) =>
+    const matches = Object.keys(props.dataSet.pm.items).filter((item) =>
       re.test(item),
     );
     setResults(matches);
@@ -72,33 +72,28 @@ export const RequirementTable = (props: Props) => {
             />
             {results !== undefined && (
               <ul>
-                {results.map((item) => (
-                  <li>
-                    <button
-                      onClick={() => {
-                        props.onChange([
-                          ...props.value,
-                          { item, req: { op: 'import' } },
-                        ]);
-                        setResults(undefined);
-                      }}
-                    >
-                      {item}
-                    </button>
-                  </li>
-                ))}
+                {results.map((item) => {
+                  const name = props.dataSet.lab?.items?.find(
+                    (i) => i.id === item,
+                  )?.name;
+                  return (
+                    <li>
+                      <button
+                        onClick={() => {
+                          props.onChange([
+                            ...props.value,
+                            { item, req: { op: 'import' } },
+                          ]);
+                          setResults(undefined);
+                        }}
+                      >
+                        {item} ({name})
+                      </button>
+                    </li>
+                  );
+                })}
               </ul>
             )}
-            <button
-              onClick={() => {
-                props.onChange([
-                  ...props.value,
-                  { item: '', req: { op: 'import' } },
-                ]);
-              }}
-            >
-              Add
-            </button>
           </td>
         </tr>
       </tbody>

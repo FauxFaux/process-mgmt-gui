@@ -39,6 +39,10 @@ export default {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.(webp|png|jpe?g|gif|eot|ttf|woff|woff2)$/i,
+        type: 'asset/resource',
+      }
     ],
   },
 };
