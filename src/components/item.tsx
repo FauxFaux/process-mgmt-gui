@@ -1,19 +1,29 @@
 import { DataSet } from '../data';
+import qm from '../../assets/question-mark.png';
+import { handleColours } from '../blurb/format';
 
 export const Item = (props: { dataSet: DataSet; id: string }) => {
   const lab = props.dataSet.lab?.items?.[props.id];
-  const name = lab?.name || props.id;
+  const name = handleColours(lab?.name || props.id);
+
   if (lab) {
     return (
-      <span class={'item--regular'}>
+      <span class={'item'}>
         <span
           className="icon-sprite"
           style={`background: url("${props.dataSet.ico}") ${lab.iconPos}`}
         />
+        &nbsp;
         {name}
       </span>
     );
   }
 
-  return <span class={'item--raw'}>{name}</span>;
+  return (
+    <span class={'item'}>
+      <span className="icon-sprite" style={`background: url("${qm}")`} />
+      &nbsp;
+      <span class={'item--raw'}>{name}</span>
+    </span>
+  );
 };
