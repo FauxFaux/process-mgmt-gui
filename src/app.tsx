@@ -18,6 +18,11 @@ export const App = () => {
   const [requirements, setRequirements] = useState([] as Line[]);
   const [processes, setProcesses] = useState([] as Proc[]);
 
+  const [processTerm, setProcessTerm] = useState('');
+
+  const ppChange = (e: { currentTarget: HTMLInputElement }) =>
+    setProcessTerm(e.currentTarget.value);
+
   const rows = [
     <div className={'col'}>
       <DataSetPicker
@@ -37,6 +42,7 @@ export const App = () => {
           dataSet={dataSet}
           value={requirements}
           onChange={setRequirements}
+          findProc={(term) => setProcessTerm(term)}
         />
       </div>,
     );
@@ -55,8 +61,19 @@ export const App = () => {
           />
         </div>
         <div class={'col'}>
+          <p>
+            <input
+              type={'text'}
+              className={'form-control'}
+              placeholder={'Add process...'}
+              onInput={ppChange}
+              onKeyUp={ppChange}
+              value={processTerm}
+            />
+          </p>
           <ProcessPicker
             dataSet={dataSet}
+            term={processTerm}
             picked={(proc) => setProcesses([...processes, { id: proc }])}
           />
         </div>

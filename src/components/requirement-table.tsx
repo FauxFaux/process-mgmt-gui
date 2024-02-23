@@ -15,6 +15,7 @@ interface Props {
   value: Line[];
   dataSet: DataSet;
   onChange: (value: Line[]) => void;
+  findProc: (term: string) => void;
 }
 
 const MutReq = (props: {
@@ -99,10 +100,16 @@ export const RequirementTable = (props: Props) => {
               <Item dataSet={props.dataSet} id={line.item} />
             </td>
             <td>
-              <button className={'btn req__find btn-warning'}>
+              <button
+                className={'btn req__find btn-warning'}
+                onClick={() => props.findProc(`c:${line.item}`)}
+              >
                 find consumer
               </button>
-              <button className={'btn req__find btn-warning'}>
+              <button
+                className={'btn req__find btn-warning'}
+                onClick={() => props.findProc(`p:${line.item}`)}
+              >
                 find producer
               </button>
             </td>
