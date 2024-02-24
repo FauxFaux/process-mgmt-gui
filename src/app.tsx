@@ -1,7 +1,7 @@
 import { useState } from 'preact/hooks';
 
 import { DataSetPicker } from './components/data-set';
-import { DataSetId, loadedDataSets } from './data';
+import { DataSet, DataSetId, loadedDataSets } from './data';
 import {
   Line,
   RequirementTable,
@@ -11,34 +11,47 @@ import { solve } from './backend/mgmt';
 import { ItemPicker } from './components/item-picker';
 import { ProcessPicker } from './components/process-picker';
 import { Modifier, Proc, ProcessTable } from './components/process-table';
+import { JSX } from 'preact';
 
 export type ProcessId = string;
 
 export const App = () => {
   const [dataSetId, setDataSetId] = useState<DataSetId | undefined>(undefined);
+
+  return (
+    <div class={'container-fluid'}>
+      <header>
+        <h1>Process Management</h1>
+      </header>
+      <div class={'row'}>
+        <div className={'col'}>
+          <DataSetPicker
+            onChange={(id) => {
+              setDataSetId(id);
+            }}
+            value={dataSetId}
+          />
+        </div>
+      </div>
+      {dataSetId && <Calc dataSet={loadedDataSets[dataSetId]} />}
+    </div>
+  );
+};
+
+export const Calc = (props: { dataSet: DataSet }) => {
   const [requirements, setRequirements] = useState([] as Line[]);
   const [processes, setProcesses] = useState([] as Proc[]);
+  const [processTerm, setProcessTerm] = useState('');
 
   const [searchTab, setSearchTab] = useState('process' as 'process' | 'item');
-
-  const [processTerm, setProcessTerm] = useState('');
 
   const ppChange = (e: { currentTarget: HTMLInputElement }) =>
     setProcessTerm(e.currentTarget.value);
 
-  const rows = [
-    <div className={'col'}>
-      <DataSetPicker
-        onChange={(id) => {
-          setDataSetId(id);
-        }}
-        value={dataSetId}
-      />
-    </div>,
-  ];
+  const rows: JSX.Element[] = [];
 
-  if (dataSetId) {
-    const dataSet = loadedDataSets[dataSetId];
+  if (true) {
+    const dataSet = props.dataSet;
 
     const fallbackMapping = {
       import: 'import',
