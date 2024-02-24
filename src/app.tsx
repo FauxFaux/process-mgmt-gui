@@ -3,7 +3,7 @@ import type { BrotliWasmType as Brotli } from 'brotli-wasm';
 import type { Viz } from '@viz-js/viz';
 
 import { DataSet, DataSetId, dataSets, loadDataSet } from './data';
-import { Calc } from './calc';
+import { Calc, CalcState } from './calc';
 
 export type ProcessId = string;
 
@@ -32,6 +32,8 @@ export const App = () => {
     id?: DataSetId;
     data?: DataSet;
   }>({});
+
+  const [calc, setCalc] = useState<CalcState>(defaultCalc());
 
   const nav = (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -75,7 +77,10 @@ export const App = () => {
               <span class={'nav-link'}>
                 <button
                   className={'btn btn-outline-danger btn-sm nav__clear-all'}
-                  onClick={() => setDataSet({})}
+                  onClick={() => {
+                    setDataSet({});
+                    setCalc(defaultCalc());
+                  }}
                 >
                   clear everything
                 </button>
@@ -129,10 +134,22 @@ export const App = () => {
       {nav}
       {picker}
       {dataSet.id && (!dataSet.data || !libs) && <p>Loading...</p>}
-      {dataSet.data && libs && <Calc dataSet={dataSet.data} viz={libs.viz} />}
+      {dataSet.data && libs && (
+        <Calc
+          dataSet={dataSet.data}
+          viz={libs.viz}
+          state={calc}
+          setState={setCalc}
+        />
+      )}
     </>
   );
 };
+
+const defaultCalc = (): CalcState => ({
+  requirements: [],
+  processes: [],
+});
 
 // guess of a workaround for some apparently memory leaks from initing locally
 const brotliPromise = import('brotli-wasm')

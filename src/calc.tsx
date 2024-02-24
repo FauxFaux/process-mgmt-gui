@@ -14,9 +14,22 @@ import { ProcessPicker } from './components/process-picker';
 
 import { Modifier, Proc, ProcessTable } from './components/process-table';
 
-export const Calc = (props: { dataSet: DataSet; viz: Viz }) => {
-  const [requirements, setRequirements] = useState([] as Line[]);
-  const [processes, setProcesses] = useState([] as Proc[]);
+export interface CalcState {
+  requirements: Line[];
+  processes: Proc[];
+}
+
+export const Calc = (props: {
+  dataSet: DataSet;
+  viz: Viz;
+  state: CalcState;
+  setState: (next: CalcState) => void;
+}) => {
+  const { requirements, processes } = props.state;
+  const setRequirements = (requirements: Line[]) =>
+    props.setState({ ...props.state, requirements });
+  const setProcesses = (processes: Proc[]) =>
+    props.setState({ ...props.state, processes });
 
   const [processTerm, setProcessTerm] = useState('');
   const [searchTab, setSearchTab] = useState('process' as 'process' | 'item');
