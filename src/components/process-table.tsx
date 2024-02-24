@@ -6,6 +6,7 @@ import { ModifierStyle } from '../modifiers';
 import { Process } from './process';
 import { Item } from './item';
 import KnobIcon from 'mdi-preact/KnobIcon';
+import ClockIcon from 'mdi-preact/ClockIcon';
 
 export interface Modifier {
   mode: ModifierStyle;
@@ -18,6 +19,19 @@ export interface Proc {
   outputModifier: Modifier;
 }
 
+export const applyModifier = (mod: Modifier, value: number) => {
+  switch (mod.mode) {
+    case 'raw':
+      return value * mod.amount;
+    case 'normal':
+      return value * (mod.amount / 100);
+    case 'additional':
+      return value * (1 + mod.amount / 100);
+    default:
+      throw new Error(`unknown mode: ${mod.mode}`);
+  }
+};
+
 export const ProcessTable = (props: {
   dataSet: DataSet;
   processes: Proc[];
@@ -25,6 +39,7 @@ export const ProcessTable = (props: {
 }) => {
   const rows: JSX.Element[] = props.processes.map((proc, idx) => {
     const pm = props.dataSet.pm.processes[proc.id];
+    const modDuration = applyModifier(proc.durationModifier, pm.duration);
     return (
       <tr>
         <td>
@@ -44,7 +59,9 @@ export const ProcessTable = (props: {
         </td>
         <td>{pm.factory_group.id}</td>
         <td>
-          {pm.duration}s{' '}
+          <ClockIcon /> {pm.duration}s{' '}
+          {modDuration !== pm.duration && <>&rArr; {modDuration}s</>}
+          <br />
           <MutModifier
             cfg={proc.durationModifier}
             onChange={(mod) => {
@@ -52,15 +69,14 @@ export const ProcessTable = (props: {
               processes[idx] = { ...proc, durationModifier: mod };
               props.onChange(processes);
             }}
-          />{' '}
-          = {pm.duration * proc.durationModifier.amount}s
+          />
         </td>
         <td>
-          <ul>
+          <ul class={'item-list'}>
             {pm.inputs.map((stack) => {
               return (
                 <li>
-                  {stack.quantity}{' '}
+                  <span class={'quantity'}>{stack.quantity}</span>
                   <Item dataSet={props.dataSet} id={stack.item.id} />
                 </li>
               );
@@ -75,8 +91,9 @@ export const ProcessTable = (props: {
               processes[idx] = { ...proc, outputModifier: mod };
               props.onChange(processes);
             }}
+            disabled={true}
           />
-          <ul>
+          <ul className={'item-list'}>
             {pm.outputs.map((stack) => {
               return (
                 <li>
@@ -110,6 +127,7 @@ export const ProcessTable = (props: {
 const MutModifier = (props: {
   cfg: Modifier;
   onChange: (mod: Modifier) => void;
+  disabled?: true;
 }) => {
   const sel = (
     <select
@@ -121,6 +139,7 @@ const MutModifier = (props: {
           mode: e.currentTarget.value as ModifierStyle,
         })
       }
+      disabled={props.disabled}
     >
       <option value={'raw'}>&times; raw value (5 &times; 1.4 = 7)</option>
       <option value={'normal'}>@ percentage (5 @ 140% = 7)</option>
@@ -142,6 +161,7 @@ const MutModifier = (props: {
         })
       }
       step={'any'}
+      disabled={props.disabled}
     />
   );
 
