@@ -1,6 +1,9 @@
 import { DataSet } from '../data';
 import { Item, ItemId } from './item';
 import { JSX } from 'preact';
+import MagnifyIcon from 'mdi-preact/MagnifyIcon';
+import MagnifyAddIcon from 'mdi-preact/MagnifyAddIcon';
+import MagnifyMinusIcon from 'mdi-preact/MagnifyMinusIcon';
 
 export type Unknowns = Record<ItemId, 'import' | 'export'>;
 
@@ -104,8 +107,7 @@ export const RequirementTable = (props: Props) => {
       <thead>
         <tr>
           <th>Item</th>
-          <th>Ops</th>
-          <th>Demand</th>
+          <th>Settings</th>
         </tr>
       </thead>
       <tbody>
@@ -118,17 +120,19 @@ export const RequirementTable = (props: Props) => {
               <button
                 className={'btn req__find ' + hintColour(line.req, 'export')}
                 onClick={() => props.findProc(`c:${line.item}`)}
+                title={'find consumer'}
               >
-                find consumer
+                <MagnifyMinusIcon />
+                <span className={'req__find_label'}>find consumer</span>
               </button>
               <button
                 className={'btn req__find ' + hintColour(line.req, 'import')}
                 onClick={() => props.findProc(`p:${line.item}`)}
+                title={'find producer'}
               >
-                find producer
+                <MagnifyAddIcon />
+                <span class={'req__find_label'}>find producer</span>
               </button>
-            </td>
-            <td>
               <MutReq
                 formKey={`html-only-${line.item}`}
                 req={line.req}

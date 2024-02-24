@@ -103,7 +103,7 @@ export const App = () => {
     }
     rows.push(
       <>
-        <div className={'col-xl-8'}>
+        <div className={'col-xxl-8'}>
           <RequirementTable
             dataSet={dataSet}
             value={renderReqs}
@@ -111,7 +111,7 @@ export const App = () => {
             findProc={(term) => setProcessTerm(term)}
           />
         </div>
-        <div className={'col-xl-4'}>
+        <div className={'col-xxl-4'}>
           <ul className="nav nav-tabs">
             <li className="nav-item">
               <a
