@@ -8,22 +8,25 @@ import { Calc } from './calc';
 export type ProcessId = string;
 
 export const App = () => {
-  const [libs, setLibs] = useState(
-    {} as {
-      brotli: Brotli | undefined;
-      viz: Viz | undefined;
-    },
-  );
+  const [libs, setLibs] = useState<
+    | {
+        brotli: Brotli;
+        viz: Viz;
+      }
+    | undefined
+  >(undefined);
 
   useEffect(() => {
     (async () => {
-      const bi = await import('brotli-wasm');
-      const brotli = await bi.default;
-      const vi = await import('@viz-js/viz');
-      const viz = await vi.instance();
-      setLibs({ brotli, viz });
-    })().catch(console.error);
-  });
+      const brotliLoad = await brotliPromise;
+      const vizLoad = await vizPromise;
+      if ('err' in brotliLoad || 'err' in vizLoad) {
+        console.error('Failed to load libraries', brotliLoad, vizLoad);
+        return;
+      }
+      setLibs({ brotli: brotliLoad.brotli, viz: vizLoad.viz });
+    })();
+  }, []);
 
   const [dataSet, setDataSet] = useState<{
     id?: DataSetId;
@@ -102,7 +105,7 @@ export const App = () => {
   );
 
   const picker = dataSet.id ? (
-    false
+    <></>
   ) : (
     <div className={'container-fluid'}>
       <div className={'row'}>
@@ -115,10 +118,19 @@ export const App = () => {
     <>
       {nav}
       {picker}
-      {dataSet.id && (!dataSet.data || !libs.viz) && <p>Loading...</p>}
-      {dataSet.data && libs.viz && (
-        <Calc dataSet={dataSet.data} viz={libs.viz} />
-      )}
+      {dataSet.id && (!dataSet.data || !libs) && <p>Loading...</p>}
+      {dataSet.data && libs && <Calc dataSet={dataSet.data} viz={libs.viz} />}
     </>
   );
 };
+
+// guess of a workaround for some apparently memory leaks from initing locally
+const brotliPromise = import('brotli-wasm')
+  .then((bi) => bi.default)
+  .then((brotli) => ({ brotli }))
+  .catch((err: unknown) => ({ err }));
+
+const vizPromise = import('@viz-js/viz')
+  .then((vi) => vi.instance())
+  .then((viz) => ({ viz }))
+  .catch((err: unknown) => ({ err }));
