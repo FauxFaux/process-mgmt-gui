@@ -2,12 +2,13 @@ import { ProcessChain, Process } from 'process-mgmt/src/process.js';
 import { LinearAlgebra } from 'process-mgmt/src/visit/linear_algebra_visitor.js';
 import { RateVisitor } from 'process-mgmt/src/visit/rate_visitor.js';
 import { ProcessCountVisitor } from 'process-mgmt/src/visit/process_count_visitor.js';
+import { RateGraphRenderer } from 'process-mgmt/src/visit/rate_graph_renderer.js';
 import { Factory, Item, Stack } from 'process-mgmt/src/structures.js';
 
 import { DataSet } from '../data';
-import { Line } from '../components/requirement-table';
+import { Line, Unknowns } from '../components/requirement-table';
 import { ItemId } from '../components/item';
-import { Proc } from '../app';
+import { Proc } from '../components/process-table';
 
 interface SolverInputs {
   requirements: Stack[];
@@ -16,7 +17,14 @@ interface SolverInputs {
   processes: Process[];
 }
 
-export const solve = (data: DataSet, lines: Line[], processes: Proc[]) => {
+export const solve = (
+  data: DataSet,
+  lines: Line[],
+  processes: Proc[],
+): {
+  unknowns: Unknowns;
+  dot?: string;
+} => {
   const inputs: SolverInputs = {
     requirements: [],
     imports: [],
@@ -78,7 +86,9 @@ export const solve = (data: DataSet, lines: Line[], processes: Proc[]) => {
       bodge.mtx.push([-1]);
     }
 
-    return computeUnknowns(bodge, (itemId) => hasRequirements.has(itemId));
+    return {
+      unknowns: computeUnknowns(bodge, (itemId) => hasRequirements.has(itemId)),
+    };
   }
 
   return rawSolve(inputs);
@@ -104,7 +114,12 @@ export const rawSolve = (inputs: SolverInputs) => {
     inputs.requirements.map((stack) => stack.item.id),
   );
 
-  return computeUnknowns(lav, (itemId) => hasRequirements.has(itemId));
+  const dot = chain.accept(new RateGraphRenderer()).join('\n');
+
+  return {
+    unknowns: computeUnknowns(lav, (itemId) => hasRequirements.has(itemId)),
+    dot,
+  };
 };
 
 interface PartialLav {

@@ -101,7 +101,15 @@ declare module 'process-mgmt/src/process.js' {
 
   export class ProcessChain {
     constructor(procs: Process[]);
-    accept(visitor: any): this;
+    // sometimes returns a chain, sometimes returns a string
+    accept(visitor: any): any;
     process_counts: Record<RecipeName, number>;
+  }
+}
+
+declare module 'process-mgmt/src/visit/rate_graph_renderer.js' {
+  export class RateGraphRenderer {
+    constructor();
+    visit(process: unknown): void;
   }
 }

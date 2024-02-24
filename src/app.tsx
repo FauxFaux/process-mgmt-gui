@@ -41,8 +41,9 @@ export const App = () => {
     const dataSet = loadedDataSets[dataSetId];
 
     let unknowns: Unknowns = {};
+    let dot: string | undefined = undefined;
     if (requirements.length || processes.length) {
-      unknowns = solve(dataSet, requirements, processes);
+      ({ unknowns, dot } = solve(dataSet, requirements, processes));
     }
 
     const renderReqs: Line[] = [];
@@ -165,6 +166,14 @@ export const App = () => {
         />
       </div>,
     );
+
+    if (dot) {
+      const svg = dataSet.viz.renderString(dot, {
+        engine: 'dot',
+        format: 'svg',
+      });
+      rows.push(<img src={`data:image/svg+xml,${encodeURIComponent(svg)}`} />);
+    }
   }
 
   return (
