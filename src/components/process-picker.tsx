@@ -2,6 +2,7 @@ import type { DataSet } from '../data';
 import PlusBoldIcon from 'mdi-preact/PlusBoldIcon';
 import { Process } from './process';
 import { Item } from './item';
+import { regexpOrNot } from '../blurb/search';
 
 export type ProcessId = string;
 
@@ -26,7 +27,7 @@ export const ProcessPicker = (props: {
       .filter(([, p]) => p.inputs.some((o) => o.item.id === wantId))
       .map(([id]) => id);
   } else {
-    const re = new RegExp(`.*${term}.*`, 'i');
+    const re = regexpOrNot(term);
     results = Object.keys(props.dataSet.pm.processes).filter((item) =>
       re.test(item),
     );

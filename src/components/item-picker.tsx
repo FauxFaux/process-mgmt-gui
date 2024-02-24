@@ -4,6 +4,7 @@ import type { DataSet } from '../data';
 import { Item, ItemId } from './item';
 import { JSX } from 'preact';
 import PlusBoldIcon from 'mdi-preact/PlusBoldIcon';
+import { regexpOrNot } from '../blurb/search';
 
 export const ItemPicker = (props: {
   dataSet: DataSet;
@@ -18,7 +19,7 @@ export const ItemPicker = (props: {
       setResults(undefined);
       return;
     }
-    const re = new RegExp(`.*${term}.*`, 'i');
+    const re = regexpOrNot(term);
     const matches = Object.keys(props.dataSet.pm.items).filter((item) =>
       re.test(item),
     );

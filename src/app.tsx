@@ -22,6 +22,8 @@ export const App = () => {
   const [requirements, setRequirements] = useState([] as Line[]);
   const [processes, setProcesses] = useState([] as Proc[]);
 
+  const [searchTab, setSearchTab] = useState('process' as 'process' | 'item');
+
   const [processTerm, setProcessTerm] = useState('');
 
   const ppChange = (e: { currentTarget: HTMLInputElement }) =>
@@ -59,15 +61,88 @@ export const App = () => {
       renderReqs.push({ item, req: { op: 'auto', amount: 1, hint: req } });
     }
 
+    let searchContent = <></>;
+
+    switch (searchTab) {
+      case 'process':
+        searchContent = (
+          <div>
+            <p>
+              <input
+                type={'text'}
+                className={'form-control'}
+                placeholder={'Add process...'}
+                onInput={ppChange}
+                onKeyUp={ppChange}
+                value={processTerm}
+              />
+            </p>
+            <ProcessPicker
+              dataSet={dataSet}
+              term={processTerm}
+              picked={(proc) => setProcesses([...processes, { id: proc }])}
+            />
+          </div>
+        );
+        break;
+      case 'item':
+        searchContent = (
+          <ItemPicker
+            dataSet={dataSet}
+            picked={(item) => {
+              setRequirements([
+                ...requirements,
+                { item, req: { op: 'produce', amount: 1 } },
+              ]);
+            }}
+          />
+        );
+        break;
+      default:
+        throw new Error('unknown search tab: ' + searchTab);
+    }
     rows.push(
-      <div class={'col'}>
-        <RequirementTable
-          dataSet={dataSet}
-          value={renderReqs}
-          onChange={setRequirements}
-          findProc={(term) => setProcessTerm(term)}
-        />
-      </div>,
+      <>
+        <div className={'col-xl-8'}>
+          <RequirementTable
+            dataSet={dataSet}
+            value={renderReqs}
+            onChange={setRequirements}
+            findProc={(term) => setProcessTerm(term)}
+          />
+        </div>
+        <div className={'col-xl-4'}>
+          <ul className="nav nav-tabs">
+            <li className="nav-item">
+              <a
+                className={
+                  'nav-link ' + (searchTab === 'process' ? 'active' : '')
+                }
+                onClick={(e) => {
+                  e.preventDefault();
+                  setSearchTab('process');
+                }}
+                href={'#'}
+              >
+                Processes
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                className={'nav-link ' + (searchTab === 'item' ? 'active' : '')}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setSearchTab('item');
+                }}
+                href={'#'}
+              >
+                Items
+              </a>
+            </li>
+          </ul>
+          {searchContent}
+        </div>
+      </>,
     );
 
     rows.push(
@@ -79,39 +154,6 @@ export const App = () => {
           ))}
         </ul>
       </div>,
-    );
-
-    rows.push(
-      <>
-        <div class={'col'}>
-          <ItemPicker
-            dataSet={dataSet}
-            picked={(item) => {
-              setRequirements([
-                ...requirements,
-                { item, req: { op: 'produce', amount: 1 } },
-              ]);
-            }}
-          />
-        </div>
-        <div class={'col'}>
-          <p>
-            <input
-              type={'text'}
-              className={'form-control'}
-              placeholder={'Add process...'}
-              onInput={ppChange}
-              onKeyUp={ppChange}
-              value={processTerm}
-            />
-          </p>
-          <ProcessPicker
-            dataSet={dataSet}
-            term={processTerm}
-            picked={(proc) => setProcesses([...processes, { id: proc }])}
-          />
-        </div>
-      </>,
     );
   }
 
