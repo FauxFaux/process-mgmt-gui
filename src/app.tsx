@@ -40,14 +40,30 @@ export const App = () => {
   if (dataSetId) {
     const dataSet = loadedDataSets[dataSetId];
 
-    let unknowns: Unknowns = {};
-    let dot: string | undefined = undefined;
-    if (requirements.length || processes.length) {
-      ({ unknowns, dot } = solve(dataSet, requirements, processes));
-    }
+    const fallbackMapping = {
+      import: 'import',
+      export: 'export',
+      produce: 'export',
+      // unreachable
+      auto: 'import',
+    };
+
+    const { unknowns, dot } = processes.length
+      ? solve(dataSet, requirements, processes)
+      : {
+          unknowns: Object.fromEntries(
+            requirements.map(
+              (line) => [line.item, fallbackMapping[line.req.op]] as const,
+            ),
+          ) as Unknowns,
+          dot: undefined,
+        };
 
     const renderReqs: Line[] = [];
     for (const line of requirements) {
+      if (line.req.op === 'auto' && !unknowns[line.item]) {
+        continue;
+      }
       renderReqs.push({
         ...line,
         req: { ...line.req, hint: unknowns[line.item] },

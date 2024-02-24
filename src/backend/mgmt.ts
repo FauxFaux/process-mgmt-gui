@@ -54,43 +54,6 @@ export const solve = (
     }
   }
 
-  const hasRequirements = new Set(
-    inputs.requirements.map((stack) => stack.item.id),
-  );
-
-  if (!inputs.processes.length) {
-    // TODO: do not understand this at all
-    // https://github.com/CandleCandle/process-mgmt-ui/blob/9ea108e1c586d7e11f0423ed26c78fd69884660c/src/index.js#L451
-    const bodge: PartialLav = {
-      items: [],
-      mtx: [],
-      augmented_matrix: {
-        getRow: (idx) => {
-          return { data: [bodge.mtx[idx]] };
-        },
-      },
-    };
-
-    for (const req of inputs.requirements) {
-      bodge.items.push(req.item);
-      bodge.mtx.push([1]);
-    }
-
-    for (const imp of inputs.imports) {
-      bodge.items.push(data.pm.items[imp.id]);
-      bodge.mtx.push([0]);
-    }
-
-    for (const exp of inputs.exports) {
-      bodge.items.push(data.pm.items[exp.id]);
-      bodge.mtx.push([-1]);
-    }
-
-    return {
-      unknowns: computeUnknowns(bodge, (itemId) => hasRequirements.has(itemId)),
-    };
-  }
-
   return rawSolve(inputs);
 };
 
