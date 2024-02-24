@@ -1,5 +1,3 @@
-import { Viz } from '@viz-js/viz';
-
 import type { ModifierStyle } from './modifiers';
 import type { Data } from 'process-mgmt/src/structures.js';
 
@@ -54,18 +52,14 @@ export interface DataSet {
   pm: Data;
   lab?: Lab;
   ico?: string;
-  viz: Viz;
 }
-
-export const loadedDataSets: Record<DataSetId, DataSet> = {} as any;
 
 export type DataSetId = keyof typeof dataSets;
 
 export const loadProcMgmt = async (id: DataSetId): Promise<Data> =>
   (await import(`process-mgmt/src/${id}/data.js`)).default;
 
-export const loadDataSet = async (id: DataSetId): Promise<void> => {
-  if (loadedDataSets[id]) return;
+export const loadDataSet = async (id: DataSetId): Promise<DataSet> => {
   const pm = await loadProcMgmt(id);
   const labId = toLab[id];
 
@@ -79,10 +73,7 @@ export const loadDataSet = async (id: DataSetId): Promise<void> => {
     preloadImage(ico);
   }
 
-  // sigh
-  const viz = await (await import('@viz-js/viz')).instance();
-
-  loadedDataSets[id] = { pm, lab, ico, viz };
+  return { pm, lab, ico };
 };
 
 const preloadImage = (src: string) => {

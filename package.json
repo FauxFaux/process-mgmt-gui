@@ -15,6 +15,7 @@
   "license": "MIT OR Apache-2.0",
   "dependencies": {
     "@viz-js/viz": "^3.3.0",
+    "brotli-wasm": "^2.0.1",
     "factoriolab": "file:../factoriolab",
     "number-to-words": "^1",
     "preact": "^10.17",

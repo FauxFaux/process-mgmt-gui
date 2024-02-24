@@ -1,7 +1,9 @@
-import { useState } from 'preact/hooks';
+import { JSX } from 'preact';
+import { useEffect, useState } from 'preact/hooks';
+import type { BrotliWasmType as Brotli } from 'brotli-wasm';
+import type { Viz } from '@viz-js/viz';
 
-import { DataSetPicker } from './components/data-set';
-import { DataSet, DataSetId, loadedDataSets } from './data';
+import { DataSet, DataSetId, dataSets, loadDataSet } from './data';
 import {
   Line,
   RequirementTable,
@@ -10,35 +12,126 @@ import {
 import { solve } from './backend/mgmt';
 import { ItemPicker } from './components/item-picker';
 import { ProcessPicker } from './components/process-picker';
+
 import { Modifier, Proc, ProcessTable } from './components/process-table';
-import { JSX } from 'preact';
 
 export type ProcessId = string;
 
 export const App = () => {
-  const [dataSetId, setDataSetId] = useState<DataSetId | undefined>(undefined);
+  const [libs, setLibs] = useState(
+    {} as {
+      brotli: Brotli | undefined;
+      viz: Viz | undefined;
+    },
+  );
 
-  return (
-    <div class={'container-fluid'}>
-      <header>
-        <h1>Process Management</h1>
-      </header>
-      <div class={'row'}>
-        <div className={'col'}>
-          <DataSetPicker
-            onChange={(id) => {
-              setDataSetId(id);
-            }}
-            value={dataSetId}
-          />
+  useEffect(() => {
+    (async () => {
+      const bi = await import('brotli-wasm');
+      const brotli = await bi.default;
+      const vi = await import('@viz-js/viz');
+      const viz = await vi.instance();
+      setLibs({ brotli, viz });
+    })().catch(console.error);
+  });
+
+  const [dataSet, setDataSet] = useState<{
+    id?: DataSetId;
+    data?: DataSet;
+  }>({});
+
+  const nav = (
+    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <div className="container-fluid">
+        <div className="navbar-brand">process-mgmt</div>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <a
+                className="nav-link"
+                href="https://github.com/FauxFaux/process-mgmt-gui"
+              >
+                github
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                className="nav-link"
+                href="https://github.com/CandleCandle/process-mgmt"
+              >
+                engine (GPL-2)
+              </a>
+            </li>
+            <li className="nav-item">
+              <span class={'nav-link'}>
+                dataset: {dataSet.id ? dataSets[dataSet.id][0] : '[pending]'}
+              </span>
+            </li>
+          </ul>
         </div>
       </div>
-      {dataSetId && <Calc dataSet={loadedDataSets[dataSetId]} />}
+    </nav>
+  );
+
+  const makePicker = () => (
+    <p>
+      <h3>Select a dataset</h3>
+      <div
+        className="btn-group-vertical"
+        role="group"
+        aria-label="Vertical button group"
+      >
+        {Object.entries(dataSets).map(([rid, [name]]) => (
+          <button
+            className={'btn btn-primary'}
+            onClick={() => {
+              const id = rid as DataSetId;
+              setDataSet({ id, data: undefined });
+              (async () => {
+                const data = await loadDataSet(id);
+                setDataSet({ id, data });
+              })().catch(console.error);
+            }}
+          >
+            {name}
+          </button>
+        ))}
+      </div>
+    </p>
+  );
+
+  const picker = dataSet.id ? (
+    false
+  ) : (
+    <div className={'container-fluid'}>
+      <div className={'row'}>
+        <div className={'col'}>{makePicker()}</div>
+      </div>
     </div>
+  );
+
+  return (
+    <>
+      {nav}
+      {picker}
+      {dataSet.id && (!dataSet.data || !libs.viz) && <p>Loading...</p>}
+      {dataSet.data && libs.viz && <Calc dataSet={dataSet.data} libs={libs} />}
+    </>
   );
 };
 
-export const Calc = (props: { dataSet: DataSet }) => {
+export const Calc = (props: { dataSet: DataSet; libs: { viz: Viz } }) => {
   const [requirements, setRequirements] = useState([] as Line[]);
   const [processes, setProcesses] = useState([] as Proc[]);
 
@@ -196,7 +289,7 @@ export const Calc = (props: { dataSet: DataSet }) => {
   );
 
   if (dot) {
-    const svg = dataSet.viz.renderString(dot, {
+    const svg = props.libs.viz.renderString(dot, {
       engine: 'dot',
       format: 'svg',
     });
@@ -205,11 +298,6 @@ export const Calc = (props: { dataSet: DataSet }) => {
 
   return (
     <div class={'container-fluid'}>
-      <div class={'row'}>
-        <div class={'col'}>
-          <h1>Process Management</h1>
-        </div>
-      </div>
       {rows.map((row) => (
         <div class={'row'}>{row}</div>
       ))}
