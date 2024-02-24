@@ -1,10 +1,15 @@
 import { DataSet } from '../data';
 import { Item, ItemId } from './item';
 import { JSX } from 'preact';
-import MinusIcon from 'mdi-preact/MinusIcon';
+
+export type Unknowns = Record<ItemId, 'import' | 'export'>;
 
 // amount is only relevant for 'produce' but it's nice to persist it even if someone clicks away
-type Req = { amount: number; op: 'import' | 'export' | 'produce' };
+type Req = {
+  amount: number;
+  op: 'auto' | 'import' | 'export' | 'produce';
+  hint?: Unknowns[ItemId];
+};
 
 export interface Line {
   item: ItemId;
@@ -24,26 +29,43 @@ const MutReq = (props: {
   onChange: (req: Req) => void;
 }) => {
   const radio = `mut-req-radio-${props.formKey}`;
-  const list: JSX.Element[] = (['import', 'export', 'produce'] as const).map(
-    (op, i) => {
-      return (
-        <>
-          <input
-            type="radio"
-            className="btn-check"
-            name={radio}
-            id={`${radio}-${i}`}
-            autoComplete="off"
-            checked={props.req.op === op}
-            onChange={() => props.onChange({ ...props.req, op })}
-          />
-          <label className="btn btn-outline-primary" htmlFor={`${radio}-${i}`}>
-            {op}
-          </label>
-        </>
-      );
-    },
-  );
+  const list: JSX.Element[] = (
+    ['auto', 'import', 'export', 'produce'] as const
+  ).map((op, i) => {
+    const hinted = props.req.op === 'auto' && props.req.hint === op;
+    const helpText = {
+      auto: 'import or export based on apparent usage',
+      import: 'this item magically appears to be used; perhaps by train',
+      export: 'this item magically disappears; perhaps by train',
+      produce: 'this item is what we actually want, at some rate',
+    };
+    const title = hinted
+      ? 'auto has automatically selected this value'
+      : helpText[op];
+    return (
+      <>
+        <input
+          type="radio"
+          className="btn-check"
+          name={radio}
+          id={`${radio}-${i}`}
+          autoComplete="off"
+          checked={props.req.op === op}
+          onChange={() => props.onChange({ ...props.req, op })}
+          title={title}
+        />
+        <label
+          className={
+            'btn btn-outline-primary ' + (hinted ? 'req__radio--auto' : '')
+          }
+          htmlFor={`${radio}-${i}`}
+          title={title}
+        >
+          {op}
+        </label>
+      </>
+    );
+  });
 
   return (
     <div
@@ -72,12 +94,17 @@ const MutReq = (props: {
 };
 
 export const RequirementTable = (props: Props) => {
+  const hintColour = (req: Req, forCode: 'import' | 'export') =>
+    req.hint === forCode && !(forCode === 'export' && req.op === 'produce')
+      ? 'btn-warning'
+      : 'btn-secondary';
+
   return (
     <table class={'table req__main-table'}>
       <thead>
         <tr>
-          <th />
           <th>Item</th>
+          <th>Ops</th>
           <th>Demand</th>
         </tr>
       </thead>
@@ -85,29 +112,17 @@ export const RequirementTable = (props: Props) => {
         {props.value.map((line) => (
           <tr>
             <td>
-              <button
-                class={'btn btn-sm btn-outline-secondary'}
-                onClick={() => {
-                  props.onChange(
-                    props.value.filter((l) => l.item !== line.item),
-                  );
-                }}
-              >
-                <MinusIcon />
-              </button>
-            </td>
-            <td>
               <Item dataSet={props.dataSet} id={line.item} />
             </td>
             <td>
               <button
-                className={'btn req__find btn-warning'}
+                className={'btn req__find ' + hintColour(line.req, 'export')}
                 onClick={() => props.findProc(`c:${line.item}`)}
               >
                 find consumer
               </button>
               <button
-                className={'btn req__find btn-warning'}
+                className={'btn req__find ' + hintColour(line.req, 'import')}
                 onClick={() => props.findProc(`p:${line.item}`)}
               >
                 find producer

@@ -32,6 +32,13 @@
     color: var(--bs-secondary-border-subtle);
 }
 
+.req__radio--auto {
+    font-style: italic;
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    background-color: var(--bs-primary-bg-subtle);
+}
+
 .req__find {
     margin-left: 0.3em;
     margin-right: 0.3em;

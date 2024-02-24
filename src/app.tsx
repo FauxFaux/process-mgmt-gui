@@ -2,7 +2,11 @@ import { useState } from 'preact/hooks';
 
 import { DataSetPicker } from './components/data-set';
 import { DataSetId, loadedDataSets } from './data';
-import { Line, RequirementTable } from './components/requirement-table';
+import {
+  Line,
+  RequirementTable,
+  Unknowns,
+} from './components/requirement-table';
 import { solve } from './backend/mgmt';
 import { ItemPicker } from './components/item-picker';
 import { ProcessPicker } from './components/process-picker';
@@ -36,14 +40,44 @@ export const App = () => {
 
   if (dataSetId) {
     const dataSet = loadedDataSets[dataSetId];
+
+    let unknowns: Unknowns = {};
+    if (requirements.length || processes.length) {
+      unknowns = solve(dataSet, requirements, processes);
+    }
+
+    const renderReqs: Line[] = [];
+    for (const line of requirements) {
+      renderReqs.push({
+        ...line,
+        req: { ...line.req, hint: unknowns[line.item] },
+      });
+      delete unknowns[line.item];
+    }
+
+    for (const [item, req] of Object.entries(unknowns).sort()) {
+      renderReqs.push({ item, req: { op: 'auto', amount: 1, hint: req } });
+    }
+
     rows.push(
       <div class={'col'}>
         <RequirementTable
           dataSet={dataSet}
-          value={requirements}
+          value={renderReqs}
           onChange={setRequirements}
           findProc={(term) => setProcessTerm(term)}
         />
+      </div>,
+    );
+
+    rows.push(
+      <div class={'col'}>
+        <h2>Processes</h2>
+        <ul>
+          {processes.map((proc) => (
+            <li>{proc.id}</li>
+          ))}
+        </ul>
       </div>,
     );
 
@@ -79,10 +113,6 @@ export const App = () => {
         </div>
       </>,
     );
-
-    if (requirements.length || processes.length) {
-      console.log(solve(dataSet, requirements, processes));
-    }
   }
 
   return (

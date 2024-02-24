@@ -28,6 +28,8 @@ export const solve = (data: DataSet, lines: Line[], processes: Proc[]) => {
 
   for (const line of lines) {
     switch (line.req.op) {
+      case 'auto':
+        continue;
       case 'import':
         inputs.imports.push({ id: line.item });
         break;
