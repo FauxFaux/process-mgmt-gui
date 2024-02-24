@@ -27,6 +27,7 @@ declare module 'process-mgmt/src/structures.js' {
     constructor(item: Item, count: number);
 
     item: Item;
+    quantity: number;
   }
 
   export class Data {

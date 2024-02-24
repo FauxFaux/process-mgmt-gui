@@ -10,12 +10,9 @@ import {
 import { solve } from './backend/mgmt';
 import { ItemPicker } from './components/item-picker';
 import { ProcessPicker } from './components/process-picker';
+import { Modifier, Proc, ProcessTable } from './components/process-table';
 
 export type ProcessId = string;
-
-export interface Proc {
-  id: ProcessId;
-}
 
 export const App = () => {
   const [dataSetId, setDataSetId] = useState<DataSetId | undefined>(undefined);
@@ -61,6 +58,11 @@ export const App = () => {
       renderReqs.push({ item, req: { op: 'auto', amount: 1, hint: req } });
     }
 
+    const defaultMod = (): Modifier => ({
+      mode: 'additional',
+      amount: 0,
+    });
+
     let searchContent = <></>;
 
     switch (searchTab) {
@@ -80,7 +82,16 @@ export const App = () => {
             <ProcessPicker
               dataSet={dataSet}
               term={processTerm}
-              picked={(proc) => setProcesses([...processes, { id: proc }])}
+              picked={(proc) =>
+                setProcesses([
+                  ...processes,
+                  {
+                    id: proc,
+                    durationModifier: defaultMod(),
+                    outputModifier: defaultMod(),
+                  },
+                ])
+              }
             />
           </div>
         );
@@ -147,12 +158,11 @@ export const App = () => {
 
     rows.push(
       <div class={'col'}>
-        <h2>Processes</h2>
-        <ul>
-          {processes.map((proc) => (
-            <li>{proc.id}</li>
-          ))}
-        </ul>
+        <ProcessTable
+          dataSet={dataSet}
+          processes={processes}
+          onChange={(procs) => setProcesses(procs)}
+        />
       </div>,
     );
   }

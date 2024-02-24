@@ -28,6 +28,18 @@
     border-bottom-left-radius: 0;
 }
 
+.proc__mod-amount {
+    width: 6em;
+    text-align: right;
+    display: inline-block;
+}
+
+.proc__mod-style {
+    width: 4em;
+    display: inline-block;
+    font-family: monospace;
+}
+
 .req__produce:disabled {
     color: var(--bs-secondary-border-subtle);
 }
