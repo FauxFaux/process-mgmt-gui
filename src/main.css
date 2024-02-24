@@ -76,3 +76,12 @@
     text-align: right;
     margin-right: 0.3em;
 }
+
+.nav__clear-all {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+nav {
+    margin-bottom: 1em;
+}

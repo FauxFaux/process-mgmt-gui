@@ -71,6 +71,16 @@ export const App = () => {
                 dataset: {dataSet.id ? dataSets[dataSet.id][0] : '[pending]'}
               </span>
             </li>
+            <li className="nav-item">
+              <span class={'nav-link'}>
+                <button
+                  className={'btn btn-outline-danger btn-sm nav__clear-all'}
+                  onClick={() => setDataSet({})}
+                >
+                  clear everything
+                </button>
+              </span>
+            </li>
           </ul>
         </div>
       </div>
