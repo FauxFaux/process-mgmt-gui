@@ -1,6 +1,6 @@
 export const regexpOrNot = (s: string): { test: (s: string) => boolean } => {
   try {
-    const regex = new RegExp(`.*${s}.*`, 'i');
+    const regex = new RegExp(s, 'i');
     return {
       test: (s) => regex.test(s),
     };

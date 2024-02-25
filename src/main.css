@@ -90,3 +90,15 @@
 nav {
     margin-bottom: 1em;
 }
+
+.process__list {
+    padding-left: 0;
+}
+
+.process__list li {
+    list-style-type: none;
+}
+
+.process__list button {
+    margin-right: 0.5em;
+}
