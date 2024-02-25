@@ -13,6 +13,7 @@ import { ItemPicker } from './components/item-picker';
 import { ProcessPicker } from './components/process-picker';
 
 import { Modifier, Proc, ProcessTable } from './components/process-table';
+import ArrowRightIcon from 'mdi-preact/ArrowRightIcon';
 
 export interface CalcState {
   requirements: Line[];
@@ -130,59 +131,87 @@ export const Calc = (props: {
     default:
       throw new Error('unknown search tab: ' + searchTab);
   }
-  rows.push(
+
+  const searchTabs = (
     <>
-      <div className={'col-xxl-8'}>
-        <RequirementTable
-          dataSet={dataSet}
-          value={renderReqs}
-          onChange={setRequirements}
-          findProc={(term) => setProcessTerm(term)}
-        />
-      </div>
-      <div className={'col-xxl-4'}>
-        <ul className="nav nav-tabs">
-          <li className="nav-item">
-            <a
-              className={
-                'nav-link ' + (searchTab === 'process' ? 'active' : '')
-              }
-              onClick={(e) => {
-                e.preventDefault();
-                setSearchTab('process');
-              }}
-              href={'#'}
-            >
-              Processes
-            </a>
-          </li>
-          <li className="nav-item">
-            <a
-              className={'nav-link ' + (searchTab === 'item' ? 'active' : '')}
-              onClick={(e) => {
-                e.preventDefault();
-                setSearchTab('item');
-              }}
-              href={'#'}
-            >
-              Items
-            </a>
-          </li>
-        </ul>
-        {searchContent}
-      </div>
-    </>,
+      <ul className="nav nav-tabs">
+        <li className="nav-item">
+          <a
+            className={'nav-link ' + (searchTab === 'process' ? 'active' : '')}
+            onClick={(e) => {
+              e.preventDefault();
+              setSearchTab('process');
+            }}
+            href={'#'}
+          >
+            Processes
+          </a>
+        </li>
+        <li className="nav-item">
+          <a
+            className={'nav-link ' + (searchTab === 'item' ? 'active' : '')}
+            onClick={(e) => {
+              e.preventDefault();
+              setSearchTab('item');
+            }}
+            href={'#'}
+          >
+            Items
+          </a>
+        </li>
+      </ul>
+      {searchContent}
+    </>
+  );
+
+  const anyProduction = renderReqs.some(
+    (req) => req.req.op === 'produce' && req.req.amount !== 0,
+  );
+  const noProductionWarning = processes.length !== 0 && !anyProduction && (
+    <div className="alert alert-warning" role="alert">
+      No production requirements are specified. You must have at least one item
+      set to "produce" more than zero items for a calculation to occur.
+    </div>
+  );
+
+  const table = renderReqs.length ? (
+    <RequirementTable
+      dataSet={dataSet}
+      value={renderReqs}
+      onChange={setRequirements}
+      findProc={(term) => setProcessTerm(term)}
+    />
+  ) : (
+    <div
+      className="alert alert-primary"
+      role="alert"
+      style={'text-align: right'}
+    >
+      Add a process to get started <ArrowRightIcon />
+    </div>
   );
 
   rows.push(
-    <div class={'col'}>
-      <ProcessTable
-        dataSet={dataSet}
-        processes={processes}
-        onChange={(procs) => setProcesses(procs)}
-      />
-    </div>,
+    <>
+      <div className={'col-xxl-8'}>
+        {noProductionWarning}
+        {table}
+      </div>
+      <div className={'col-xxl-4'}>{searchTabs}</div>
+    </>,
   );
+
+  if (processes.length) {
+    rows.push(
+      <div class={'col'}>
+        <ProcessTable
+          dataSet={dataSet}
+          processes={processes}
+          onChange={(procs) => setProcesses(procs)}
+        />
+      </div>,
+    );
+  }
 
   if (dot) {
     const svg = props.viz.renderString(dot, {
