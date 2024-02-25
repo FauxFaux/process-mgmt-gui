@@ -13,10 +13,11 @@ declare module 'process-mgmt/src/structures.js' {
       id: string,
       name: string,
       groups: [] | null,
-      duration_modifier = 1,
-      output_modifier = 1,
+      duration_modifier?: number,
+      output_modifier?: number,
     );
   }
+
   export class FactoryGroup {
     constructor(name: string);
     id: string;
@@ -42,7 +43,8 @@ declare module 'process-mgmt/src/structures.js' {
 }
 
 declare module 'process-mgmt/src/visit/rate_visitor.js' {
-  import type { Factory, Process } from 'process-mgmt/src/structures.js';
+  import type { Process } from 'process-mgmt/src/process.js';
+  import type { Factory } from 'process-mgmt/src/structures.js';
 
   export class RateVisitor {
     constructor(rateify: (proc: Process) => Factory | undefined);
@@ -50,7 +52,7 @@ declare module 'process-mgmt/src/visit/rate_visitor.js' {
 }
 
 declare module 'process-mgmt/src/visit/linear_algebra_visitor.js' {
-  import type { Stack } from 'process-mgmt/src/structures.js';
+  import type { Item, Stack } from 'process-mgmt/src/structures.js';
 
   type BareItemName = string;
 
@@ -81,16 +83,18 @@ declare module 'process-mgmt/src/visit/process_count_visitor.js' {
 }
 
 declare module 'process-mgmt/src/process.js' {
+  import { FactoryGroup, Stack } from 'process-mgmt/src/structures.js';
+
   export class Process {
     // duration is execution seconds (as shown in game)
     constructor(
-      id: RecipeName,
+      id: string,
       inputs: Stack[],
       outputs: Stack[],
       duration: number,
       group: FactoryGroup,
     );
-    id: RecipeName;
+    id: string;
     duration: number;
     factory_group: FactoryGroup;
     inputs: Stack[];
@@ -103,7 +107,7 @@ declare module 'process-mgmt/src/process.js' {
     constructor(procs: Process[]);
     // sometimes returns a chain, sometimes returns a string
     accept(visitor: any): any;
-    process_counts: Record<RecipeName, number>;
+    process_counts: Record<string, number>;
   }
 }
 
