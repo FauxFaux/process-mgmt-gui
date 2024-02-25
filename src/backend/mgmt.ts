@@ -49,7 +49,7 @@ export const solve = (
             orig.id,
             orig.name,
             orig.groups,
-            orig.duration_modifier * proc.durationModifier.amount,
+            orig.duration_modifier / proc.durationModifier.amount,
             orig.output_modifier * proc.outputModifier.amount,
           ),
       );

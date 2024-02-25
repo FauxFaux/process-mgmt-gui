@@ -25,3 +25,8 @@ export const handleColours = (text: string) => {
 export const stripColours = (text: string) => {
   return text.replace(/\[color=(\d+,\d+,\d+)]([^[]+)\[\/color]/g, '$2');
 };
+
+export const roundTo = (value: number, places: number) => {
+  const factor = Math.pow(10, places);
+  return Math.round(value * factor) / factor;
+};

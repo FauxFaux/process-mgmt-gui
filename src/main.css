@@ -77,6 +77,11 @@
     margin-right: 0.3em;
 }
 
+.item-table .quantity {
+    min-width: 3em;
+    text-align: right;
+}
+
 .nav__clear-all {
     padding-top: 0;
     padding-bottom: 0;

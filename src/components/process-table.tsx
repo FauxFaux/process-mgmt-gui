@@ -2,11 +2,17 @@ import { JSX } from 'preact';
 
 import { ProcessId } from '../app';
 import { DataSet } from '../data';
-import { Modifier, ModifierStyle } from '../modifiers';
+import {
+  Modifier,
+  modifierFromInput,
+  ModifierStyle,
+  modifierToInput,
+} from '../modifiers';
 import { Process } from './process';
 import { Item } from './item';
 import KnobIcon from 'mdi-preact/KnobIcon';
 import ClockIcon from 'mdi-preact/ClockIcon';
+import { roundTo } from '../blurb/format';
 
 export interface Proc {
   id: ProcessId;
@@ -34,7 +40,8 @@ export const ProcessTable = (props: {
 }) => {
   const rows: JSX.Element[] = props.processes.map((proc, idx) => {
     const pm = props.dataSet.pm.processes[proc.id];
-    const modDuration = applyModifier(proc.durationModifier, pm.duration);
+    const modDuration = pm.duration / proc.durationModifier.amount;
+    const modOutput = proc.outputModifier.amount;
     return (
       <tr>
         <td>
@@ -55,7 +62,9 @@ export const ProcessTable = (props: {
         <td>{pm.factory_group.id}</td>
         <td>
           <ClockIcon /> {pm.duration}s{' '}
-          {modDuration !== pm.duration && <>&rArr; {modDuration}s</>}
+          {modDuration !== pm.duration && (
+            <>&rArr; {roundTo(modDuration, 2)}s</>
+          )}
           <br />
           <MutModifier
             cfg={proc.durationModifier}
@@ -86,18 +95,28 @@ export const ProcessTable = (props: {
               processes[idx] = { ...proc, outputModifier: mod };
               props.onChange(processes);
             }}
-            disabled={true}
           />
-          <ul className={'item-list'}>
-            {pm.outputs.map((stack) => {
-              return (
-                <li>
-                  {stack.quantity}{' '}
-                  <Item dataSet={props.dataSet} id={stack.item.id} />
-                </li>
-              );
-            })}
-          </ul>
+          <table className={'item-table'}>
+            <tbody>
+              {pm.outputs.map((stack) => {
+                return (
+                  <tr>
+                    <td class={'quantity'}>
+                      {stack.quantity} {modOutput !== 1 && <>&rArr;</>}
+                    </td>
+                    {modOutput !== 1 && (
+                      <td class={'quantity'}>
+                        {roundTo(stack.quantity * modOutput, 2)}
+                      </td>
+                    )}
+                    <td>
+                      <Item dataSet={props.dataSet} id={stack.item.id} />
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
         </td>
       </tr>
     );
@@ -148,13 +167,11 @@ const MutModifier = (props: {
     <input
       className={'form-control form-control-sm proc__mod-amount'}
       type="number"
-      value={props.cfg.amount}
-      onChange={(e) =>
-        props.onChange({
-          ...props.cfg,
-          amount: parseFloat(e.currentTarget.value),
-        })
-      }
+      value={roundTo(modifierToInput(props.cfg), 4)}
+      onChange={(e) => {
+        const input = parseFloat(e.currentTarget.value);
+        props.onChange(modifierFromInput(props.cfg.mode, input));
+      }}
       step={'any'}
       disabled={props.disabled}
     />

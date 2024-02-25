@@ -255,7 +255,7 @@ const handleV1 = (setters: Setters, obj: CandleV1) => {
       const mod = obj.process_modifiers[id];
       return {
         id,
-        durationModifier: { mode: modifierStyles[mod.ds], amount: mod.d },
+        durationModifier: { mode: modifierStyles[mod.ds], amount: 1 / mod.d },
         outputModifier: { mode: modifierStyles[mod.os], amount: mod.o },
       };
     }),

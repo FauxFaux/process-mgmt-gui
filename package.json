@@ -6,9 +6,9 @@
     "test": "jest",
     "build": "webpack --mode=production",
     "watch": "webpack --watch --mode=development",
-    "lint": "eslint             'src/**/*.ts*' 'scripts/**/*.ts*'",
-    "lint-fix": "eslint --fix   'src/**/*.ts*' 'scripts/**/*.ts*'",
-    "format": "prettier --write 'src/**/*.ts*' 'scripts/**/*.ts*'"
+    "lint": "eslint             'src/**/*.ts*' 'scripts/**/*.ts*' 'test/**/*.ts'",
+    "lint-fix": "eslint --fix   'src/**/*.ts*' 'scripts/**/*.ts*' 'test/**/*.ts'",
+    "format": "prettier --write 'src/**/*.ts*' 'scripts/**/*.ts*' 'test/**/*.ts'"
   },
   "type": "module",
   "author": "Chris West (Faux) <solo-npm@goeswhere.com>",
