@@ -12,10 +12,16 @@ declare module 'process-mgmt/src/structures.js' {
     constructor(
       id: string,
       name: string,
-      groups: [] | null,
+      groups: FactoryGroup[] | null,
       duration_modifier?: number,
       output_modifier?: number,
     );
+
+    id: string;
+    name: string;
+    groups: FactoryGroup[] | null;
+    duration_modifier: number;
+    output_modifier: number;
   }
 
   export class FactoryGroup {

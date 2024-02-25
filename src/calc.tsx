@@ -12,8 +12,9 @@ import { solve } from './backend/mgmt';
 import { ItemPicker } from './components/item-picker';
 import { ProcessPicker } from './components/process-picker';
 
-import { Modifier, Proc, ProcessTable } from './components/process-table';
+import { Proc, ProcessTable } from './components/process-table';
 import ArrowRightIcon from 'mdi-preact/ArrowRightIcon';
+import { Modifier } from './modifiers';
 
 export interface CalcState {
   requirements: Line[];
@@ -87,7 +88,7 @@ export const Calc = (props: {
 
   const defaultMod = (): Modifier => ({
     mode: 'additional',
-    amount: 0,
+    amount: 1,
   });
 
   let searchContent = <></>;

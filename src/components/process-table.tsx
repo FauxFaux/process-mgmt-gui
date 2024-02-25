@@ -2,16 +2,11 @@ import { JSX } from 'preact';
 
 import { ProcessId } from '../app';
 import { DataSet } from '../data';
-import { ModifierStyle } from '../modifiers';
+import { Modifier, ModifierStyle } from '../modifiers';
 import { Process } from './process';
 import { Item } from './item';
 import KnobIcon from 'mdi-preact/KnobIcon';
 import ClockIcon from 'mdi-preact/ClockIcon';
-
-export interface Modifier {
-  mode: ModifierStyle;
-  amount: number;
-}
 
 export interface Proc {
   id: ProcessId;

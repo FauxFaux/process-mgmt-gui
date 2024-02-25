@@ -3,18 +3,20 @@ import { LinearAlgebra } from 'process-mgmt/src/visit/linear_algebra_visitor.js'
 import { RateVisitor } from 'process-mgmt/src/visit/rate_visitor.js';
 import { ProcessCountVisitor } from 'process-mgmt/src/visit/process_count_visitor.js';
 import { RateGraphRenderer } from 'process-mgmt/src/visit/rate_graph_renderer.js';
-import { Factory, Item, Stack } from 'process-mgmt/src/structures.js';
+import { Data, Factory, Item, Stack } from 'process-mgmt/src/structures.js';
 
 import { DataSet } from '../data';
 import { Line, Unknowns } from '../components/requirement-table';
 import { ItemId } from '../components/item';
 import { Proc } from '../components/process-table';
+import { ProcessId } from '../app';
 
 interface SolverInputs {
   requirements: Stack[];
   imports: { id: string }[];
   exports: { id: string }[];
   processes: Process[];
+  factoryForProcess: Record<ProcessId, Factory>;
 }
 
 export const solve = (
@@ -30,9 +32,31 @@ export const solve = (
     imports: [],
     exports: [],
     processes: [],
+    factoryForProcess: {},
   };
 
   inputs.processes = processes.map((proc) => data.pm.processes[proc.id]);
+
+  inputs.factoryForProcess = Object.fromEntries(
+    processes.map((proc) => {
+      const pm = data.pm.processes[proc.id];
+      const factories = viableFactoriesForGroup(
+        data.pm,
+        pm.factory_group.id,
+      ).map(
+        (orig) =>
+          new Factory(
+            orig.id,
+            orig.name,
+            orig.groups,
+            orig.duration_modifier * proc.durationModifier.amount,
+            orig.output_modifier * proc.outputModifier.amount,
+          ),
+      );
+
+      return [proc.id, selectFastestFactory(factories)];
+    }),
+  );
 
   for (const line of lines) {
     switch (line.req.op) {
@@ -64,12 +88,7 @@ export const rawSolve = (inputs: SolverInputs) => {
     inputs.exports.map((i) => i.id),
   );
   const chain = new ProcessChain(inputs.processes)
-    .accept(
-      new RateVisitor(
-        (proc) => new Factory('unknown', 'unknown', null),
-        // getModifiedFactoryForProcess(data, proc),
-      ),
-    )
+    .accept(new RateVisitor((proc) => inputs.factoryForProcess[proc.id]))
     .accept(new ProcessCountVisitor())
     .accept(lav);
 
@@ -117,4 +136,17 @@ const computeUnknowns = (
     }
   }
   return result;
+};
+
+const viableFactoriesForGroup = (data: Data, groupId: string): Factory[] =>
+  Object.values(data.factories).filter((factory) =>
+    (factory.groups ?? []).some((fg) => fg.id === groupId),
+  );
+
+const selectFastestFactory = (factories: Factory[]): Factory => {
+  if (factories.length === 0) {
+    throw new Error('no factories');
+  }
+
+  return factories.sort((a, b) => a.duration_modifier - b.duration_modifier)[0];
 };
