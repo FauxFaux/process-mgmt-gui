@@ -17,8 +17,8 @@ import type { ProcessId } from '../app';
 
 interface SolverInputs {
   requirements: Stack[];
-  imports: { id: string }[];
-  exports: { id: string }[];
+  imports: string[];
+  exports: string[];
   processes: Process[];
   factoryForProcess: Record<ProcessId, Factory>;
 }
@@ -67,10 +67,10 @@ export const solve = (
       case 'auto':
         continue;
       case 'import':
-        inputs.imports.push({ id: line.item });
+        inputs.imports.push(line.item);
         break;
       case 'export':
-        inputs.exports.push({ id: line.item });
+        inputs.exports.push(line.item);
         break;
       case 'produce':
         inputs.requirements.push(
@@ -82,7 +82,42 @@ export const solve = (
     }
   }
 
-  return rawSolve(inputs);
+  let unknowns: Unknowns;
+  {
+    const hasRequirements = new Set(
+      inputs.requirements.map((stack) => stack.item.id),
+    );
+    const { lav } = mainSolve(inputs);
+    unknowns = computeUnknowns(lav, (itemId) => hasRequirements.has(itemId));
+  }
+
+  // then, apply the hints
+  for (const line of lines.filter((line) => line.req.op === 'auto')) {
+    switch (line.req.hint ?? unknowns[line.item]) {
+      case 'import':
+        inputs.imports.push(line.item);
+        break;
+      case 'export':
+        inputs.exports.push(line.item);
+        break;
+      case undefined:
+        // maybe unreachable with ?? unknowns but who knows
+        break;
+      default:
+        throw new Error(`unknown hint: ${line.req.hint}`);
+    }
+  }
+
+  let dot: string;
+  {
+    const { chain } = mainSolve(inputs);
+    dot = fiddleDot(chain.accept(new RateGraphRenderer()));
+  }
+
+  return {
+    unknowns,
+    dot,
+  };
 };
 
 const fiddleDot = (dotLines: string[]): string => {
@@ -110,27 +145,17 @@ const fiddleDot = (dotLines: string[]): string => {
     .replace(/fillcolor="(\w*)"/g, (_, v) => `fillcolor="${colourMap[v]}"`);
 };
 
-export const rawSolve = (inputs: SolverInputs) => {
+const mainSolve = (inputs: SolverInputs) => {
   const lav = new LinearAlgebra(
     inputs.requirements,
-    inputs.imports.map((i) => i.id),
-    inputs.exports.map((i) => i.id),
+    inputs.imports,
+    inputs.exports,
   );
   const chain = new ProcessChain(inputs.processes)
     .accept(new RateVisitor((proc) => inputs.factoryForProcess[proc.id]))
     .accept(new ProcessCountVisitor())
     .accept(lav);
-
-  const hasRequirements = new Set(
-    inputs.requirements.map((stack) => stack.item.id),
-  );
-
-  const dot = fiddleDot(chain.accept(new RateGraphRenderer()));
-
-  return {
-    unknowns: computeUnknowns(lav, (itemId) => hasRequirements.has(itemId)),
-    dot,
-  };
+  return { chain, lav };
 };
 
 interface PartialLav {
