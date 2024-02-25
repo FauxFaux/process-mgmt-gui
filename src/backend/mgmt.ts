@@ -7,6 +7,8 @@ import { RateGraphRenderer } from 'process-mgmt/src/visit/rate_graph_renderer.js
 import type { Data, Item } from 'process-mgmt/src/structures.js';
 import { Factory, Stack } from 'process-mgmt/src/structures.js';
 
+import { oneLine as f } from 'common-tags';
+
 import type { DataSet } from '../data';
 import type { Line, Unknowns } from '../components/requirement-table';
 import type { ItemId } from '../components/item';
@@ -83,6 +85,31 @@ export const solve = (
   return rawSolve(inputs);
 };
 
+const fiddleDot = (dotLines: string[]): string => {
+  const bg = '#212529';
+  const line = '#dee2e6'; // --bs-body-color
+  const text = 'white';
+
+  dotLines.splice(
+    1,
+    0,
+    f`
+  bgcolor="${bg}";
+  edge [ color="${line}"; fontcolor="${text}"; ];
+  node [ color="${line}"; fontcolor="${text}"; ];
+  `,
+  );
+
+  const colourMap: Record<string, string> = {
+    red: '#842029', // --bs-danger-border-subtle
+    green: '#0f5132', // --bs-success-border-subtle
+    '': '#343a40', // --bs-grey-dark
+  };
+  return dotLines
+    .join('\n')
+    .replace(/fillcolor="(\w*)"/g, (_, v) => `fillcolor="${colourMap[v]}"`);
+};
+
 export const rawSolve = (inputs: SolverInputs) => {
   const lav = new LinearAlgebra(
     inputs.requirements,
@@ -98,7 +125,7 @@ export const rawSolve = (inputs: SolverInputs) => {
     inputs.requirements.map((stack) => stack.item.id),
   );
 
-  const dot = chain.accept(new RateGraphRenderer()).join('\n');
+  const dot = fiddleDot(chain.accept(new RateGraphRenderer()));
 
   return {
     unknowns: computeUnknowns(lav, (itemId) => hasRequirements.has(itemId)),
