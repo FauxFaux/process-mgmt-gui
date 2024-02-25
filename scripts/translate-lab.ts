@@ -3,13 +3,8 @@ import { copyFileSync, writeFileSync } from 'node:fs';
 import { pascalSnakeCase } from 'change-case';
 import type { ModData } from 'factoriolab/src/app/models';
 
-import {
-  LabItem,
-  toLab,
-  DataSetId,
-  loadProcMgmt,
-  LabProcess,
-} from '../src/data';
+import type { LabItem, DataSetId, LabProcess } from '../src/data';
+import { toLab, loadProcMgmt } from '../src/data';
 
 async function main() {
   const fromLab = Object.entries(toLab).reduce(

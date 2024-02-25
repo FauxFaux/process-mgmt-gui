@@ -1,7 +1,7 @@
-import { DataSet } from '../data';
+import type { DataSet } from '../data';
 import qm from '../../assets/question-mark.png';
 import { handleColours } from '../blurb/format';
-import { ProcessId } from '../app';
+import type { ProcessId } from '../app';
 
 export const Process = (props: { dataSet: DataSet; id: ProcessId }) => {
   const lab = props.dataSet.lab?.processes?.[props.id];

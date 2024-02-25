@@ -1,8 +1,9 @@
 import { useRef, useState } from 'preact/hooks';
 
 import type { DataSet } from '../data';
-import { Item, ItemId } from './item';
-import { JSX } from 'preact';
+import type { ItemId } from './item';
+import { Item } from './item';
+import type { JSX } from 'preact';
 import PlusBoldIcon from 'mdi-preact/PlusBoldIcon';
 import { regexpOrNot } from '../blurb/search';
 

@@ -1,10 +1,7 @@
 import { expect, it } from '@jest/globals';
 
-import {
-  modifierFromInput,
-  ModifierStyle,
-  modifierToInput,
-} from '../src/modifiers';
+import type { ModifierStyle } from '../src/modifiers';
+import { modifierFromInput, modifierToInput } from '../src/modifiers';
 
 it('round-trips modifiers to input', () => {
   const mi = (mode: ModifierStyle, amount: number) =>

@@ -1,13 +1,9 @@
-import { JSX } from 'preact';
+import type { JSX } from 'preact';
 
-import { ProcessId } from '../app';
-import { DataSet } from '../data';
-import {
-  Modifier,
-  modifierFromInput,
-  ModifierStyle,
-  modifierToInput,
-} from '../modifiers';
+import type { ProcessId } from '../app';
+import type { DataSet } from '../data';
+import type { Modifier, ModifierStyle } from '../modifiers';
+import { modifierFromInput, modifierToInput } from '../modifiers';
 import { Process } from './process';
 import { Item } from './item';
 import KnobIcon from 'mdi-preact/KnobIcon';

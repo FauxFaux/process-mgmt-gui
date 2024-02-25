@@ -1,15 +1,17 @@
-import { ProcessChain, Process } from 'process-mgmt/src/process.js';
+import type { Process } from 'process-mgmt/src/process.js';
+import { ProcessChain } from 'process-mgmt/src/process.js';
 import { LinearAlgebra } from 'process-mgmt/src/visit/linear_algebra_visitor.js';
 import { RateVisitor } from 'process-mgmt/src/visit/rate_visitor.js';
 import { ProcessCountVisitor } from 'process-mgmt/src/visit/process_count_visitor.js';
 import { RateGraphRenderer } from 'process-mgmt/src/visit/rate_graph_renderer.js';
-import { Data, Factory, Item, Stack } from 'process-mgmt/src/structures.js';
+import type { Data, Item } from 'process-mgmt/src/structures.js';
+import { Factory, Stack } from 'process-mgmt/src/structures.js';
 
-import { DataSet } from '../data';
-import { Line, Unknowns } from '../components/requirement-table';
-import { ItemId } from '../components/item';
-import { Proc } from '../components/process-table';
-import { ProcessId } from '../app';
+import type { DataSet } from '../data';
+import type { Line, Unknowns } from '../components/requirement-table';
+import type { ItemId } from '../components/item';
+import type { Proc } from '../components/process-table';
+import type { ProcessId } from '../app';
 
 interface SolverInputs {
   requirements: Stack[];

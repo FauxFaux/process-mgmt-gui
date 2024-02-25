@@ -89,7 +89,7 @@ declare module 'process-mgmt/src/visit/process_count_visitor.js' {
 }
 
 declare module 'process-mgmt/src/process.js' {
-  import { FactoryGroup, Stack } from 'process-mgmt/src/structures.js';
+  import type { FactoryGroup, Stack } from 'process-mgmt/src/structures.js';
 
   export class Process {
     // duration is execution seconds (as shown in game)

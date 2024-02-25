@@ -1,6 +1,7 @@
-import { DataSet } from '../data';
-import { Item, ItemId } from './item';
-import { JSX } from 'preact';
+import type { DataSet } from '../data';
+import type { ItemId } from './item';
+import { Item } from './item';
+import type { JSX } from 'preact';
 import MagnifyAddIcon from 'mdi-preact/MagnifyAddIcon';
 import MagnifyMinusIcon from 'mdi-preact/MagnifyMinusIcon';
 

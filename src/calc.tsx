@@ -1,20 +1,18 @@
-import { JSX } from 'preact';
+import type { JSX } from 'preact';
 import { useState } from 'preact/hooks';
 import type { Viz } from '@viz-js/viz';
 
-import { DataSet } from './data';
-import {
-  Line,
-  RequirementTable,
-  Unknowns,
-} from './components/requirement-table';
+import type { DataSet } from './data';
+import type { Line, Unknowns } from './components/requirement-table';
+import { RequirementTable } from './components/requirement-table';
 import { solve } from './backend/mgmt';
 import { ItemPicker } from './components/item-picker';
 import { ProcessPicker } from './components/process-picker';
 
-import { Proc, ProcessTable } from './components/process-table';
+import type { Proc } from './components/process-table';
+import { ProcessTable } from './components/process-table';
 import ArrowRightIcon from 'mdi-preact/ArrowRightIcon';
-import { Modifier } from './modifiers';
+import type { Modifier } from './modifiers';
 
 export interface CalcState {
   requirements: Line[];

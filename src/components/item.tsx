@@ -1,4 +1,4 @@
-import { DataSet } from '../data';
+import type { DataSet } from '../data';
 import qm from '../../assets/question-mark.png';
 import { handleColours, stripColours } from '../blurb/format';
 

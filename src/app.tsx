@@ -1,13 +1,16 @@
-import { StateUpdater, useEffect, useState } from 'preact/hooks';
+import type { StateUpdater } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 import type { BrotliWasmType as Brotli } from 'brotli-wasm';
 import type { Viz } from '@viz-js/viz';
 
-import { DataSet, DataSetId, dataSets, loadDataSet } from './data';
-import { Calc, CalcState } from './calc';
-import { ItemId } from './components/item';
-import { ModifierStyle } from './modifiers';
+import type { DataSet, DataSetId } from './data';
+import { dataSets, loadDataSet } from './data';
+import type { CalcState } from './calc';
+import { Calc } from './calc';
+import type { ItemId } from './components/item';
+import type { ModifierStyle } from './modifiers';
 import { unB64 } from './blurb/base64';
-import { Line } from './components/requirement-table';
+import type { Line } from './components/requirement-table';
 
 export type ProcessId = string;
 
@@ -270,11 +273,11 @@ const defaultCalc = (): CalcState => ({
 
 // guess of a workaround for some apparently memory leaks from initing locally
 const brotliPromise = import('brotli-wasm')
-  .then((bi) => bi.default)
+  .then(async (bi) => bi.default)
   .then((brotli) => ({ brotli }))
   .catch((err: unknown) => ({ err }));
 
 const vizPromise = import('@viz-js/viz')
-  .then((vi) => vi.instance())
+  .then(async (vi) => vi.instance())
   .then((viz) => ({ viz }))
   .catch((err: unknown) => ({ err }));
