@@ -73,8 +73,16 @@ export const Calc = (props: {
     delete unknowns[line.item];
   }
 
-  for (const [item, req] of Object.entries(unknowns).sort()) {
-    renderReqs.push({ item, req: { op: 'auto', amount: 1, hint: req } });
+  const noExistingReqs = renderReqs.length === 0;
+
+  // place 'export's (recipe outputs) before imports where possible
+  for (const req of ['export', 'import'] as const) {
+    for (const [item] of Object.entries(unknowns)
+      .filter(([, unk]) => unk === req)
+      .sort()) {
+      const op = req === 'export' && noExistingReqs ? 'produce' : 'auto';
+      renderReqs.push({ item, req: { op, amount: 1, hint: req } });
+    }
   }
 
   const defaultMod = (): Modifier => ({
