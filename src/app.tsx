@@ -9,7 +9,7 @@ import type { CalcState } from './calc';
 import { Calc } from './calc';
 import type { ItemId } from './components/item';
 import type { ModifierStyle } from './modifiers';
-import { unB64 } from './blurb/base64';
+import { enB64, unB64 } from './blurb/base64';
 import type { Line } from './components/requirement-table';
 
 export type ProcessId = string;
@@ -37,11 +37,9 @@ export const App = () => {
         return;
       }
       setLibs({ brotli: brotliLoad.brotli, viz: vizLoad.viz });
+      hashChangeWas.ready = true;
+      hashChange();
     })();
-  }, []);
-
-  useEffect(() => {
-    hashChange();
   }, []);
 
   const setDataSetId = (id: DataSetId) => {
@@ -57,9 +55,46 @@ export const App = () => {
     })();
   };
 
+  const hashChangeWas = {
+    // skip if we just triggered it, no need to reload
+    us: false,
+    // skip if it happens before libs have loaded; libs will re-trigger it
+    // bit of a hack, but it allows us to do all our init up front (where we can use useEffect etc)
+    ready: false,
+  };
+
   const hashChange = () => {
+    if (!hashChangeWas.ready) {
+      return;
+    }
+    if (hashChangeWas.us) {
+      hashChangeWas.us = false;
+      return;
+    }
     const hash = window.location.hash;
-    handleB64({ setDataSetId, setCalc }, hash.slice(1));
+    handleB64(libs, { setDataSetId, setCalc }, hash.slice(1));
+  };
+
+  useEffect(() => {
+    hashChange();
+  }, []);
+
+  const setCalcAndHash = (calc: CalcState) => {
+    setCalc(calc);
+    if (!libs) {
+      throw new Error('impossible: libs is loaded before the calc page shows');
+    }
+
+    const json = new TextEncoder().encode(
+      JSON.stringify(toV61(dataSet.id!, calc)),
+    );
+    const compressed = libs?.brotli.compress(json);
+    if (!compressed) {
+      console.error('Failed to compress');
+      return;
+    }
+    hashChangeWas.us = true;
+    window.history.pushState({}, '', `#${enB64(compressed)}`);
   };
 
   useEffect(() => {
@@ -115,7 +150,7 @@ export const App = () => {
                   className={'btn btn-outline-danger btn-sm nav__clear-all'}
                   onClick={() => {
                     setDataSet({});
-                    setCalc(defaultCalc());
+                    setCalcAndHash(defaultCalc());
                   }}
                 >
                   clear everything
@@ -171,7 +206,7 @@ export const App = () => {
           dataSet={dataSet.data}
           viz={libs.viz}
           state={calc}
-          setState={setCalc}
+          setState={setCalcAndHash}
         />
       )}
     </>
@@ -183,10 +218,10 @@ type Setters = {
   setCalc: StateUpdater<CalcState>;
 };
 
-const handleB64 = (setters: Setters, b64: string) => {
+const handleB64 = (libs, setters: Setters, b64: string) => {
   const bytes = unB64(b64);
-  if (bytes.length < 4) {
-    throw new Error('input too short');
+  if (bytes.length === 0) {
+    return;
   }
   if (bytes[0] === '{'.charCodeAt(0)) {
     const obj: any = JSON.parse(new TextDecoder().decode(bytes));
@@ -198,15 +233,20 @@ const handleB64 = (setters: Setters, b64: string) => {
         throw new Error(`unknown json version: ${obj.v}`);
     }
   } else {
-    throw new Error('unknown format');
   }
 };
 
 type CandleModifierStyle = 'r' | 'p' | 'a';
-const modifierStyles: Record<CandleModifierStyle, ModifierStyle> = {
+const modifierFromCandle: Record<CandleModifierStyle, ModifierStyle> = {
   r: 'raw',
   p: 'normal',
   a: 'additional',
+};
+
+const modifierToCandle: Record<ModifierStyle, CandleModifierStyle> = {
+  raw: 'r',
+  normal: 'p',
+  additional: 'a',
 };
 
 interface CandleV1 {
@@ -258,12 +298,75 @@ const handleV1 = (setters: Setters, obj: CandleV1) => {
       const mod = obj.process_modifiers[id];
       return {
         id,
-        durationModifier: { mode: modifierStyles[mod.ds], amount: 1 / mod.d },
-        outputModifier: { mode: modifierStyles[mod.os], amount: mod.o },
+        durationModifier: {
+          mode: modifierFromCandle[mod.ds],
+          amount: 1 / mod.d,
+        },
+        outputModifier: { mode: modifierFromCandle[mod.os], amount: mod.o },
       };
     }),
   };
   setters.setCalc(calc);
+};
+
+type CompressedOp = 'a' | 'i' | 'e' | 'p';
+interface F61 {
+  v: 61;
+  d: DataSetId;
+  r: [CompressedOp, ItemId, number][];
+  p: [ProcessId, CandleModifierStyle, CandleModifierStyle, number, number][];
+  f: [string, string][];
+}
+
+const toV61 = (ds: DataSetId, state: CalcState): F61 => {
+  const modeLookup = {
+    produce: 'p',
+    import: 'i',
+    export: 'e',
+    auto: 'a',
+  } as const;
+
+  return {
+    v: 61,
+    d: ds,
+    r: state.requirements.map((line) => {
+      const { op, amount } = line.req;
+      return [modeLookup[op], line.item, amount];
+    }),
+    p: state.processes.map((proc) => {
+      return [
+        proc.id,
+        modifierToCandle[proc.durationModifier.mode],
+        modifierToCandle[proc.outputModifier.mode],
+        proc.durationModifier.amount,
+        proc.outputModifier.amount,
+      ];
+    }),
+    f: [],
+  };
+};
+
+const fromV61 = (obj: F61): [DataSetId, CalcState] => {
+  const modeLookup = {
+    p: 'produce',
+    i: 'import',
+    e: 'export',
+    a: 'auto',
+  } as const;
+
+  const state: CalcState = {
+    requirements: obj.r.map(([op, item, amount]) => ({
+      item,
+      req: { op: modeLookup[op], amount },
+    })),
+    processes: obj.p.map(([id, ds, os, d, o]) => ({
+      id,
+      durationModifier: { mode: modifierFromCandle[ds], amount: d },
+      outputModifier: { mode: modifierFromCandle[os], amount: o },
+    })),
+  };
+
+  return [obj.d, state];
 };
 
 const defaultCalc = (): CalcState => ({
