@@ -16,7 +16,11 @@ export const ProcessPicker = (props: {
   pinItem: (item: ItemId) => void;
   alreadyProc: (process: ProcessId) => boolean;
   alreadyItem: (item: ItemId) => boolean;
+  // ReturnType<(typeof useState<number>)(a: number)>
+  shown: [number, (next: number) => void];
 }) => {
+  const [shown, setShown] = props.shown;
+
   const term = props.term;
   if (!term) return <></>;
 
@@ -75,8 +79,6 @@ export const ProcessPicker = (props: {
     matches['id full'] = ids.filter((id) => re.test(id));
   }
 
-  const show = 6;
-
   const displayItems: Record<
     string,
     [number, Record<ItemId, [number, ProcessId[]]>]
@@ -89,7 +91,7 @@ export const ProcessPicker = (props: {
     if (filtered.length === 0) {
       continue;
     }
-    const showingItems = filtered.slice(0, show);
+    const showingItems = filtered.slice(0, shown);
     showingItems.forEach((id) => alreadyItems.add(id));
     const recps: Record<ItemId, [number, ProcessId[]]> = {};
     for (const id of showingItems) {
@@ -99,7 +101,7 @@ export const ProcessPicker = (props: {
       const filtered = processes
         .filter((id) => !already.has(id))
         .filter((id) => props.dataSet.lab?.processes?.[id]?.contained !== true);
-      const showing = filtered.slice(0, show);
+      const showing = filtered.slice(0, shown);
       recps[id] = [filtered.length, showing];
       processes.forEach((id) => already.add(id));
     }
@@ -111,7 +113,7 @@ export const ProcessPicker = (props: {
     if (filtered.length === 0) {
       continue;
     }
-    const showing = filtered.slice(0, show);
+    const showing = filtered.slice(0, shown);
     display[key] = [filtered.length, showing];
     showing.forEach((id) => already.add(id));
   }
@@ -145,7 +147,19 @@ export const ProcessPicker = (props: {
     </>
   );
 
-  console.log(term, displayItems, display);
+  const More = (props: { actShown: [number, number] }) => {
+    const [act, shown] = props.actShown;
+    if (act === shown) return <></>;
+    return (
+      <li>
+        ... and{' '}
+        <a href={'#'} onClick={() => setShown(shown * 2)}>
+          {act - shown} more
+        </a>
+        .
+      </li>
+    );
+  };
 
   const itemLines = Object.entries(displayItems).flatMap(
     ([head, [catTotal, items]]) => {
@@ -170,12 +184,11 @@ export const ProcessPicker = (props: {
               >
                 <PinIcon />
               </button>
-              <Item dataSet={props.dataSet} id={itemId} />
+              <Item dataSet={props.dataSet} id={itemId} />{' '}
+              <i>(item) {procTotal ? 'made by:' : ''}</i>
               <ul>
                 {regular}
-                {processes.length !== procTotal && (
-                  <li>... and {procTotal - processes.length} more</li>
-                )}
+                <More actShown={[procTotal, processes.length]} />
               </ul>
             </li>,
           ];
@@ -186,7 +199,7 @@ export const ProcessPicker = (props: {
       return [
         <hr title={`item ${head} (${catAvail}/${catTotal})`} />,
         ...itemGroups,
-        catAvail !== catTotal && <li>... and {catTotal - catAvail} more</li>,
+        <More actShown={[catTotal, catAvail]} />,
       ];
     },
   );
@@ -201,9 +214,7 @@ export const ProcessPicker = (props: {
       return [
         <hr title={`${head} (${processes.length}/${total})`} />,
         ...regular,
-        processes.length !== total && (
-          <li>... and {total - processes.length} more</li>
-        ),
+        <More actShown={[total, processes.length]} />,
       ];
     },
   );

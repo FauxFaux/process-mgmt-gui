@@ -32,10 +32,13 @@ export const Calc = (props: {
     props.setState({ ...props.state, processes });
 
   const [processTerm, setProcessTerm] = useState('');
+  const [processShown, setProcessShown] = useState(6);
   const [searchTab, setSearchTab] = useState('process' as 'process' | 'item');
 
-  const ppChange = (e: { currentTarget: HTMLInputElement }) =>
+  const ppChange = (e: { currentTarget: HTMLInputElement }) => {
+    setProcessShown(6);
     setProcessTerm(e.currentTarget.value);
+  };
 
   const rows: JSX.Element[] = [];
 
@@ -126,6 +129,7 @@ export const Calc = (props: {
             }}
             alreadyProc={(proc) => processes.some((p) => p.id === proc)}
             alreadyItem={(item) => requirements.some((r) => r.item === item)}
+            shown={[processShown, setProcessShown]}
           />
         </div>
       );
