@@ -102,3 +102,7 @@ nav {
 .process__list button {
     margin-right: 0.5em;
 }
+
+.process__recp--with-header {
+    padding-left: 1em;
+}
