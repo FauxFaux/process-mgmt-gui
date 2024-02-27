@@ -37,8 +37,6 @@ export const App = () => {
         return;
       }
       setLibs({ brotli: brotliLoad.brotli, viz: vizLoad.viz });
-      hashChangeWas.ready = true;
-      hashChange();
     })();
   }, []);
 
@@ -55,29 +53,9 @@ export const App = () => {
     })();
   };
 
-  const hashChangeWas = {
-    // skip if we just triggered it, no need to reload
-    us: false,
-    // skip if it happens before libs have loaded; libs will re-trigger it
-    // bit of a hack, but it allows us to do all our init up front (where we can use useEffect etc)
-    ready: false,
-  };
-
-  const hashChange = () => {
-    if (!hashChangeWas.ready) {
-      return;
-    }
-    if (hashChangeWas.us) {
-      hashChangeWas.us = false;
-      return;
-    }
-    const hash = window.location.hash;
-    handleB64(libs, { setDataSetId, setCalc }, hash.slice(1));
-  };
-
-  useEffect(() => {
-    hashChange();
-  }, []);
+  // I still have no idea how you're *supposed* to do this.
+  const [rawHash, setRawHash] = useState(window.location.hash.slice(1));
+  const [showingHash, setShowingHash] = useState('');
 
   const setCalcAndHash = (calc: CalcState) => {
     setCalc(calc);
@@ -89,18 +67,25 @@ export const App = () => {
       JSON.stringify(toV61(dataSet.id!, calc)),
     );
     const compressed = libs?.brotli.compress(json);
-    if (!compressed) {
-      console.error('Failed to compress');
-      return;
-    }
-    hashChangeWas.us = true;
-    window.history.pushState({}, '', `#${enB64(compressed)}`);
+    const hash = enB64(compressed);
+    setShowingHash(hash);
+    setRawHash(hash);
+    window.history.pushState({}, '', `#${hash}`);
   };
 
   useEffect(() => {
+    const hashChange = () => setRawHash(window.location.hash.slice(1));
     window.addEventListener('hashchange', hashChange);
     return () => window.removeEventListener('hashchange', hashChange);
   }, []);
+
+  useEffect(() => {
+    if (!libs || rawHash === showingHash) {
+      return;
+    }
+    setShowingHash(rawHash);
+    handleB64(libs, { setDataSetId, setCalc }, rawHash);
+  }, [rawHash, libs, showingHash]);
 
   const [dataSet, setDataSet] = useState<DataSetState>({});
 
@@ -119,7 +104,7 @@ export const App = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
@@ -218,7 +203,7 @@ type Setters = {
   setCalc: StateUpdater<CalcState>;
 };
 
-const handleB64 = (libs, setters: Setters, b64: string) => {
+const handleB64 = (libs: { brotli: Brotli }, setters: Setters, b64: string) => {
   const bytes = unB64(b64);
   if (bytes.length === 0) {
     return;
@@ -233,6 +218,11 @@ const handleB64 = (libs, setters: Setters, b64: string) => {
         throw new Error(`unknown json version: ${obj.v}`);
     }
   } else {
+    const decompressed = libs.brotli.decompress(bytes);
+    const obj: F61 = JSON.parse(new TextDecoder().decode(decompressed));
+    const [id, state] = fromV61(obj);
+    setters.setDataSetId(id);
+    setters.setCalc(state);
   }
 };
 
