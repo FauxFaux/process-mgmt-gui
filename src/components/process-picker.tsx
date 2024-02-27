@@ -14,6 +14,8 @@ export const ProcessPicker = (props: {
   term: string;
   picked: (process: ProcessId) => void;
   pinItem: (item: ItemId) => void;
+  alreadyProc: (process: ProcessId) => boolean;
+  alreadyItem: (item: ItemId) => boolean;
 }) => {
   const term = props.term;
   if (!term) return <></>;
@@ -124,6 +126,12 @@ export const ProcessPicker = (props: {
           e.preventDefault();
           props.picked(mp.obj.id);
         }}
+        disabled={props.alreadyProc(mp.obj.id)}
+        title={
+          props.alreadyProc(mp.obj.id)
+            ? 'already present'
+            : 'include process and generate item requirements'
+        }
       >
         <PlusBoldIcon />
       </button>
@@ -153,6 +161,12 @@ export const ProcessPicker = (props: {
               <button
                 class={'btn btn-sm btn-outline-secondary'}
                 onClick={() => props.pinItem(itemId)}
+                disabled={props.alreadyItem(itemId)}
+                title={
+                  props.alreadyItem(itemId)
+                    ? 'already present'
+                    : 'force item to be included in requirements, despite not having any associated processes'
+                }
               >
                 <PinIcon />
               </button>
