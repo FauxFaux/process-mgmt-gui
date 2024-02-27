@@ -90,6 +90,7 @@ export const ProcessPicker = (props: {
       continue;
     }
     const showingItems = filtered.slice(0, show);
+    showingItems.forEach((id) => alreadyItems.add(id));
     const recps: Record<ItemId, [number, ProcessId[]]> = {};
     for (const id of showingItems) {
       const processes = Object.entries(props.dataSet.pm.processes)
@@ -98,9 +99,6 @@ export const ProcessPicker = (props: {
       const filtered = processes
         .filter((id) => !already.has(id))
         .filter((id) => props.dataSet.lab?.processes?.[id]?.contained !== true);
-      if (filtered.length === 0) {
-        continue;
-      }
       const showing = filtered.slice(0, show);
       recps[id] = [filtered.length, showing];
       processes.forEach((id) => already.add(id));
@@ -146,6 +144,8 @@ export const ProcessPicker = (props: {
       )}
     </>
   );
+
+  console.log(term, displayItems, display);
 
   const itemLines = Object.entries(displayItems).flatMap(
     ([head, [catTotal, items]]) => {

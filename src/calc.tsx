@@ -125,12 +125,7 @@ export const Calc = (props: {
               ]);
             }}
             alreadyProc={(proc) => processes.some((p) => p.id === proc)}
-            alreadyItem={(item) =>
-              requirements.some((r) => {
-                console.log(requirements, r, item);
-                return r.item === item;
-              })
-            }
+            alreadyItem={(item) => requirements.some((r) => r.item === item)}
           />
         </div>
       );
