@@ -12,7 +12,8 @@ export type ProcessId = string;
 export const ProcessPicker = (props: {
   dataSet: DataSet;
   term: string;
-  picked: (item: ProcessId) => void;
+  picked: (process: ProcessId) => void;
+  pinItem: (item: ItemId) => void;
 }) => {
   const term = props.term;
   if (!term) return <></>;
@@ -149,15 +150,20 @@ export const ProcessPicker = (props: {
           ));
           return [
             <li>
-              <button class={'btn btn-sm btn-outline-secondary'}>
+              <button
+                class={'btn btn-sm btn-outline-secondary'}
+                onClick={() => props.pinItem(itemId)}
+              >
                 <PinIcon />
               </button>
               <Item dataSet={props.dataSet} id={itemId} />
+              <ul>
+                {regular}
+                {processes.length !== procTotal && (
+                  <li>... and {procTotal - processes.length} more</li>
+                )}
+              </ul>
             </li>,
-            ...regular,
-            processes.length !== procTotal && (
-              <li>... and {procTotal - processes.length} more</li>
-            ),
           ];
         },
       );

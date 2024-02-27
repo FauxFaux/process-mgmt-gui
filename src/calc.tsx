@@ -118,6 +118,12 @@ export const Calc = (props: {
                 },
               ])
             }
+            pinItem={(item) => {
+              setRequirements([
+                ...requirements,
+                { item, req: { op: 'produce', amount: 1 } },
+              ]);
+            }}
           />
         </div>
       );
