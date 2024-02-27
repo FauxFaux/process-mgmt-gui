@@ -97,7 +97,7 @@ export const Calc = (props: {
     <div>
       <p>
         <input
-          type={'text'}
+          type={'search'}
           className={'form-control'}
           placeholder={'Add by item name, process name, or internal ids...'}
           onInput={ppChange}
