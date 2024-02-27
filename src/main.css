@@ -107,3 +107,7 @@ nav {
     padding-left: 1em;
     margin-bottom: 1em;
 }
+
+.welcome-help button {
+    margin-left: 0.5em;
+}

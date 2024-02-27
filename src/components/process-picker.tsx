@@ -153,7 +153,13 @@ export const ProcessPicker = (props: {
     return (
       <li>
         ... and{' '}
-        <a href={'#'} onClick={() => setShown(shown * 2)}>
+        <a
+          href={'#'}
+          onClick={(e) => {
+            e.preventDefault();
+            setShown(shown * 2);
+          }}
+        >
           {act - shown} more
         </a>
         .

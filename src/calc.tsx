@@ -6,13 +6,15 @@ import type { DataSet } from './data';
 import type { Line, Unknowns } from './components/requirement-table';
 import { RequirementTable } from './components/requirement-table';
 import { solve } from './backend/mgmt';
-import { ItemPicker } from './components/item-picker';
 import { ProcessPicker } from './components/process-picker';
 
 import type { Proc } from './components/process-table';
 import { ProcessTable } from './components/process-table';
 import ArrowRightIcon from 'mdi-preact/ArrowRightIcon';
 import type { Modifier } from './modifiers';
+import PlusBoldIcon from 'mdi-preact/PlusBoldIcon';
+import PinIcon from 'mdi-preact/PinIcon';
+import ArrowDownIcon from 'mdi-preact/ArrowDownIcon';
 
 export interface CalcState {
   requirements: Line[];
@@ -33,7 +35,6 @@ export const Calc = (props: {
 
   const [processTerm, setProcessTerm] = useState('');
   const [processShown, setProcessShown] = useState(6);
-  const [searchTab, setSearchTab] = useState('process' as 'process' | 'item');
 
   const ppChange = (e: { currentTarget: HTMLInputElement }) => {
     setProcessShown(6);
@@ -92,95 +93,42 @@ export const Calc = (props: {
     amount: 1,
   });
 
-  let searchContent = <></>;
-
-  switch (searchTab) {
-    case 'process':
-      searchContent = (
-        <div>
-          <p>
-            <input
-              type={'text'}
-              className={'form-control'}
-              placeholder={'Add process...'}
-              onInput={ppChange}
-              onKeyUp={ppChange}
-              value={processTerm}
-            />
-          </p>
-          <ProcessPicker
-            dataSet={dataSet}
-            term={processTerm}
-            picked={(proc) =>
-              setProcesses([
-                ...processes,
-                {
-                  id: proc,
-                  durationModifier: defaultMod(),
-                  outputModifier: defaultMod(),
-                },
-              ])
-            }
-            pinItem={(item) => {
-              setRequirements([
-                ...requirements,
-                { item, req: { op: 'produce', amount: 1 } },
-              ]);
-            }}
-            alreadyProc={(proc) => processes.some((p) => p.id === proc)}
-            alreadyItem={(item) => requirements.some((r) => r.item === item)}
-            shown={[processShown, setProcessShown]}
-          />
-        </div>
-      );
-      break;
-    case 'item':
-      searchContent = (
-        <ItemPicker
-          dataSet={dataSet}
-          picked={(item) => {
-            setRequirements([
-              ...requirements,
-              { item, req: { op: 'produce', amount: 1 } },
-            ]);
-          }}
+  const searchContent = (
+    <div>
+      <p>
+        <input
+          type={'text'}
+          className={'form-control'}
+          placeholder={'Add by item name, process name, or internal ids...'}
+          onInput={ppChange}
+          onKeyUp={ppChange}
+          value={processTerm}
         />
-      );
-      break;
-    default:
-      throw new Error('unknown search tab: ' + searchTab);
-  }
-
-  const searchTabs = (
-    <>
-      <ul className="nav nav-tabs">
-        <li className="nav-item">
-          <a
-            className={'nav-link ' + (searchTab === 'process' ? 'active' : '')}
-            onClick={(e) => {
-              e.preventDefault();
-              setSearchTab('process');
-            }}
-            href={'#'}
-          >
-            Processes
-          </a>
-        </li>
-        <li className="nav-item">
-          <a
-            className={'nav-link ' + (searchTab === 'item' ? 'active' : '')}
-            onClick={(e) => {
-              e.preventDefault();
-              setSearchTab('item');
-            }}
-            href={'#'}
-          >
-            Items
-          </a>
-        </li>
-      </ul>
-      {searchContent}
-    </>
+      </p>
+      <ProcessPicker
+        dataSet={dataSet}
+        term={processTerm}
+        picked={(proc) =>
+          setProcesses([
+            ...processes,
+            {
+              id: proc,
+              durationModifier: defaultMod(),
+              outputModifier: defaultMod(),
+            },
+          ])
+        }
+        pinItem={(item) => {
+          setRequirements([
+            ...requirements,
+            { item, req: { op: 'produce', amount: 1 } },
+          ]);
+        }}
+        alreadyProc={(proc) => processes.some((p) => p.id === proc)}
+        alreadyItem={(item) => requirements.some((r) => r.item === item)}
+        shown={[processShown, setProcessShown]}
+      />
+    </div>
   );
 
   const anyProduction = renderReqs.some(
@@ -202,11 +150,33 @@ export const Calc = (props: {
     />
   ) : (
     <div
-      className="alert alert-primary"
+      className="alert alert-primary welcome-help"
       role="alert"
       style={'text-align: right'}
     >
-      Add a process to get started <ArrowRightIcon />
+      <p>
+        Add a process to get started
+        <span class={'d-none d-xxl-inline'}>
+          <ArrowRightIcon />
+        </span>
+        <span class={'d-xxl-none'}>
+          <ArrowDownIcon />
+        </span>
+      </p>
+      <p>
+        This button will <i>add</i> the process/recipe, and all its associated
+        items:{' '}
+        <button className={'btn btn-sm btn-outline-secondary'} disabled={true}>
+          <PlusBoldIcon />
+        </button>
+      </p>
+      <p>
+        This button will <i>pin</i> the item to the requirements list, if you
+        have somehow managed to lose it:{' '}
+        <button className={'btn btn-sm btn-outline-secondary'} disabled={true}>
+          <PinIcon />
+        </button>
+      </p>
     </div>
   );
 
@@ -216,7 +186,7 @@ export const Calc = (props: {
         {noProductionWarning}
         {table}
       </div>
-      <div className={'col-xxl-4'}>{searchTabs}</div>
+      <div className={'col-xxl-4'}>{searchContent}</div>
     </>,
   );
 
