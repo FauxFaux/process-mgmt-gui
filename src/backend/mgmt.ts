@@ -205,6 +205,35 @@ const computeUnknowns = (
   return result;
 };
 
+export const applyHints = (requirements: Line[], unknowns: Unknowns) => {
+  const ret: Line[] = [];
+
+  for (const line of requirements) {
+    if (line.req.op === 'auto' && !unknowns[line.item]) {
+      continue;
+    }
+    ret.push({
+      ...line,
+      req: { ...line.req, hint: unknowns[line.item] },
+    });
+    delete unknowns[line.item];
+  }
+
+  const noExistingReqs = ret.length === 0;
+
+  // place 'export's (recipe outputs) before imports where possible
+  for (const req of ['export', 'import'] as const) {
+    for (const [item] of Object.entries(unknowns)
+      .filter(([, unk]) => unk === req)
+      .sort()) {
+      const op = req === 'export' && noExistingReqs ? 'produce' : 'auto';
+      ret.push({ item, req: { op, amount: 1, hint: req } });
+    }
+  }
+
+  return ret;
+};
+
 const viableFactoriesForGroup = (data: Data, groupId: string): Factory[] =>
   Object.values(data.factories).filter((factory) =>
     (factory.groups ?? []).some((fg) => fg.id === groupId),

@@ -5,7 +5,7 @@ import type { Viz } from '@viz-js/viz';
 import type { DataSet } from './data';
 import type { Line, Unknowns } from './components/requirement-table';
 import { RequirementTable } from './components/requirement-table';
-import { solve } from './backend/mgmt';
+import { applyHints, solve } from './backend/mgmt';
 import { ProcessPicker } from './components/process-picker';
 
 import type { Proc } from './components/process-table';
@@ -64,29 +64,7 @@ export const Calc = (props: {
         dot: undefined,
       };
 
-  const renderReqs: Line[] = [];
-  for (const line of requirements) {
-    if (line.req.op === 'auto' && !unknowns[line.item]) {
-      continue;
-    }
-    renderReqs.push({
-      ...line,
-      req: { ...line.req, hint: unknowns[line.item] },
-    });
-    delete unknowns[line.item];
-  }
-
-  const noExistingReqs = renderReqs.length === 0;
-
-  // place 'export's (recipe outputs) before imports where possible
-  for (const req of ['export', 'import'] as const) {
-    for (const [item] of Object.entries(unknowns)
-      .filter(([, unk]) => unk === req)
-      .sort()) {
-      const op = req === 'export' && noExistingReqs ? 'produce' : 'auto';
-      renderReqs.push({ item, req: { op, amount: 1, hint: req } });
-    }
-  }
+  const renderReqs = applyHints(requirements, unknowns);
 
   const defaultMod = (): Modifier => ({
     mode: 'additional',
