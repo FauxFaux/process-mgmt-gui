@@ -83,7 +83,7 @@ export const makeInputs = (
   return inputs;
 };
 
-const updateInputsWithHints = (
+export const updateInputsWithHints = (
   inputs: SolverInputs,
   requirements: Line[],
   unknowns: Unknowns,
@@ -105,6 +105,11 @@ const updateInputsWithHints = (
   }
 };
 
+export const dotFor = (inputs: SolverInputs) => {
+  const { chain } = mainSolve(inputs);
+  return fiddleDot(chain.accept(new RateGraphRenderer()));
+};
+
 export const solve = (
   data: DataSet,
   requirements: Line[],
@@ -117,8 +122,7 @@ export const solve = (
   const unknowns = computeUnknowns(inputs);
 
   updateInputsWithHints(inputs, requirements, unknowns);
-  const { chain } = mainSolve(inputs);
-  const dot = fiddleDot(chain.accept(new RateGraphRenderer()));
+  const dot = dotFor(inputs);
 
   return {
     unknowns,
@@ -176,7 +180,7 @@ interface PartialLav {
 
 type Recommendation = 'import' | 'export';
 
-const computeUnknowns = (
+export const computeUnknowns = (
   inputs: SolverInputs,
 ): Record<ItemId, Recommendation> => {
   const hasRequirements = new Set(

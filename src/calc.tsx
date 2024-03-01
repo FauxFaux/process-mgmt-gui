@@ -5,7 +5,13 @@ import type { Viz } from '@viz-js/viz';
 import type { DataSet } from './data';
 import type { Line, Unknowns } from './components/requirement-table';
 import { RequirementTable } from './components/requirement-table';
-import { applyHints, solve } from './backend/mgmt';
+import {
+  applyHints,
+  computeUnknowns,
+  dotFor,
+  makeInputs,
+  updateInputsWithHints,
+} from './backend/mgmt';
 import { ProcessPicker } from './components/process-picker';
 
 import type { Proc } from './components/process-table';
@@ -28,10 +34,36 @@ export const Calc = (props: {
   setState: (next: CalcState) => void;
 }) => {
   const { requirements, processes } = props.state;
+
+  const setState = (inpReqs: Line[], processes: Proc[]) => {
+    const fallbackMapping = {
+      import: 'import',
+      export: 'export',
+      produce: 'export',
+      // unreachable
+      auto: 'import',
+    };
+
+    let unknowns: Unknowns;
+
+    if (processes.length) {
+      const inputs = makeInputs(props.dataSet, inpReqs, processes);
+      unknowns = computeUnknowns(inputs);
+    } else {
+      unknowns = Object.fromEntries(
+        inpReqs.map(
+          (line) => [line.item, fallbackMapping[line.req.op]] as const,
+        ),
+      ) as Unknowns;
+    }
+
+    const requirements = applyHints(inpReqs, unknowns);
+    props.setState({ requirements, processes });
+  };
+
   const setRequirements = (requirements: Line[]) =>
-    props.setState({ ...props.state, requirements });
-  const setProcesses = (processes: Proc[]) =>
-    props.setState({ ...props.state, processes });
+    setState(requirements, processes);
+  const setProcesses = (processes: Proc[]) => setState(requirements, processes);
 
   const [processTerm, setProcessTerm] = useState('');
   const [processShown, setProcessShown] = useState(6);
@@ -44,27 +76,6 @@ export const Calc = (props: {
   const rows: JSX.Element[] = [];
 
   const dataSet = props.dataSet;
-
-  const fallbackMapping = {
-    import: 'import',
-    export: 'export',
-    produce: 'export',
-    // unreachable
-    auto: 'import',
-  };
-
-  const { unknowns, dot } = processes.length
-    ? solve(dataSet, requirements, processes)
-    : {
-        unknowns: Object.fromEntries(
-          requirements.map(
-            (line) => [line.item, fallbackMapping[line.req.op]] as const,
-          ),
-        ) as Unknowns,
-        dot: undefined,
-      };
-
-  const renderReqs = applyHints(requirements, unknowns);
 
   const defaultMod = (): Modifier => ({
     mode: 'additional',
@@ -109,7 +120,7 @@ export const Calc = (props: {
     </div>
   );
 
-  const anyProduction = renderReqs.some(
+  const anyProduction = requirements.some(
     (req) => req.req.op === 'produce' && req.req.amount !== 0,
   );
   const noProductionWarning = processes.length !== 0 && !anyProduction && (
@@ -119,10 +130,10 @@ export const Calc = (props: {
     </div>
   );
 
-  const table = renderReqs.length ? (
+  const table = requirements.length ? (
     <RequirementTable
       dataSet={dataSet}
-      value={renderReqs}
+      value={requirements}
       onChange={setRequirements}
       findProc={(term) => setProcessTerm(term)}
     />
@@ -180,7 +191,10 @@ export const Calc = (props: {
     );
   }
 
-  if (dot) {
+  if (processes.length) {
+    const inputs = makeInputs(props.dataSet, requirements, processes);
+    updateInputsWithHints(inputs, requirements, {});
+    const dot = dotFor(inputs);
     const svg = props.viz.renderString(dot, {
       engine: 'dot',
       format: 'svg',
