@@ -2,4 +2,4 @@
 
 exports[`handles some colour cases 1`] = `"plain string"`;
 
-exports[`handles some colour cases 2`] = `"content<span style="color: rgb(1,2,3)">two</span>content<span style="color: rgb(10,20,30)">four</span>five"`;
+exports[`handles some colour cases 2`] = `"one<span style="color: rgb(1,2,3)">two</span>three<span style="color: rgb(10,20,30)">four</span>five"`;
