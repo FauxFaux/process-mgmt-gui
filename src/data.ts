@@ -83,6 +83,7 @@ export const loadDataSet = async (id: DataSetId): Promise<DataSet> => {
 };
 
 const preloadImage = (src: string) => {
+  if (typeof Image === 'undefined') return;
   const img = new Image();
   img.src = src;
 };
