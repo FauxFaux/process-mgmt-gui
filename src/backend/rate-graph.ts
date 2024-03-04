@@ -56,11 +56,20 @@ export class RateGraphAsDot extends ProcessChainVisitor<string[]> {
     const consume = twoDp(
       chain.materials.total_negative(item).mul(-1).quantity,
     );
+    // this.out.push(
+    //   `  ${idI(item)} [shape="record" label="{${this.itemName(item)} |` +
+    //     ` { produce: ${produce}/s | ` +
+    //     `consume: ${consume}/s }}" ` +
+    //     `style="filled" fillcolor="${itemNodeColour(produce, consume)}"]`,
+    // );
+    //
+    // language=HTML
     this.out.push(
-      `  ${idI(item)} [shape="record" label="{${this.itemName(item)} |` +
-        ` { produce: ${produce}/s | ` +
-        `consume: ${consume}/s }}" ` +
-        `style="filled" fillcolor="${itemNodeColour(produce, consume)}"]`,
+      `  ${idI(item)} [shape="plaintext" label=<` +
+        `<table bgcolor="${itemNodeColour(produce, consume)}" border="0" cellborder="1" cellspacing="0" cellpadding="4">` +
+        `<tr><td colspan="2" href="icon:${item.id}">      ${this.itemName(item)}</td></tr>` +
+        `<tr><td>produce: ${produce}/s</td><td>consume: ${consume}/s</td></tr>` +
+        `</table>>]`,
     );
   }
 
@@ -68,6 +77,7 @@ export class RateGraphAsDot extends ProcessChainVisitor<string[]> {
     unTitleCase(stripColours(itemName(this.dataSet, item.id)));
 
   processName = (process: Process) =>
+    `icon%${process.id}%` +
     unTitleCase(stripColours(processName(this.dataSet, process.id)));
 
   visit_process(process: Process, chain: ProcessChain) {

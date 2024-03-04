@@ -58,7 +58,23 @@ export const Calc = (props: {
     setProcessTerm(e.currentTarget.value);
   };
 
-  const rows: JSX.Element[] = [];
+  const yellow = props.dataSet.lab!.items['transport-belt'].iconPos;
+  const red = props.dataSet.lab!.items['express-transport-belt'].iconPos;
+
+  const unIcon = (pos: string) => {
+    const [x, y] = pos
+      .split(' ')
+      .map(parseFloat)
+      .map((v) => -1 * v);
+    const w = 64;
+    return `clip-path: rect(${y}px ${x + w}px ${y + w}px ${x}px); transform: translate(-${x}px, -${y}px)`;
+  };
+
+  const rows: JSX.Element[] = [
+    <svg width={'64'} height={'64'}>
+      <image href={props.dataSet.ico} style={unIcon(yellow)} />
+    </svg>,
+  ];
 
   const dataSet = props.dataSet;
 
@@ -182,11 +198,14 @@ export const Calc = (props: {
     updateInputsWithHints(inputs, requirements, unknowns);
     const dot = dotFor(props.dataSet, inputs);
     console.log(dot);
-    const svg = props.viz.renderString(dot, {
+    const svg = props.viz.renderSVGElement(dot, {
       engine: 'dot',
       format: 'svg',
+      images: [{ name: 'icon.hack', width: '64px', height: '64px' }],
     });
-    rows.push(<div dangerouslySetInnerHTML={{ __html: svg }} />);
+
+    const fiddled = fiddleSvg(props.dataSet, svg);
+    rows.push(<div dangerouslySetInnerHTML={{ __html: fiddled.outerHTML }} />);
   }
 
   return (
@@ -196,6 +215,53 @@ export const Calc = (props: {
       ))}
     </div>
   );
+};
+
+const fiddleSvg = (dataSet: DataSet, svg: SVGElement): SVGElement => {
+  const bads: [HTMLAnchorElement, string][] = [];
+  for (const tag of svg.getElementsByTagName('a')) {
+    const href = tag.getAttribute('xlink:href');
+    if (href?.startsWith('icon:')) {
+      bads.push([tag, href.slice(5)]);
+    }
+  }
+  for (const [el, id] of bads) {
+    const border = el.getElementsByTagName('polygon');
+    const text = el.getElementsByTagName('text');
+    const borrow = text[0];
+    el.parentNode?.prepend(...text);
+    el.parentNode?.prepend(...border);
+
+    console.log(borrow);
+    const xmlns = 'http://www.w3.org/2000/svg';
+    const add = document.createElementNS(xmlns, 'image');
+    const lab = dataSet.lab?.items?.[id];
+    add.setAttribute('x', borrow.getAttribute('x')!);
+    add.setAttribute('y', parseFloat(borrow.getAttribute('y')!) - 12);
+    add.setAttribute('width', '64');
+    add.setAttribute('height', '64');
+
+    const unIcon = (pos: string) => {
+      const [x, y] = pos
+        .split(' ')
+        .map(parseFloat)
+        .map((v) => -1 * v);
+      const w = 64;
+      return `clip-path: rect(${y}px ${x + w}px ${y + w}px ${x}px); transform: translate(-${x}px, -${y}px)`;
+    };
+    const yellow = dataSet.lab!.items['transport-belt'].iconPos;
+    const dat = `<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'>
+      <image width='1516' height='1450' href='${dataSet.ico}' style='${unIcon(yellow)}' />
+    </svg>`;
+
+    add.setAttribute('href', `data:image/svg+xml;utf8, ${dat}`);
+
+    // add.setAttribute('style', unIcon(lab?.iconPos ?? '0 0'));
+    // add.setAttribute('href', dataSet.ico);
+    el.parentNode?.prepend(add);
+    el.remove();
+  }
+  return svg;
 };
 
 const unknownsFromInternal = (
