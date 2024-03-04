@@ -56,13 +56,6 @@ export class RateGraphAsDot extends ProcessChainVisitor<string[]> {
     const consume = twoDp(
       chain.materials.total_negative(item).mul(-1).quantity,
     );
-    // this.out.push(
-    //   `  ${idI(item)} [shape="record" label="{${this.itemName(item)} |` +
-    //     ` { produce: ${produce}/s | ` +
-    //     `consume: ${consume}/s }}" ` +
-    //     `style="filled" fillcolor="${itemNodeColour(produce, consume)}"]`,
-    // );
-    //
     // language=HTML
     this.out.push(
       `  ${idI(item)} [shape="plaintext" label=<` +
@@ -77,7 +70,6 @@ export class RateGraphAsDot extends ProcessChainVisitor<string[]> {
     unTitleCase(stripColours(itemName(this.dataSet, item.id)));
 
   processName = (process: Process) =>
-    `icon%${process.id}%` +
     unTitleCase(stripColours(processName(this.dataSet, process.id)));
 
   visit_process(process: Process, chain: ProcessChain) {
