@@ -3,6 +3,7 @@
  */
 
 import { describe, expect, it } from '@jest/globals';
+
 import {
   applyHints,
   computeUnknowns,
@@ -10,7 +11,7 @@ import {
   updateInputsWithHints,
 } from '../src/backend/mgmt';
 import { loadDataSet } from '../src/data';
-import { Line } from '../src/components/requirement-table';
+import type { Line } from '../src/components/requirement-table';
 
 describe('mgmt backend', () => {
   it('boots', async () => {
