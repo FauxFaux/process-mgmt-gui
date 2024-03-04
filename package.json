@@ -7,7 +7,7 @@
     "build": "webpack --mode=production",
     "watch": "webpack --watch --mode=development",
     "bundle-size": "webpack --mode=production --profile --json > dist/stats.json && webpack-bundle-analyzer dist/stats.json",
-    "lint": "eslint             'src/**/*.ts*' 'scripts/**/*.ts*' 'test/**/*.ts'",
+    "lint": "tsc && eslint      'src/**/*.ts*' 'scripts/**/*.ts*' 'test/**/*.ts'",
     "lint-fix": "eslint --fix   'src/**/*.ts*' 'scripts/**/*.ts*' 'test/**/*.ts'",
     "format": "prettier --write 'src/**/*.ts*' 'scripts/**/*.ts*' 'test/**/*.ts' jest.config.ts .babelrc"
   },
