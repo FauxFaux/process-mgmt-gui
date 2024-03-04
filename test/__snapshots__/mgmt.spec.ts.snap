@@ -14,7 +14,6 @@ exports[`mgmt backend boots 2`] = `
     "item": "transport-belt",
     "req": {
       "amount": 1,
-      "hint": "export",
       "op": "produce",
     },
   },
@@ -22,7 +21,6 @@ exports[`mgmt backend boots 2`] = `
     "item": "iron-gear-wheel",
     "req": {
       "amount": 1,
-      "hint": "import",
       "op": "auto",
     },
   },
@@ -30,7 +28,6 @@ exports[`mgmt backend boots 2`] = `
     "item": "iron-plate",
     "req": {
       "amount": 1,
-      "hint": "import",
       "op": "auto",
     },
   },
