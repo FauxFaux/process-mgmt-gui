@@ -1,9 +1,9 @@
 import type { JSX } from 'preact';
-import { useState } from 'preact/hooks';
+import { useMemo, useState } from 'preact/hooks';
 import type { Viz } from '@viz-js/viz';
 
 import type { DataSet } from './data';
-import type { Line, Unknowns } from './components/requirement-table';
+import type { Hint, Line, Req, Unknowns } from './components/requirement-table';
 import { RequirementTable } from './components/requirement-table';
 import {
   applyHints,
@@ -36,27 +36,7 @@ export const Calc = (props: {
   const { requirements, processes } = props.state;
 
   const setState = (inpReqs: Line[], processes: Proc[]) => {
-    const fallbackMapping = {
-      import: 'import',
-      export: 'export',
-      produce: 'export',
-      // unreachable
-      auto: 'import',
-    };
-
-    let unknowns: Unknowns;
-
-    if (processes.length) {
-      const inputs = makeInputs(props.dataSet, inpReqs, processes);
-      unknowns = computeUnknowns(inputs);
-    } else {
-      unknowns = Object.fromEntries(
-        inpReqs.map(
-          (line) => [line.item, fallbackMapping[line.req.op]] as const,
-        ),
-      ) as Unknowns;
-    }
-
+    const unknowns = unknownsFromInternal(props.dataSet, inpReqs, processes);
     const requirements = applyHints(inpReqs, unknowns);
     props.setState({ requirements, processes });
   };
@@ -64,6 +44,11 @@ export const Calc = (props: {
   const setRequirements = (requirements: Line[]) =>
     setState(requirements, processes);
   const setProcesses = (processes: Proc[]) => setState(requirements, processes);
+
+  const unknowns = useMemo(
+    () => unknownsFromInternal(props.dataSet, requirements, processes),
+    [props.dataSet, requirements, processes],
+  );
 
   const [processTerm, setProcessTerm] = useState('');
   const [processShown, setProcessShown] = useState(6);
@@ -134,6 +119,7 @@ export const Calc = (props: {
     <RequirementTable
       dataSet={dataSet}
       value={requirements}
+      hints={unknowns}
       onChange={setRequirements}
       findProc={(term) => setProcessTerm(term)}
     />
@@ -193,7 +179,7 @@ export const Calc = (props: {
 
   if (processes.length) {
     const inputs = makeInputs(props.dataSet, requirements, processes);
-    updateInputsWithHints(inputs, requirements, {});
+    updateInputsWithHints(inputs, requirements, unknowns);
     const dot = dotFor(inputs);
     const svg = props.viz.renderString(dot, {
       engine: 'dot',
@@ -208,5 +194,29 @@ export const Calc = (props: {
         <div class={'row'}>{row}</div>
       ))}
     </div>
+  );
+};
+
+const unknownsFromInternal = (
+  dataSet: DataSet,
+  requirements: Line[],
+  processes: Proc[],
+): Unknowns => {
+  const fallbackMapping: Record<Req['op'], Hint> = {
+    import: 'import',
+    export: 'export',
+    produce: 'export',
+    // unreachable
+    auto: 'import',
+  };
+
+  if (processes.length) {
+    const inputs = makeInputs(dataSet, requirements, processes);
+    return computeUnknowns(inputs);
+  }
+  return Object.fromEntries(
+    requirements.map(
+      (line) => [line.item, fallbackMapping[line.req.op]] as const,
+    ),
   );
 };

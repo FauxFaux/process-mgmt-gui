@@ -5,13 +5,13 @@ import type { JSX } from 'preact';
 import MagnifyAddIcon from 'mdi-preact/MagnifyAddIcon';
 import MagnifyMinusIcon from 'mdi-preact/MagnifyMinusIcon';
 
-export type Unknowns = Record<ItemId, 'import' | 'export'>;
+export type Hint = 'import' | 'export';
+export type Unknowns = Record<ItemId, Hint>;
 
 // amount is only relevant for 'produce' but it's nice to persist it even if someone clicks away
-type Req = {
+export type Req = {
   amount: number;
   op: 'auto' | 'import' | 'export' | 'produce';
-  hint?: Unknowns[ItemId];
 };
 
 export interface Line {
@@ -21,6 +21,7 @@ export interface Line {
 
 interface Props {
   value: Line[];
+  hints: Unknowns;
   dataSet: DataSet;
   onChange: (value: Line[]) => void;
   findProc: (term: string) => void;
@@ -29,13 +30,14 @@ interface Props {
 const MutReq = (props: {
   formKey: string;
   req: Req;
+  hint: Hint;
   onChange: (req: Req) => void;
 }) => {
   const radio = `mut-req-radio-${props.formKey}`;
   const list: JSX.Element[] = (
     ['auto', 'import', 'export', 'produce'] as const
   ).map((op, i) => {
-    const hinted = props.req.op === 'auto' && props.req.hint === op;
+    const hinted = props.req.op === 'auto' && props.hint === op;
     const helpText = {
       auto: 'import or export based on apparent usage',
       import: 'this item magically appears to be used; perhaps by train',
@@ -97,8 +99,9 @@ const MutReq = (props: {
 };
 
 export const RequirementTable = (props: Props) => {
-  const hintColour = (req: Req, forCode: 'import' | 'export') =>
-    req.hint === forCode && !(forCode === 'export' && req.op === 'produce')
+  const hintColour = (line: Line, forCode: 'import' | 'export') =>
+    props.hints[line.item] === forCode &&
+    !(forCode === 'export' && line.req.op === 'produce')
       ? 'btn-warning'
       : 'btn-secondary';
 
@@ -118,7 +121,7 @@ export const RequirementTable = (props: Props) => {
             </td>
             <td>
               <button
-                className={'btn req__find ' + hintColour(line.req, 'export')}
+                className={'btn req__find ' + hintColour(line, 'export')}
                 onClick={() => props.findProc(`c:${line.item}`)}
                 title={'find consumer'}
               >
@@ -126,7 +129,7 @@ export const RequirementTable = (props: Props) => {
                 <span className={'req__find_label'}>find consumer</span>
               </button>
               <button
-                className={'btn req__find ' + hintColour(line.req, 'import')}
+                className={'btn req__find ' + hintColour(line, 'import')}
                 onClick={() => props.findProc(`p:${line.item}`)}
                 title={'find producer'}
               >
@@ -136,6 +139,7 @@ export const RequirementTable = (props: Props) => {
               <MutReq
                 formKey={`html-only-${line.item}`}
                 req={line.req}
+                hint={props.hints[line.item]}
                 onChange={(req) => {
                   // TODO: surely we don't need to do this?
                   props.onChange(

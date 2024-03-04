@@ -91,7 +91,8 @@ export const updateInputsWithHints = (
   unknowns: Unknowns,
 ) => {
   for (const line of requirements.filter((line) => line.req.op === 'auto')) {
-    switch (line.req.hint ?? unknowns[line.item]) {
+    const hint = unknowns[line.item];
+    switch (hint) {
       case 'import':
         inputs.imports.push(line.item);
         break;
@@ -102,7 +103,7 @@ export const updateInputsWithHints = (
         // maybe unreachable with ?? unknowns but who knows
         break;
       default:
-        throw new Error(`unknown hint: ${line.req.hint}`);
+        throw new Error(`unknown hint: ${hint}`);
     }
   }
 };
@@ -110,26 +111,6 @@ export const updateInputsWithHints = (
 export const dotFor = (inputs: SolverInputs) => {
   const { chain } = mainSolve(inputs);
   return fiddleDot(chain.accept(new RateGraphRenderer()));
-};
-
-export const solve = (
-  data: DataSet,
-  requirements: Line[],
-  processes: Proc[],
-): {
-  unknowns: Unknowns;
-  dot?: string;
-} => {
-  const inputs = makeInputs(data, requirements, processes);
-  const unknowns = computeUnknowns(inputs);
-
-  updateInputsWithHints(inputs, requirements, unknowns);
-  const dot = dotFor(inputs);
-
-  return {
-    unknowns,
-    dot,
-  };
 };
 
 const fiddleDot = (dotLines: string[]): string => {
@@ -180,18 +161,14 @@ interface PartialLav {
   };
 }
 
-type Recommendation = 'import' | 'export';
-
-export const computeUnknowns = (
-  inputs: SolverInputs,
-): Record<ItemId, Recommendation> => {
+export const computeUnknowns = (inputs: SolverInputs): Unknowns => {
   const hasRequirements = new Set(
     inputs.requirements.map((stack) => stack.item.id),
   );
   const hasRequirement = (itemId: ItemId) => hasRequirements.has(itemId);
   const { lav: chain } = mainSolve(inputs);
 
-  const result: Record<string, Recommendation> = {};
+  const result: Unknowns = {};
   for (let i = 0; i < chain.items.length; i++) {
     const itemId = chain.items[i].id;
     const [row] = chain.augmented_matrix.getRow(i).data;
@@ -218,10 +195,7 @@ export const applyHints = (requirements: Line[], unknowns: Unknowns) => {
     if (line.req.op === 'auto' && !unknowns[line.item]) {
       continue;
     }
-    ret.push({
-      ...line,
-      req: { ...line.req, hint: unknowns[line.item] },
-    });
+    ret.push(line);
     delete unknowns[line.item];
   }
 
@@ -233,7 +207,7 @@ export const applyHints = (requirements: Line[], unknowns: Unknowns) => {
       .filter(([, unk]) => unk === req)
       .sort()) {
       const op = req === 'export' && noExistingReqs ? 'produce' : 'auto';
-      ret.push({ item, req: { op, amount: 1, hint: req } });
+      ret.push({ item, req: { op, amount: 1 } });
     }
   }
 

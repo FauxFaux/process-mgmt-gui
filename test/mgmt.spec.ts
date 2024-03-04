@@ -29,7 +29,7 @@ describe('mgmt backend', () => {
     reqs = applyHints(reqs, unknowns);
     expect(reqs).toMatchSnapshot();
 
-    updateInputsWithHints(inputs, reqs, {});
+    updateInputsWithHints(inputs, reqs, unknowns);
     expect({
       imports: inputs.imports,
       exports: inputs.exports,
