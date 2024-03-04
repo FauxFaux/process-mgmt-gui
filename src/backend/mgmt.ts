@@ -1,5 +1,7 @@
 import type { Process } from 'process-mgmt/src/process.js';
+/* jest is boned, please run `npm t` */
 import { ProcessChain } from 'process-mgmt/src/process.js';
+/* jest is boned, please run `npm t` */
 import { LinearAlgebra } from 'process-mgmt/src/visit/linear_algebra_visitor.js';
 import { RateVisitor } from 'process-mgmt/src/visit/rate_visitor.js';
 import { ProcessCountVisitor } from 'process-mgmt/src/visit/process_count_visitor.js';

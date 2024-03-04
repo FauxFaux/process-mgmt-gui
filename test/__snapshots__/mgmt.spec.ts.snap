@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mgmt backend boots 1`] = `
+{
+  "iron-gear-wheel": "import",
+  "iron-plate": "import",
+  "transport-belt": "export",
+}
+`;
+
+exports[`mgmt backend boots 2`] = `
+[
+  {
+    "item": "transport-belt",
+    "req": {
+      "amount": 1,
+      "hint": "export",
+      "op": "produce",
+    },
+  },
+  {
+    "item": "iron-gear-wheel",
+    "req": {
+      "amount": 1,
+      "hint": "import",
+      "op": "auto",
+    },
+  },
+  {
+    "item": "iron-plate",
+    "req": {
+      "amount": 1,
+      "hint": "import",
+      "op": "auto",
+    },
+  },
+]
+`;
+
+exports[`mgmt backend boots 3`] = `
+{
+  "exports": [],
+  "imports": [
+    "iron-gear-wheel",
+    "iron-plate",
+  ],
+}
+`;
