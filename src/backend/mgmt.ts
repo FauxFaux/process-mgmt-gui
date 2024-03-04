@@ -5,17 +5,15 @@ import { ProcessChain } from 'process-mgmt/src/process.js';
 import { LinearAlgebra } from 'process-mgmt/src/visit/linear_algebra_visitor.js';
 import { RateVisitor } from 'process-mgmt/src/visit/rate_visitor.js';
 import { ProcessCountVisitor } from 'process-mgmt/src/visit/process_count_visitor.js';
-import { RateGraphRenderer } from 'process-mgmt/src/visit/rate_graph_renderer.js';
 import type { Data, Item } from 'process-mgmt/src/structures.js';
 import { Factory, Stack } from 'process-mgmt/src/structures.js';
-
-import { oneLine as f } from 'common-tags';
 
 import type { DataSet } from '../data';
 import type { Line, Unknowns } from '../components/requirement-table';
 import type { ItemId } from '../components/item';
 import type { Proc } from '../components/process-table';
 import type { ProcessId } from '../app';
+import { RateGraphAsDot } from './rate-graph';
 
 /** not for export, but passed ("opaquely") to others */
 interface SolverInputs {
@@ -108,34 +106,9 @@ export const updateInputsWithHints = (
   }
 };
 
-export const dotFor = (inputs: SolverInputs) => {
+export const dotFor = (data: DataSet, inputs: SolverInputs) => {
   const { chain } = mainSolve(inputs);
-  return fiddleDot(chain.accept(new RateGraphRenderer()));
-};
-
-const fiddleDot = (dotLines: string[]): string => {
-  const bg = '#212529';
-  const line = '#dee2e6'; // --bs-body-color
-  const text = 'white';
-
-  dotLines.splice(
-    1,
-    0,
-    f`
-  bgcolor="${bg}";
-  edge [ color="${line}"; fontcolor="${text}"; ];
-  node [ color="${line}"; fontcolor="${text}"; ];
-  `,
-  );
-
-  const colourMap: Record<string, string> = {
-    red: '#842029', // --bs-danger-border-subtle
-    green: '#0f5132', // --bs-success-border-subtle
-    '': '#343a40', // --bs-grey-dark
-  };
-  return dotLines
-    .join('\n')
-    .replace(/fillcolor="(\w*)"/g, (_, v) => `fillcolor="${colourMap[v]}"`);
+  return chain.accept(new RateGraphAsDot(data)).join('\n');
 };
 
 const mainSolve = (

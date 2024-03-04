@@ -4,13 +4,18 @@ import { handleColours, stripColours } from '../blurb/format';
 
 export type ItemId = string;
 
+export const itemName = (dataSet: DataSet, id: ItemId) => {
+  const lab = dataSet.lab?.items?.[id];
+  return lab?.name || id;
+};
+
 export const Item = (props: {
   dataSet: DataSet;
   id: ItemId;
   justIcon?: true;
 }) => {
+  const rawName = itemName(props.dataSet, props.id);
   const lab = props.dataSet.lab?.items?.[props.id];
-  const rawName = lab?.name || props.id;
   const name = props.justIcon ? <></> : handleColours(rawName);
   const title = props.justIcon
     ? `${stripColours(rawName)}`

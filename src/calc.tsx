@@ -180,12 +180,13 @@ export const Calc = (props: {
   if (processes.length) {
     const inputs = makeInputs(props.dataSet, requirements, processes);
     updateInputsWithHints(inputs, requirements, unknowns);
-    const dot = dotFor(inputs);
+    const dot = dotFor(props.dataSet, inputs);
+    console.log(dot);
     const svg = props.viz.renderString(dot, {
       engine: 'dot',
       format: 'svg',
     });
-    rows.push(<img src={`data:image/svg+xml,${encodeURIComponent(svg)}`} />);
+    rows.push(<div dangerouslySetInnerHTML={{ __html: svg }} />);
   }
 
   return (

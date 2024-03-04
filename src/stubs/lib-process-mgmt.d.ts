@@ -35,6 +35,14 @@ declare module 'process-mgmt/src/structures.js' {
 
     item: Item;
     quantity: number;
+
+    mul(factor: number): Stack;
+  }
+
+  export class StackSet {
+    stacks: Record<string, Stack[]>;
+    total_positive(item: Item): Stack;
+    total_negative(item: Item): Stack;
   }
 
   export class Data {
@@ -49,20 +57,23 @@ declare module 'process-mgmt/src/structures.js' {
 }
 
 declare module 'process-mgmt/src/visit/rate_visitor.js' {
-  import type { Process } from 'process-mgmt/src/process.js';
+  import type { Process, ProcessChain } from 'process-mgmt/src/process.js';
   import type { Factory } from 'process-mgmt/src/structures.js';
+  import { ProcessChainVisitor } from 'process-mgmt/src/visit/process_chain_visitor.js';
 
-  export class RateVisitor {
+  export class RateVisitor extends ProcessChainVisitor<ProcessChain> {
     constructor(rateify: (proc: Process) => Factory | undefined);
   }
 }
 
 declare module 'process-mgmt/src/visit/linear_algebra_visitor.js' {
   import type { Item, Stack } from 'process-mgmt/src/structures.js';
+  import type { ProcessChain } from 'process-mgmt/src/process.js';
+  import { ProcessChainVisitor } from 'process-mgmt/src/visit/process_chain_visitor.js';
 
   type BareItemName = string;
 
-  export class LinearAlgebra {
+  export class LinearAlgebra extends ProcessChainVisitor<ProcessChain> {
     constructor(
       requirements: Stack[],
       imports: BareItemName[],
@@ -82,14 +93,57 @@ declare module 'process-mgmt/src/visit/linear_algebra_visitor.js' {
 }
 
 declare module 'process-mgmt/src/visit/process_count_visitor.js' {
-  export class ProcessCountVisitor {
+  import type { ProcessChain } from 'process-mgmt/src/process.js';
+  import { ProcessChainVisitor } from 'process-mgmt/src/visit/process_chain_visitor.js';
+
+  export class ProcessCountVisitor extends ProcessChainVisitor<ProcessChain> {}
+}
+
+declare module 'process-mgmt/src/visit/process_chain_visitor.js' {
+  import type { ProcessChain } from 'process-mgmt/src/process.js';
+  import type { Item, Stack } from 'process-mgmt/src/structures.js';
+  import type { Process } from 'process-mgmt/src/process.js';
+
+  interface VisitorOptions {
+    init?: true;
+    visit_item?: true;
+    visit_process?: true;
+    visit_item_process_edge?: true;
+    visit_process_item_edge?: true;
+  }
+
+  export class ProcessChainVisitor<T> {
+    out: T;
+
     constructor();
-    visit(process: any): void;
+    check(chain: ProcessChain): VisitorOptions;
+    init(chain: ProcessChain): void;
+    visit_item(item: Item, chain: ProcessChain): void;
+    visit_process(process: Process, chain: ProcessChain): void;
+    visit_item_process_edge(
+      stack: Stack,
+      process: Process,
+      chain: ProcessChain,
+      index: number,
+    ): void;
+    visit_process_item_edge(
+      process: Process,
+      stack: Stack,
+      chain: ProcessChain,
+      index: number,
+    ): void;
+    build(): T;
   }
 }
 
 declare module 'process-mgmt/src/process.js' {
-  import type { FactoryGroup, Stack } from 'process-mgmt/src/structures.js';
+  import type {
+    Factory,
+    FactoryGroup,
+    Stack,
+    StackSet,
+  } from 'process-mgmt/src/structures.js';
+  import type { ProcessChainVisitor } from 'process-mgmt/src/visit/process_chain_visitor.js';
 
   export class Process {
     // duration is execution seconds (as shown in game)
@@ -106,14 +160,18 @@ declare module 'process-mgmt/src/process.js' {
     inputs: Stack[];
     outputs: Stack[];
 
+    // stashed here by RateVisitor during computation
+    factory_type?: Factory;
+
     // incomplete
   }
 
   export class ProcessChain {
     constructor(procs: Process[]);
-    // sometimes returns a chain, sometimes returns a string
-    accept(visitor: any): any;
+    accept<T>(visitor: ProcessChainVisitor<T>): T;
     process_counts: Record<string, number>;
+    materials: StackSet;
+    processes: Process[];
   }
 }
 

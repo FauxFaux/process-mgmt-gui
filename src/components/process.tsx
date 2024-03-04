@@ -3,9 +3,14 @@ import qm from '../../assets/question-mark.png';
 import { handleColours } from '../blurb/format';
 import type { ProcessId } from '../app';
 
+export const processName = (dataSet: DataSet, id: ProcessId) => {
+  const lab = dataSet.lab?.processes?.[id];
+  return lab?.name || id;
+};
+
 export const Process = (props: { dataSet: DataSet; id: ProcessId }) => {
   const lab = props.dataSet.lab?.processes?.[props.id];
-  const name = handleColours(lab?.name || props.id);
+  const name = handleColours(processName(props.dataSet, props.id));
 
   if (lab) {
     return (
