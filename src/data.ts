@@ -1,5 +1,5 @@
 import type { ModifierStyle } from './modifiers';
-import type { Data } from 'process-mgmt/src/structures.js';
+import type { Data } from 'process-mgmt/dist/structures.js';
 
 export interface Lab {
   items: Record<string, LabItem>;
@@ -63,7 +63,7 @@ export interface DataSet {
 export type DataSetId = keyof typeof dataSets;
 
 export const loadProcMgmt = async (id: DataSetId): Promise<Data> =>
-  (await import(`process-mgmt/src/${id}/data.js`)).default;
+  (await import(`process-mgmt/dist/${id}/data.js`)).default;
 
 export const loadDataSet = async (id: DataSetId): Promise<DataSet> => {
   const pm = await loadProcMgmt(id);

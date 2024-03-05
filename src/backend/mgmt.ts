@@ -1,12 +1,13 @@
-import type { Process } from 'process-mgmt/src/process.js';
+import type { Process } from 'process-mgmt/dist/process.js';
 /* jest is boned, please run `npm t` */
-import { ProcessChain } from 'process-mgmt/src/process.js';
+import { ProcessChain } from 'process-mgmt/dist/process.js';
 /* jest is boned, please run `npm t` */
-import { LinearAlgebra } from 'process-mgmt/src/visit/linear_algebra_visitor.js';
-import { RateVisitor } from 'process-mgmt/src/visit/rate_visitor.js';
-import { ProcessCountVisitor } from 'process-mgmt/src/visit/process_count_visitor.js';
-import type { Data, Item } from 'process-mgmt/src/structures.js';
-import { Factory, Stack } from 'process-mgmt/src/structures.js';
+
+import { LinearAlgebra } from 'process-mgmt/dist/visit/linear_algebra_visitor.js';
+import { RateVisitor } from 'process-mgmt/dist/visit/rate_visitor.js';
+import { ProcessCountVisitor } from 'process-mgmt/dist/visit/process_count_visitor.js';
+import type { Data } from 'process-mgmt/dist/structures.js';
+import { Factory, Stack } from 'process-mgmt/dist/structures.js';
 
 import type { DataSet } from '../data';
 import type { Line, Unknowns } from '../components/requirement-table';
@@ -49,7 +50,7 @@ export const makeInputs = (
           new Factory(
             orig.id,
             orig.name,
-            orig.groups,
+            orig.groups as any,
             orig.duration_modifier / proc.durationModifier.amount,
             orig.output_modifier * proc.outputModifier.amount,
           ),
@@ -107,7 +108,7 @@ export const updateInputsWithHints = (
 
 export const mainSolve = (
   inputs: SolverInputs,
-): { chain: ProcessChain; lav: PartialLav } => {
+): { chain: ProcessChain; lav: LinearAlgebra } => {
   const lav = new LinearAlgebra(
     inputs.requirements,
     inputs.imports,
@@ -120,14 +121,6 @@ export const mainSolve = (
   return { chain, lav };
 };
 
-interface PartialLav {
-  items: Item[];
-  mtx: number[][];
-  augmented_matrix: {
-    getRow: (idx: number) => { data: number[][] };
-  };
-}
-
 export const computeUnknowns = (inputs: SolverInputs): Unknowns => {
   const hasRequirements = new Set(
     inputs.requirements.map((stack) => stack.item.id),
@@ -136,11 +129,11 @@ export const computeUnknowns = (inputs: SolverInputs): Unknowns => {
   const { lav: chain } = mainSolve(inputs);
 
   const result: Unknowns = {};
-  for (let i = 0; i < chain.items.length; i++) {
-    const itemId = chain.items[i].id;
+  for (let i = 0; i < chain.items!.length; i++) {
+    const itemId = chain.items![i].id;
     const [row] = chain.augmented_matrix.getRow(i).data;
-    const producers = row.filter((x) => x > 0).length;
-    const consumers = row.filter((x) => x < 0).length;
+    const producers = row.filter((x: number) => x > 0).length;
+    const consumers = row.filter((x: number) => x < 0).length;
     const wanted = hasRequirement(itemId);
     const onlyConsumed = consumers > 0 && producers === 0;
     const notConsumedButProducedAndWanted =

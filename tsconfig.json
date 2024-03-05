@@ -14,10 +14,6 @@
     "noUnusedLocals": true,
     "noImplicitAny": true,
 
-    /* re-enable this to check our .d.ts files, without which half this codebase is nonsense,
-     * and suffer the rest of the spurious errors */
-    "skipLibCheck": false,
-
     "resolveJsonModule": true,
     "isolatedModules": true
   },

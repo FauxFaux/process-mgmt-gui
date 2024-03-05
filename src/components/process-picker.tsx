@@ -4,7 +4,7 @@ import { Process } from './process';
 import type { ItemId } from './item';
 import { Item } from './item';
 import { regexpOrNot } from '../blurb/search';
-import type { Process as CProcess } from 'process-mgmt/src/process.js';
+import type { Process as CProcess } from 'process-mgmt/dist/process.js';
 import PinIcon from 'mdi-preact/PinIcon';
 
 export type ProcessId = string;

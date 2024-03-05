@@ -1,8 +1,8 @@
-import type { VisitorOptions } from 'process-mgmt/src/visit/process_chain_visitor.js';
-import { ProcessChainVisitor } from 'process-mgmt/src/visit/process_chain_visitor.js';
-import type { ProcessChain } from 'process-mgmt/src/process.js';
-import type { Item, Stack } from 'process-mgmt/src/structures.js';
-import type { Process } from 'process-mgmt/src/process.js';
+import type { VisitorOptions } from 'process-mgmt/dist/visit/process_chain_visitor.js';
+import { ProcessChainVisitor } from 'process-mgmt/dist/visit/process_chain_visitor.js';
+import type { ProcessChain } from 'process-mgmt/dist/process.js';
+import type { Item, Stack } from 'process-mgmt/dist/structures.js';
+import type { Process } from 'process-mgmt/dist/process.js';
 import type { DataSet } from '../data';
 
 import { stripColours, twoDp, unTitleCase } from '../blurb/format';
@@ -21,6 +21,7 @@ const colours = {
 // inspired by https://github.com/CandleCandle/process-mgmt/blob/867f3d9f83c1a3a34edecaebf10e14c6f0fe5721/src/visit/rate_graph_renderer.js (gpl-2)
 export class RateGraphAsDot extends ProcessChainVisitor<string[]> {
   readonly dataSet: DataSet;
+  readonly out: string[];
 
   constructor(dataSet: DataSet) {
     super();
@@ -52,9 +53,9 @@ export class RateGraphAsDot extends ProcessChainVisitor<string[]> {
   }
 
   visit_item(item: Item, chain: ProcessChain) {
-    const produce = twoDp(chain.materials.total_positive(item).quantity);
+    const produce = twoDp(chain.materials!.total_positive(item).quantity);
     const consume = twoDp(
-      chain.materials.total_negative(item).mul(-1).quantity,
+      chain.materials!.total_negative(item).mul(-1).quantity,
     );
     // language=HTML
     this.out.push(
@@ -73,7 +74,7 @@ export class RateGraphAsDot extends ProcessChainVisitor<string[]> {
     unTitleCase(stripColours(processName(this.dataSet, process.id)));
 
   visit_process(process: Process, chain: ProcessChain) {
-    const count = chain.process_counts[process.id];
+    const count = chain.process_counts![process.id];
     const io = (io: 'i' | 'o', index: number, item: Item, quantity: number) =>
       `<${io}${index}> ${this.itemName(item)} (${twoDp(quantity * count)})`;
 
@@ -105,7 +106,7 @@ export class RateGraphAsDot extends ProcessChainVisitor<string[]> {
     chain: ProcessChain,
     idx: number,
   ) {
-    const process_count = chain.process_counts[process.id];
+    const process_count = chain.process_counts![process.id];
     const input_rate = process.inputs.find((i) => i.item.id === stack.item.id);
     const rate = twoDp((input_rate?.quantity ?? 0) * process_count);
     this.out.push(

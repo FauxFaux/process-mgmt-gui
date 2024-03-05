@@ -34,7 +34,7 @@ export const ProcessTable = (props: {
   processes: Proc[];
   onChange: (processes: Proc[]) => void;
   chain: {
-    process_counts: { [id: string]: number };
+    process_counts?: { [id: string]: number };
     processes: {
       id: string;
       factory_type?: {
@@ -74,7 +74,8 @@ export const ProcessTable = (props: {
             <Process dataSet={props.dataSet} id={proc.id} />
           </p>
           <p>
-            <i>made in</i> {twoDp(props.chain.process_counts[proc.id])} &times;{' '}
+            <i>made in</i> {twoDp(props.chain.process_counts?.[proc.id] ?? 0)}{' '}
+            &times;{' '}
             {inferredFactory ? (
               <Item dataSet={props.dataSet} id={inferredFactory.id} />
             ) : (
