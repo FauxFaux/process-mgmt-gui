@@ -53,9 +53,11 @@ export const ProcessTable = (props: {
           </button>
         </td>
         <td>
-          <Process dataSet={props.dataSet} id={proc.id} />
+          <p>
+            <Process dataSet={props.dataSet} id={proc.id} />
+          </p>
+          <p>machine: {pm.factory_group.name}</p>
         </td>
-        <td>{pm.factory_group.id}</td>
         <td>
           <ClockIcon /> {pm.duration}s{' '}
           {modDuration !== pm.duration && (
@@ -123,7 +125,6 @@ export const ProcessTable = (props: {
         <tr>
           <th />
           <th>Process</th>
-          <th>Machine</th>
           <th>Duration</th>
           <th>Input</th>
           <th>Output</th>
