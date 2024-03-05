@@ -13,7 +13,6 @@ import type { Line, Unknowns } from '../components/requirement-table';
 import type { ItemId } from '../components/item';
 import type { Proc } from '../components/process-table';
 import type { ProcessId } from '../app';
-import { RateGraphAsDot } from './rate-graph';
 
 /** not for export, but passed ("opaquely") to others */
 interface SolverInputs {
@@ -106,12 +105,7 @@ export const updateInputsWithHints = (
   }
 };
 
-export const dotFor = (data: DataSet, inputs: SolverInputs) => {
-  const { chain } = mainSolve(inputs);
-  return chain.accept(new RateGraphAsDot(data)).join('\n');
-};
-
-const mainSolve = (
+export const mainSolve = (
   inputs: SolverInputs,
 ): { chain: ProcessChain; lav: PartialLav } => {
   const lav = new LinearAlgebra(

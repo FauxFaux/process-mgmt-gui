@@ -9,7 +9,7 @@ import { RequirementTable } from './components/requirement-table';
 import {
   applyHints,
   computeUnknowns,
-  dotFor,
+  mainSolve,
   makeInputs,
   updateInputsWithHints,
 } from './backend/mgmt';
@@ -23,6 +23,7 @@ import ArrowRightIcon from 'mdi-preact/ArrowRightIcon';
 import PlusBoldIcon from 'mdi-preact/PlusBoldIcon';
 import PinIcon from 'mdi-preact/PinIcon';
 import ArrowDownIcon from 'mdi-preact/ArrowDownIcon';
+import { RateGraphAsDot } from './backend/rate-graph';
 
 export interface CalcState {
   requirements: Line[];
@@ -167,23 +168,31 @@ export const Calc = (props: {
     </>,
   );
 
-  if (processes.length) {
+  const chain = useMemo(() => {
+    if (!processes.length) {
+      return undefined;
+    }
+
+    const inputs = makeInputs(props.dataSet, requirements, processes);
+    updateInputsWithHints(inputs, requirements, unknowns);
+    return mainSolve(inputs).chain;
+  }, [processes, props.dataSet, requirements, unknowns]);
+
+  if (chain) {
     rows.push(
       <div class={'col'}>
         <ProcessTable
           dataSet={dataSet}
           processes={processes}
           onChange={(procs) => setProcesses(procs)}
+          chain={chain}
         />
       </div>,
     );
   }
 
-  if (processes.length) {
-    const inputs = makeInputs(props.dataSet, requirements, processes);
-    updateInputsWithHints(inputs, requirements, unknowns);
-    const dot = dotFor(props.dataSet, inputs);
-    console.log(dot);
+  if (chain) {
+    const dot = chain.accept(new RateGraphAsDot(props.dataSet)).join('\n');
     const svg = props.viz.renderSVGElement(dot, {
       engine: 'dot',
       format: 'svg',

@@ -8,7 +8,7 @@ import { Process } from './process';
 import { Item } from './item';
 import KnobIcon from 'mdi-preact/KnobIcon';
 import ClockIcon from 'mdi-preact/ClockIcon';
-import { roundTo } from '../blurb/format';
+import { roundTo, twoDp } from '../blurb/format';
 
 export interface Proc {
   id: ProcessId;
@@ -33,11 +33,28 @@ export const ProcessTable = (props: {
   dataSet: DataSet;
   processes: Proc[];
   onChange: (processes: Proc[]) => void;
+  chain: {
+    process_counts: { [id: string]: number };
+    processes: {
+      id: string;
+      factory_type?: {
+        id: string;
+        duration_modifier: number;
+        output_modifier: number;
+      };
+    }[];
+  };
 }) => {
   const rows: JSX.Element[] = props.processes.map((proc, idx) => {
     const pm = props.dataSet.pm.processes[proc.id];
-    const modDuration = pm.duration / proc.durationModifier.amount;
-    const modOutput = proc.outputModifier.amount;
+    const pmProc = props.chain.processes.find(({ id }) => id === proc.id);
+    const inferredFactory = pmProc?.factory_type;
+
+    const modDuration =
+      (pm.duration / proc.durationModifier.amount) *
+      (inferredFactory?.duration_modifier ?? 1);
+    const modOutput =
+      proc.outputModifier.amount * (inferredFactory?.output_modifier ?? 1);
     return (
       <tr>
         <td>
@@ -56,12 +73,25 @@ export const ProcessTable = (props: {
           <p>
             <Process dataSet={props.dataSet} id={proc.id} />
           </p>
-          <p>machine: {pm.factory_group.name}</p>
+          <p>
+            <i>made in</i> {twoDp(props.chain.process_counts[proc.id])} &times;{' '}
+            {inferredFactory ? (
+              <Item dataSet={props.dataSet} id={inferredFactory.id} />
+            ) : (
+              pm.factory_group.name
+            )}
+          </p>
         </td>
         <td>
-          <ClockIcon /> {pm.duration}s{' '}
+          <ClockIcon />{' '}
+          <abbr title={'base duration from recipe'}>{pm.duration}s</abbr>{' '}
           {modDuration !== pm.duration && (
-            <>&rArr; {roundTo(modDuration, 2)}s</>
+            <>
+              &rArr;{' '}
+              <abbr title={'after factory and module effects'}>
+                {roundTo(modDuration, 2)}s
+              </abbr>
+            </>
           )}
           <br />
           <MutModifier

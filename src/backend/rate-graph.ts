@@ -5,7 +5,7 @@ import type { Item, Stack } from 'process-mgmt/src/structures.js';
 import type { Process } from 'process-mgmt/src/process.js';
 import type { DataSet } from '../data';
 
-import { stripColours } from '../blurb/format';
+import { stripColours, twoDp, unTitleCase } from '../blurb/format';
 import { itemName } from '../components/item';
 import { processName } from '../components/process';
 
@@ -141,7 +141,3 @@ const itemNodeColour = (produce: number, consume: number) => {
   if (consume > produce) return colours.green;
   return colours.objBack;
 };
-
-const twoDp = (n: number) => Math.round(n * 100) / 100;
-
-const unTitleCase = (s: string) => s[0].toLowerCase() + s.slice(1);

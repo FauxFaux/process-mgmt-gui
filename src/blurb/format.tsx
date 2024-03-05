@@ -30,3 +30,7 @@ export const roundTo = (value: number, places: number) => {
   const factor = Math.pow(10, places);
   return Math.round(value * factor) / factor;
 };
+
+export const twoDp = (n: number) => Math.round(n * 100) / 100;
+
+export const unTitleCase = (s: string) => s[0].toLowerCase() + s.slice(1);
