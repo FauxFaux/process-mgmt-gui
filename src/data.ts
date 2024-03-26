@@ -31,11 +31,17 @@ export const dataSets = {
   'factorio-py-1.1.53': ds('Factorio PY (1.1.53)', 'additional', 'additional'),
   'factorio-ff-1.1.76': ds('Factorio FF (1.1.76)', 'additional', 'additional'),
   'factorio-ff-1.1.94': ds('Factorio FF (1.1.94)', 'additional', 'additional'),
+  'factorio-1.1.94-k2se': ds(
+    'Factorio 1.1.94, K2 + SE',
+    'additional',
+    'additional',
+  ),
   'factorio-1.1.104-very-bz-0.5.1': ds(
     'Factorio 1.1.104, Very BZ 0.5.1',
     'additional',
     'additional',
   ),
+
   'plan-b-terraform': ds('Plan B, Terraform', 'raw', 'raw'),
   satisfactory: ds('Satisfactory', 'normal', 'normal'),
   vt: ds('Voxel Tycoon', 'raw', 'raw'),
@@ -49,6 +55,7 @@ export const toLab: Record<DataSetId, string | null> = {
   'factorio-ff-1.1.76': 'ffw',
   'factorio-ff-1.1.94': 'ffw',
   'factorio-1.1.104-very-bz-0.5.1': 'vbz',
+  'factorio-1.1.94-k2se': 'kr2sxp',
   'plan-b-terraform': null,
   satisfactory: 'sfy',
   vt: null,
