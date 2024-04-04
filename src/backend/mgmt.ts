@@ -2,7 +2,6 @@ import type { Process } from 'process-mgmt/dist/process.js';
 /* jest is boned, please run `npm t` */
 import { ProcessChain } from 'process-mgmt/dist/process.js';
 /* jest is boned, please run `npm t` */
-
 import { LinearAlgebra } from 'process-mgmt/dist/visit/linear_algebra_visitor.js';
 import { RateVisitor } from 'process-mgmt/dist/visit/rate_visitor.js';
 import { ProcessCountVisitor } from 'process-mgmt/dist/visit/process_count_visitor.js';
@@ -50,7 +49,7 @@ export const makeInputs = (
           new Factory(
             orig.id,
             orig.name,
-            orig.groups as any,
+            orig.groups,
             orig.duration_modifier / proc.durationModifier.amount,
             orig.output_modifier * proc.outputModifier.amount,
           ),
@@ -174,7 +173,10 @@ export const applyHints = (requirements: Line[], unknowns: Unknowns) => {
   return ret;
 };
 
-const viableFactoriesForGroup = (data: Data, groupId: string): Factory[] =>
+export const viableFactoriesForGroup = (
+  data: Data,
+  groupId: string,
+): Factory[] =>
   Object.values(data.factories).filter((factory) =>
     (factory.groups ?? []).some((fg) => fg.id === groupId),
   );

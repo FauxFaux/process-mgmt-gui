@@ -37,6 +37,7 @@
     "@tsconfig/recommended": "^1.0.3",
     "@types/common-tags": "^1.8.4",
     "@types/jquery": "^3",
+    "@types/lodash": "^4.17.0",
     "@types/node": "^20",
     "@types/number-to-words": "^1",
     "@typescript-eslint/eslint-plugin": "^7",
