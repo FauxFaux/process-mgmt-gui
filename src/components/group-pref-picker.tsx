@@ -5,6 +5,8 @@ import type { DataSet } from '../data';
 import { Item } from './item';
 import { viableFactoriesForGroup } from '../backend/mgmt';
 import type { Proc } from './process-table';
+import { useState } from 'preact/hooks';
+import EditIcon from 'mdi-preact/EditIcon';
 
 export const GroupPrefPicker = (props: {
   dataSet: DataSet;
@@ -12,6 +14,9 @@ export const GroupPrefPicker = (props: {
   groupPrefs: GroupPref;
   setGroupPrefs: (groupPref: GroupPref) => void;
 }) => {
+  type Group = GroupPref[0];
+  const [expanded, setExpanded] = useState({} as Record<Group, boolean>);
+
   const pm = props.dataSet.pm;
 
   const groups = uniq(
@@ -35,6 +40,26 @@ export const GroupPrefPicker = (props: {
   );
 
   const cols = Object.entries(byGroup).map(([group, factories]) => {
+    if (!expanded[group]) {
+      return (
+        <div class={'col'}>
+          <h3>
+            {group} in{' '}
+            {props.groupPrefs[group] ? (
+              <Item dataSet={props.dataSet} id={props.groupPrefs[group]} />
+            ) : (
+              <i>fastest available</i>
+            )}
+            <button
+              className={'btn btn-link'}
+              onClick={() => setExpanded({ ...expanded, [group]: true })}
+            >
+              <EditIcon />
+            </button>
+          </h3>
+        </div>
+      );
+    }
     const trs = factories.map((id) => (
       <tr>
         <td>
@@ -45,6 +70,7 @@ export const GroupPrefPicker = (props: {
               name={`opt-${group}`}
               value={id}
               onChange={() => {
+                setExpanded({ ...expanded, [group]: false });
                 props.setGroupPrefs({
                   ...props.groupPrefs,
                   [group]: id,
@@ -63,7 +89,7 @@ export const GroupPrefPicker = (props: {
 
     return (
       <div class={'col'}>
-        <h3>{pm.factory_groups[group].name}</h3>
+        <h3>{pm.factory_groups[group].name} in...</h3>
         <table class={'table w-auto'}>
           <thead />
           <tbody>{trs}</tbody>
