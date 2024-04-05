@@ -270,6 +270,7 @@ export const Calc = (props: {
                             [group]: id,
                           });
                         }}
+                        checked={defaultGroupPref[group] === id}
                       />{' '}
                       <Item dataSet={props.dataSet} id={id} />
                     </label>
