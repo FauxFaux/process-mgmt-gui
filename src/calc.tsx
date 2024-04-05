@@ -26,11 +26,15 @@ import PinIcon from 'mdi-preact/PinIcon';
 import ArrowDownIcon from 'mdi-preact/ArrowDownIcon';
 import { RateGraphAsDot } from './backend/rate-graph';
 import { Item } from './components/item';
-import { roundTo, twoDp } from './blurb/format';
+import type { Factory } from 'process-mgmt/dist/factory';
+import type { Process } from 'process-mgmt/dist/process';
+
+export type GroupPref = Record<Process['factory_group']['id'], Factory['id']>;
 
 export interface CalcState {
   requirements: Line[];
   processes: Proc[];
+  defaultGroupPref: GroupPref;
 }
 
 export const Calc = (props: {
@@ -39,20 +43,39 @@ export const Calc = (props: {
   state: CalcState;
   setState: (next: CalcState) => void;
 }) => {
-  const { requirements, processes } = props.state;
+  const { requirements, processes, defaultGroupPref } = props.state;
 
-  const setState = (inpReqs: Line[], processes: Proc[]) => {
-    const unknowns = unknownsFromInternal(props.dataSet, inpReqs, processes);
+  const setState = (
+    inpReqs: Line[],
+    processes: Proc[],
+    defaultGroupPref: GroupPref,
+  ) => {
+    const unknowns = unknownsFromInternal(
+      props.dataSet,
+      inpReqs,
+      processes,
+      defaultGroupPref,
+    );
     const requirements = applyHints(inpReqs, unknowns);
-    props.setState({ requirements, processes });
+    props.setState({ requirements, processes, defaultGroupPref });
   };
 
   const setRequirements = (requirements: Line[]) =>
-    setState(requirements, processes);
-  const setProcesses = (processes: Proc[]) => setState(requirements, processes);
+    setState(requirements, processes, defaultGroupPref);
+  const setProcesses = (processes: Proc[]) =>
+    setState(requirements, processes, defaultGroupPref);
+
+  const setGroupPrefs = (defaultGroupPref: GroupPref) =>
+    setState(requirements, processes, defaultGroupPref);
 
   const unknowns = useMemo(
-    () => unknownsFromInternal(props.dataSet, requirements, processes),
+    () =>
+      unknownsFromInternal(
+        props.dataSet,
+        requirements,
+        processes,
+        defaultGroupPref,
+      ),
     [props.dataSet, requirements, processes],
   );
 
@@ -176,7 +199,12 @@ export const Calc = (props: {
       return undefined;
     }
 
-    const inputs = makeInputs(props.dataSet, requirements, processes);
+    const inputs = makeInputs(
+      props.dataSet,
+      requirements,
+      processes,
+      defaultGroupPref,
+    );
     updateInputsWithHints(inputs, requirements, unknowns);
     return mainSolve(inputs).chain;
   }, [processes, props.dataSet, requirements, unknowns]);
@@ -236,12 +264,20 @@ export const Calc = (props: {
                         name={`opt-${group}`}
                         id={htmlId}
                         value={id}
+                        onChange={() => {
+                          setGroupPrefs({
+                            ...defaultGroupPref,
+                            [group]: id,
+                          });
+                        }}
                       />{' '}
                       <Item dataSet={props.dataSet} id={id} />
                     </label>
                   </td>
                   <td class={'text-end'}>
-                    {(1 / dataSet.pm.factories[id].duration_modifier).toFixed(2)}
+                    {(1 / dataSet.pm.factories[id].duration_modifier).toFixed(
+                      2,
+                    )}
                   </td>
                 </tr>
               );
@@ -323,6 +359,7 @@ const unknownsFromInternal = (
   dataSet: DataSet,
   requirements: Line[],
   processes: Proc[],
+  defaultFactoryGroups: GroupPref,
 ): Unknowns => {
   const fallbackMapping: Record<Req['op'], Hint> = {
     import: 'import',
@@ -333,7 +370,12 @@ const unknownsFromInternal = (
   };
 
   if (processes.length) {
-    const inputs = makeInputs(dataSet, requirements, processes);
+    const inputs = makeInputs(
+      dataSet,
+      requirements,
+      processes,
+      defaultFactoryGroups,
+    );
     return computeUnknowns(inputs);
   }
   return Object.fromEntries(

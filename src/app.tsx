@@ -1,4 +1,4 @@
-import type { StateUpdater } from 'preact/hooks';
+import type { Dispatch, StateUpdater } from 'preact/hooks';
 import { useEffect, useState } from 'preact/hooks';
 import type { BrotliWasmType as Brotli } from 'brotli-wasm';
 import type { Viz } from '@viz-js/viz';
@@ -200,7 +200,7 @@ export const App = () => {
 
 type Setters = {
   setDataSetId: (id: DataSetId) => void;
-  setCalc: StateUpdater<CalcState>;
+  setCalc: Dispatch<StateUpdater<CalcState>>;
 };
 
 const handleB64 = (libs: { brotli: Brotli }, setters: Setters, b64: string) => {
@@ -295,6 +295,7 @@ const handleV1 = (setters: Setters, obj: CandleV1) => {
         outputModifier: { mode: modifierFromCandle[mod.os], amount: mod.o },
       };
     }),
+    defaultGroupPref: obj.default_factory_groups,
   };
   setters.setCalc(calc);
 };
@@ -305,6 +306,7 @@ interface F61 {
   d: DataSetId;
   r: [CompressedOp, ItemId, number][];
   p: [ProcessId, CandleModifierStyle, CandleModifierStyle, number, number][];
+  // factory prefs
   f: [string, string][];
 }
 
@@ -332,7 +334,7 @@ const toV61 = (ds: DataSetId, state: CalcState): F61 => {
         proc.outputModifier.amount,
       ];
     }),
-    f: [],
+    f: Object.entries(state.defaultGroupPref).sort(),
   };
 };
 
@@ -354,6 +356,7 @@ const fromV61 = (obj: F61): [DataSetId, CalcState] => {
       durationModifier: { mode: modifierFromCandle[ds], amount: d },
       outputModifier: { mode: modifierFromCandle[os], amount: o },
     })),
+    defaultGroupPref: Object.fromEntries(obj.f),
   };
 
   return [obj.d, state];
@@ -362,6 +365,7 @@ const fromV61 = (obj: F61): [DataSetId, CalcState] => {
 const defaultCalc = (): CalcState => ({
   requirements: [],
   processes: [],
+  defaultGroupPref: {},
 });
 
 // guess of a workaround for some apparently memory leaks from initing locally

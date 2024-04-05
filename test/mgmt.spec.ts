@@ -15,13 +15,18 @@ describe('mgmt backend', () => {
     let reqs: Line[] = [
       { item: 'transport-belt', req: { op: 'produce', amount: 1 } },
     ];
-    const inputs = makeInputs(ds, reqs, [
-      {
-        id: 'transport-belt',
-        durationModifier: { mode: 'raw', amount: 1 },
-        outputModifier: { mode: 'raw', amount: 1 },
-      },
-    ]);
+    const inputs = makeInputs(
+      ds,
+      reqs,
+      [
+        {
+          id: 'transport-belt',
+          durationModifier: { mode: 'raw', amount: 1 },
+          outputModifier: { mode: 'raw', amount: 1 },
+        },
+      ],
+      {},
+    );
 
     const unknowns = computeUnknowns(inputs);
     expect(unknowns).toMatchSnapshot();

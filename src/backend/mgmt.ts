@@ -13,6 +13,7 @@ import type { Line, Unknowns } from '../components/requirement-table';
 import type { ItemId } from '../components/item';
 import type { Proc } from '../components/process-table';
 import type { ProcessId } from '../app';
+import type { GroupPref } from '../calc';
 
 /** not for export, but passed ("opaquely") to others */
 interface SolverInputs {
@@ -27,6 +28,7 @@ export const makeInputs = (
   data: DataSet,
   requirements: Line[],
   processes: Proc[],
+  defaultFactoryGroups: GroupPref,
 ): SolverInputs => {
   const inputs: SolverInputs = {
     requirements: [],
@@ -55,7 +57,15 @@ export const makeInputs = (
           ),
       );
 
-      return [proc.id, selectFastestFactory(factories)];
+      const suggestion: Factory['id'] | undefined =
+        defaultFactoryGroups[pm.factory_group.id];
+
+      let factory: Factory | undefined;
+      if (suggestion) {
+        factory = factories.find((f) => f.id === suggestion);
+      }
+
+      return [proc.id, factory ?? selectFastestFactory(factories)];
     }),
   );
 
