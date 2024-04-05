@@ -2,7 +2,9 @@ import type { JSX } from 'preact';
 import { useMemo, useState } from 'preact/hooks';
 import type { Viz } from '@viz-js/viz';
 import { oneLine as f } from 'common-tags';
-import uniq from 'lodash/uniq';
+
+import type { Factory } from 'process-mgmt/dist/factory';
+import type { Process } from 'process-mgmt/dist/process';
 
 import type { DataSet } from './data';
 import type { Hint, Line, Req, Unknowns } from './components/requirement-table';
@@ -13,21 +15,18 @@ import {
   mainSolve,
   makeInputs,
   updateInputsWithHints,
-  viableFactoriesForGroup,
 } from './backend/mgmt';
 import { ProcessPicker } from './components/process-picker';
 import type { Proc } from './components/process-table';
 import { ProcessTable } from './components/process-table';
 import type { Modifier } from './modifiers';
+import { RateGraphAsDot } from './backend/rate-graph';
+import { GroupPrefPicker } from './components/group-pref-picker';
 
 import ArrowRightIcon from 'mdi-preact/ArrowRightIcon';
 import PlusBoldIcon from 'mdi-preact/PlusBoldIcon';
 import PinIcon from 'mdi-preact/PinIcon';
 import ArrowDownIcon from 'mdi-preact/ArrowDownIcon';
-import { RateGraphAsDot } from './backend/rate-graph';
-import { Item } from './components/item';
-import type { Factory } from 'process-mgmt/dist/factory';
-import type { Process } from 'process-mgmt/dist/process';
 
 export type GroupPref = Record<Process['factory_group']['id'], Factory['id']>;
 
@@ -221,74 +220,14 @@ export const Calc = (props: {
       </div>,
     );
 
-    const groups = uniq(
-      processes.flatMap(
-        (proc) => dataSet.pm.processes[proc.id].factory_group.id,
-      ),
-    ).sort((a, b) => a.localeCompare(b));
-
-    const byGroup = Object.fromEntries(
-      groups.map(
-        (group) =>
-          [
-            group,
-            viableFactoriesForGroup(dataSet.pm, group)
-              .map(
-                (f) =>
-                  [
-                    f.id,
-                    f.output_modifier * 1000 + f.duration_modifier,
-                  ] as const,
-              )
-              .sort(([, a], [, b]) => a - b)
-              .map(([id]) => id),
-          ] as const,
-      ),
+    rows.push(
+      <GroupPrefPicker
+        dataSet={dataSet}
+        processes={processes}
+        groupPrefs={defaultGroupPref}
+        setGroupPrefs={setGroupPrefs}
+      />,
     );
-
-    const cols = Object.entries(byGroup).map(([group, factories]) => (
-      <div class={'col'}>
-        <h3>{dataSet.pm.factory_groups[group].name}</h3>
-        <table class={'table w-auto'}>
-          <thead />
-          <tbody>
-            {factories.map((id) => {
-              const htmlId = `opt-for-${group}-${id}`;
-              return (
-                <tr>
-                  <td>
-                    <label for={htmlId}>
-                      <input
-                        type={'radio'}
-                        class={'form-check-input'}
-                        name={`opt-${group}`}
-                        id={htmlId}
-                        value={id}
-                        onChange={() => {
-                          setGroupPrefs({
-                            ...defaultGroupPref,
-                            [group]: id,
-                          });
-                        }}
-                        checked={defaultGroupPref[group] === id}
-                      />{' '}
-                      <Item dataSet={props.dataSet} id={id} />
-                    </label>
-                  </td>
-                  <td class={'text-end'}>
-                    {(1 / dataSet.pm.factories[id].duration_modifier).toFixed(
-                      2,
-                    )}
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
-    ));
-
-    rows.push(<>{cols}</>);
   }
 
   if (chain) {
