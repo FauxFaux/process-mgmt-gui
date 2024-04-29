@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`blueprint decodes examples 1`] = `
+{
+  "entities": [
+    {
+      "entity_number": 1,
+      "name": "assembling-machine-2",
+      "position": {
+        "x": -124.5,
+        "y": 130.5,
+      },
+      "recipe": "logistic-chest-active-provider",
+    },
+    {
+      "control_behavior": {
+        "connect_to_logistic_network": true,
+        "logistic_condition": {
+          "comparator": "<",
+          "constant": 17,
+          "first_signal": {
+            "name": "logistic-chest-active-provider",
+            "type": "item",
+          },
+        },
+      },
+      "direction": 6,
+      "entity_number": 2,
+      "name": "fast-inserter",
+      "position": {
+        "x": -122.5,
+        "y": 130.5,
+      },
+    },
+    {
+      "direction": 2,
+      "entity_number": 3,
+      "name": "fast-inserter",
+      "position": {
+        "x": -122.5,
+        "y": 131.5,
+      },
+    },
+    {
+      "entity_number": 4,
+      "name": "logistic-chest-passive-provider",
+      "position": {
+        "x": -121.5,
+        "y": 130.5,
+      },
+    },
+    {
+      "entity_number": 5,
+      "name": "logistic-chest-requester",
+      "position": {
+        "x": -121.5,
+        "y": 131.5,
+      },
+      "request_filters": [
+        {
+          "count": 67,
+          "index": 1,
+          "name": "electronic-circuit",
+        },
+        {
+          "count": 22,
+          "index": 2,
+          "name": "advanced-circuit",
+        },
+        {
+          "count": 22,
+          "index": 3,
+          "name": "steel-chest",
+        },
+      ],
+    },
+  ],
+  "icons": [
+    {
+      "index": 1,
+      "signal": {
+        "name": "assembling-machine-2",
+        "type": "item",
+      },
+    },
+    {
+      "index": 2,
+      "signal": {
+        "name": "logistic-chest-active-provider",
+        "type": "item",
+      },
+    },
+  ],
+  "item": "blueprint",
+  "label": "mall: active provider",
+  "version": 281479277838336,
+}
+`;

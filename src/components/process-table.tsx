@@ -5,10 +5,14 @@ import type { DataSet } from '../data';
 import type { Modifier, ModifierStyle } from '../modifiers';
 import { modifierFromInput, modifierToInput } from '../modifiers';
 import { Process } from './process';
-import { Item } from './item';
+import { Item, itemName } from './item';
 import KnobIcon from 'mdi-preact/KnobIcon';
 import ClockIcon from 'mdi-preact/ClockIcon';
 import { roundTo, twoDp } from '../blurb/format';
+import { mallAssembler } from '../bp';
+import { encode } from '../bp/blueprints';
+import ContentCopyIcon from 'mdi-preact/ContentCopyIcon';
+import { useState } from 'preact/hooks';
 
 export interface Proc {
   id: ProcessId;
@@ -55,6 +59,22 @@ export const ProcessTable = (props: {
       (inferredFactory?.duration_modifier ?? 1);
     const modOutput =
       proc.outputModifier.amount * (inferredFactory?.output_modifier ?? 1);
+
+    let make: string | undefined;
+    if (pm.outputs.length === 1 && pm.factory_group.name === 'crafting') {
+      const itemId = pm.outputs[0].item.id;
+      make = encode(
+        mallAssembler(
+          pm.id,
+          itemId,
+          itemName(props.dataSet, itemId),
+          Object.fromEntries(
+            pm.inputs.map((s) => [s.item.id, Math.ceil(s.quantity * 1.1)]),
+          ),
+        ),
+      );
+    }
+
     return (
       <tr>
         <td>
@@ -81,6 +101,14 @@ export const ProcessTable = (props: {
             ) : (
               pm.factory_group.name
             )}
+            <span style={'margin-left: 1em'}>
+              {make && (
+                <CopyButton
+                  text={make}
+                  title={'Copy logistics-mall-style assembler to clipboard'}
+                />
+              )}
+            </span>
           </p>
         </td>
         <td>
@@ -220,5 +248,23 @@ const MutModifier = (props: {
       {inp}
       <span style={'font-family: monospace'}>{suffix}</span>
     </span>
+  );
+};
+
+const CopyButton = (props: { text: string; title?: string }) => {
+  const [copied, setCopied] = useState(false);
+  return (
+    <button
+      class={'btn btn-sm btn-outline-secondary'}
+      title={props.title}
+      onClick={async () => {
+        await navigator.clipboard.writeText(props.text);
+        setCopied(true);
+      }}
+      onMouseLeave={() => setCopied(false)}
+    >
+      <ContentCopyIcon />
+      {copied ? ' copied!' : ''}
+    </button>
   );
 };
