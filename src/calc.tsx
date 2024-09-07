@@ -5,6 +5,7 @@ import { oneLine as f } from 'common-tags';
 
 import type { Factory } from 'process-mgmt/dist/factory';
 import type { Process } from 'process-mgmt/dist/process';
+import type Matrix from 'process-mgmt/dist/matrix';
 
 import type { DataSet } from './data';
 import type { Hint, Line, Req, Unknowns } from './components/requirement-table';
@@ -193,7 +194,7 @@ export const Calc = (props: {
     </>,
   );
 
-  const chain = useMemo(() => {
+  const preSolve = useMemo(() => {
     if (!processes.length) {
       return undefined;
     }
@@ -205,17 +206,29 @@ export const Calc = (props: {
       defaultGroupPref,
     );
     updateInputsWithHints(inputs, requirements, unknowns);
-    return mainSolve(inputs).chain;
+    return mainSolve(inputs);
   }, [processes, props.dataSet, requirements, unknowns]);
 
-  if (chain) {
+  if (preSolve?.chain) {
+    const rm: Matrix | undefined = preSolve.lav?.reduced_matrix;
+    if (rm?.numRows() !== rm?.numColumns() - 1) {
+      rows.push(
+        <div class={'col'}>
+          <p class={'alert alert-danger'}>
+            Rectangular matrix detected! This likely means the backend has
+            produced a nonsense result. Consider pinning inputs of confused
+            processes.
+          </p>
+        </div>,
+      );
+    }
     rows.push(
       <div class={'col'}>
         <ProcessTable
           dataSet={dataSet}
           processes={processes}
           onChange={(procs) => setProcesses(procs)}
-          chain={chain}
+          chain={preSolve.chain}
         />
       </div>,
     );
@@ -230,8 +243,10 @@ export const Calc = (props: {
     );
   }
 
-  if (chain) {
-    const dot = chain.accept(new RateGraphAsDot(props.dataSet)).join('\n');
+  if (preSolve?.chain) {
+    const dot = preSolve.chain
+      .accept(new RateGraphAsDot(props.dataSet))
+      .join('\n');
     const svg = props.viz.renderSVGElement(dot, {
       engine: 'dot',
       format: 'svg',
