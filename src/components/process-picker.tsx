@@ -18,6 +18,7 @@ export const ProcessPicker = (props: {
   alreadyItem: (item: ItemId) => boolean;
   // ReturnType<(typeof useState<number>)(a: number)>
   shown: [number, (next: number) => void];
+  onlyItems?: boolean;
 }) => {
   const [shown, setShown] = props.shown;
 
@@ -95,9 +96,11 @@ export const ProcessPicker = (props: {
     showingItems.forEach((id) => alreadyItems.add(id));
     const recps: Record<ItemId, [number, ProcessId[]]> = {};
     for (const id of showingItems) {
-      const processes = Object.entries(props.dataSet.pm.processes)
-        .filter(([, p]) => p.outputs.some((o) => o.item.id === id))
-        .map(([id]) => id);
+      const processes = props.onlyItems
+        ? []
+        : Object.entries(props.dataSet.pm.processes)
+            .filter(([, p]) => p.outputs.some((o) => o.item.id === id))
+            .map(([id]) => id);
       const filtered = processes
         .filter((id) => !already.has(id))
         .filter((id) => props.dataSet.lab?.processes?.[id]?.contained !== true);
