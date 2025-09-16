@@ -3907,10 +3907,6 @@
       "name": "Rocket frame",
       "iconPos": "-462px -858px"
     },
-    "ff-rocket-silo-hole-dummy": {
-      "name": "Rocket silo hole",
-      "iconPos": "-1056px -1056px"
-    },
     "ff-seamount-dummy": {
       "name": "Seamount",
       "iconPos": "-1122px 0px"
@@ -5544,6 +5540,10 @@
       "name": "Plutonium cannon shell",
       "iconPos": "-990px -396px"
     },
+    "plutonium-fuel": {
+      "name": "Plutonium fuel",
+      "iconPos": "-726px -858px"
+    },
     "plutonium-nuclear-power": {
       "name": "Plutonium nuclear power",
       "iconPos": "-1386px -924px"
@@ -5656,6 +5656,10 @@
       "name": "Railway",
       "iconPos": "-396px -1188px"
     },
+    "raw-fish": {
+      "name": "Rocket silo : Raw fish",
+      "iconPos": "-792px -396px"
+    },
     "red-wire": {
       "name": "Red wire",
       "iconPos": "-264px -528px"
@@ -5745,9 +5749,16 @@
       "name": "Rocket launcher",
       "iconPos": "-396px -924px"
     },
+    "rocket-part": {
+      "name": "Rocket part",
+      "iconPos": "-594px -858px"
+    },
     "rocket-silo": {
       "name": "Rocket silo",
       "iconPos": "-396px -726px"
+    },
+    "rocket-silo-ff-interstellar-communicator-launch": {
+      "name": "Rocket silo : Space science pack"
     },
     "rocket-silo-technology": {
       "name": "Rocket silo",
@@ -5824,6 +5835,10 @@
     "sp-spidertron-dock": {
       "name": "Spidertron dock",
       "iconPos": "-132px -462px"
+    },
+    "space-science-pack": {
+      "name": "Rocket silo : Space science pack",
+      "iconPos": "-66px -924px"
     },
     "space-science-pack-technology": {
       "name": "Space science pack",

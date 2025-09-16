@@ -102,51 +102,6 @@
       "labId": "basic-logistics-system",
       "iconPos": "-576px -704px"
     },
-    "Belt_St2_1": {
-      "name": "Conveyor Belt MK.I (2-stack)",
-      "labId": "belt-st2-1",
-      "stack": 300
-    },
-    "Belt_St2_2": {
-      "name": "Conveyor Belt MK.II (2-stack)",
-      "labId": "belt-st2-2",
-      "stack": 300
-    },
-    "Belt_St2_3": {
-      "name": "Conveyor Belt MK.III (2-stack)",
-      "labId": "belt-st2-3",
-      "stack": 300
-    },
-    "Belt_St3_1": {
-      "name": "Conveyor Belt MK.I (3-stack)",
-      "labId": "belt-st3-1",
-      "stack": 300
-    },
-    "Belt_St3_2": {
-      "name": "Conveyor Belt MK.II (3-stack)",
-      "labId": "belt-st3-2",
-      "stack": 300
-    },
-    "Belt_St3_3": {
-      "name": "Conveyor Belt MK.III (3-stack)",
-      "labId": "belt-st3-3",
-      "stack": 300
-    },
-    "Belt_St4_1": {
-      "name": "Conveyor Belt MK.I (4-stack)",
-      "labId": "belt-st4-1",
-      "stack": 300
-    },
-    "Belt_St4_2": {
-      "name": "Conveyor Belt MK.II (4-stack)",
-      "labId": "belt-st4-2",
-      "stack": 300
-    },
-    "Belt_St4_3": {
-      "name": "Conveyor Belt MK.III (4-stack)",
-      "labId": "belt-st4-3",
-      "stack": 300
-    },
     "Carbon_Nanotube": {
       "name": "Carbon Nanotube",
       "labId": "carbon-nanotube",

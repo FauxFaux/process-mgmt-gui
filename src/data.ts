@@ -27,6 +27,7 @@ const ds = (name: string, duration: ModifierStyle, output: ModifierStyle) =>
 export const dataSets = {
   'for-the-crown-3.8.3': ds('For The Crown (3.8.3)', 'raw', 'raw'),
   dsp: ds('DSP', 'raw', 'raw'),
+  'factorio-2.0.66-sa-2.0.66': ds('Factorio 2.0', 'additional', 'additional'),
   'factorio-ab-1.1.38': ds('Factorio AB (1.1.38)', 'additional', 'additional'),
   'factorio-py-1.1.53': ds('Factorio PY (1.1.53)', 'additional', 'additional'),
   'factorio-ff-1.1.76': ds('Factorio FF (1.1.76)', 'additional', 'additional'),
@@ -48,6 +49,7 @@ export const dataSets = {
 };
 
 export const toLab: Record<DataSetId, string | null> = {
+  'factorio-2.0.66-sa-2.0.66': '2.0',
   'for-the-crown-3.8.3': null,
   dsp: 'dsp',
   'factorio-ab-1.1.38': 'bobang',
